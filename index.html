@@ -79,10 +79,7 @@
               <span style="font-weight:900;font-size:15px;">발음 교정</span>
             </div>
             <div style="width:300px;height:600px;background:#3C3C3C;border-radius:46px;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,0.20),0 0 0 1px rgba(0,0,0,0.10);transform:rotate(-3deg);">
-              <div style="width:100%;height:100%;border-radius:36px;background:#F7F7F7;border:2px dashed #C9C9C9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5L5 21"/></svg>
-                <span style="font-weight:800;font-size:14px;color:#999;letter-spacing:0.02em;">앱 화면 · 학습 세션</span>
-              </div>
+              <img src="images/app-learning.png" alt="BuddyBird 학습 진행 화면 — 앵무새가 단어를 듣고 따라 하는 모습" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:36px;" />
             </div>
           </div>
         </div>
@@ -126,13 +123,12 @@
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);">
         <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
           <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#FFF4E4;border:2px solid #FFE3B8;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <div style="position:absolute;top:22px;left:22px;background:#fff;border:2px solid #FFE3B8;border-radius:14px;box-shadow:0 4px 0 #FFE3B8;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4s ease-in-out infinite;">
+            <div style="position:absolute;top:22px;left:22px;z-index:2;background:#fff;border:2px solid #FFE3B8;border-radius:14px;box-shadow:0 4px 0 #FFE3B8;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4s ease-in-out infinite;">
               <span style="color:#FF9600;font-weight:900;font-size:15px;">🔥</span><span style="font-weight:900;font-size:14px;color:#C77A12;">7일 연속</span>
             </div>
-            <div style="width:128px;height:128px;border-radius:9999px;background:#fff;box-shadow:0 7px 0 rgba(224,127,0,0.16);display:flex;align-items:center;justify-content:center;">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF9600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>
+            <div style="height:86%;aspect-ratio:1206/2622;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(224,127,0,0.22);">
+              <img src="images/app-words-select.png" alt="가르칠 단어와 학습 시간을 고르는 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px;" />
             </div>
-            <span style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-weight:800;font-size:12px;color:#CFA567;letter-spacing:0.04em;">일러스트 자리</span>
           </div>
         </div>
         <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
@@ -150,13 +146,12 @@
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);flex-direction:row-reverse;">
         <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
           <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#E7F6FF;border:2px solid #C6E8FB;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <div style="position:absolute;top:22px;right:22px;background:#fff;border:2px solid #C6E8FB;border-radius:14px;box-shadow:0 4px 0 #C6E8FB;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.4s ease-in-out infinite;">
+            <div style="position:absolute;top:22px;right:22px;z-index:2;background:#fff;border:2px solid #C6E8FB;border-radius:14px;box-shadow:0 4px 0 #C6E8FB;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.4s ease-in-out infinite;">
               <span style="color:#1CB0F6;font-weight:900;font-size:15px;">🔁</span><span style="font-weight:900;font-size:14px;color:#1581B5;">반복 재생</span>
             </div>
-            <div style="width:128px;height:128px;border-radius:9999px;background:#fff;box-shadow:0 7px 0 rgba(21,129,181,0.14);display:flex;align-items:center;justify-content:center;">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#1CB0F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <div style="height:86%;aspect-ratio:1206/2622;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(21,129,181,0.22);">
+              <img src="images/app-rest.png" alt="자리를 비운 사이 AI가 단어를 반복해 들려주는 학습 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px;" />
             </div>
-            <span style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-weight:800;font-size:12px;color:#7FB6D4;letter-spacing:0.04em;">일러스트 자리</span>
           </div>
         </div>
         <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
@@ -174,13 +169,12 @@
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);">
         <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
           <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#F5ECFF;border:2px solid #E6D2FA;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <div style="position:absolute;top:22px;left:22px;background:#fff;border:2px solid #E6D2FA;border-radius:14px;box-shadow:0 4px 0 #E6D2FA;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.2s ease-in-out infinite;">
+            <div style="position:absolute;top:22px;left:22px;z-index:2;background:#fff;border:2px solid #E6D2FA;border-radius:14px;box-shadow:0 4px 0 #E6D2FA;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.2s ease-in-out infinite;">
               <span style="color:#CE82FF;font-weight:900;font-size:15px;">📈</span><span style="font-weight:900;font-size:14px;color:#8E4FC0;">오늘 +12단어</span>
             </div>
-            <div style="width:128px;height:128px;border-radius:9999px;background:#fff;box-shadow:0 7px 0 rgba(142,79,192,0.14);display:flex;align-items:center;justify-content:center;">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#CE82FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3.2" height="7" rx="1"/><rect x="13.8" y="6" width="3.2" height="12" rx="1"/></svg>
+            <div style="height:86%;aspect-ratio:1206/2622;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(142,79,192,0.22);">
+              <img src="images/app-complete.png" alt="학습 완료 후 연속 일수와 총 학습 시간을 보여주는 리포트 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px;" />
             </div>
-            <span style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-weight:800;font-size:12px;color:#B79AD4;letter-spacing:0.04em;">일러스트 자리</span>
           </div>
         </div>
         <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
@@ -240,30 +234,21 @@
       <div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:flex-end;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
           <div style="width:248px;height:512px;background:#3C3C3C;border-radius:42px;padding:11px;box-shadow:0 30px 60px rgba(0,0,0,0.18);">
-            <div style="width:100%;height:100%;border-radius:32px;background:#fff;border:2px dashed #C9C9C9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
-              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              <span style="font-weight:800;font-size:13px;color:#999;">학습 세션</span>
-            </div>
+            <img src="images/app-setup.png" alt="학습 시간을 직접 설정하는 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:32px;" />
           </div>
-          <span style="font-weight:800;font-size:14px;color:#1581B5;">학습 진행 화면</span>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">학습 설정</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
           <div style="width:272px;height:556px;background:#3C3C3C;border-radius:46px;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,0.22);">
-            <div style="width:100%;height:100%;border-radius:34px;background:#fff;border:2px dashed #C9C9C9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
-              <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5L5 21"/></svg>
-              <span style="font-weight:800;font-size:13px;color:#999;">단어 관리</span>
-            </div>
+            <img src="images/app-word-manage.png" alt="가르칠 단어 목록을 관리하는 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:34px;" />
           </div>
-          <span style="font-weight:800;font-size:14px;color:#1581B5;">단어 · 녹음 관리</span>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">단어 관리</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
           <div style="width:248px;height:512px;background:#3C3C3C;border-radius:42px;padding:11px;box-shadow:0 30px 60px rgba(0,0,0,0.18);">
-            <div style="width:100%;height:100%;border-radius:32px;background:#fff;border:2px dashed #C9C9C9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
-              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3.2" height="7" rx="1"/><rect x="13.8" y="6" width="3.2" height="12" rx="1"/></svg>
-              <span style="font-weight:800;font-size:13px;color:#999;">리포트</span>
-            </div>
+            <img src="images/app-record.png" alt="가르칠 단어를 직접 녹음하는 화면" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:32px;" />
           </div>
-          <span style="font-weight:800;font-size:14px;color:#1581B5;">학습 리포트</span>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">단어 녹음</span>
         </div>
       </div>
     </div>
