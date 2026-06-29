@@ -15,16 +15,9 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 ## 실행
 `assets/js/`의 스크립트와 외부 폰트/CSS가 상대 경로로 로드되므로 `file://`이 아닌 HTTP로 서빙해야 합니다.
 
-확장자 없는 URL(`/privacy`, `/terms`, `/support` — GitHub Pages 운영과 동일)까지 로컬에서 확인하려면 `serve.py`를 사용하세요.
-
-```bash
-python3 serve.py
-# http://localhost:8910  ( /privacy 같은 clean URL 동작 )
-```
-
-기본 서버로도 열 수 있으나, 이 경우 `/privacy` 같은 확장자 없는 URL은 404가 납니다(`/privacy.html`로 접근).
-
 ```bash
 python3 -m http.server 8910
 # 브라우저에서 http://localhost:8910/index.html 열기
 ```
+
+정책·지원 페이지는 폴더형(`privacy/index.html` 등)이라 `/privacy/`, `/terms/`, `/support/` 로 접속됩니다.
