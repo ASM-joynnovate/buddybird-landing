@@ -410,7 +410,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;텍스트 중심&quot;,&quot;목업 중심&quot;,&quot;마스코트 중심&quot;],&quot;default&quot;:&quot;목업 중심&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { openFaq: 0, email: '', registered: false };
+  state = { openFaq: 0 };
 
   renderVals() {
     const layout = this.props.heroLayout ?? '목업 중심';
@@ -419,10 +419,6 @@ class Component extends DCLogic {
       heroText: layout === '텍스트 중심',
       heroMockup: layout === '목업 중심',
       heroMascot: layout === '마스코트 중심',
-      email: this.state.email,
-      registered: this.state.registered,
-      onEmailInput: (e) => this.setState({ email: e.target.value, registered: false }),
-      onRegister: (e) => { e.preventDefault(); if (this.state.email) this.setState({ registered: true }); },
     };
     for (let i = 0; i < 5; i++) {
       r['faqOpen' + i] = o === i;
