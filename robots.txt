@@ -1,0 +1,6 @@
+# https://buddybird.xyz/robots.txt
+User-agent: *
+Allow: /
+Disallow: /tools/
+
+Sitemap: https://buddybird.xyz/sitemap.xml
