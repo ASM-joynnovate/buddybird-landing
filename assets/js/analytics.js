@@ -57,7 +57,10 @@ document.addEventListener("click", (e) => {
   const nav = t.closest('header a[href^="#"]');
   if (nav)  return track("nav_click", { section: nav.getAttribute("href") });
 
-  // FAQ 항목 펼침/접힘 (DC 렌더 결과는 cursor:pointer 인라인 스타일로 식별)
-  const faq = t.closest('#faq [onclick], #faq div[style*="cursor:pointer"]');
+  // FAQ 항목 펼침/접힘
+  // 주의: DC(x-dc)는 React로 렌더하므로 onClick은 DOM의 onclick 속성으로 남지 않고,
+  // 인라인 style은 "cursor: pointer"(공백 포함)로 재직렬화된다. 따라서 옛 셀렉터
+  // (`[onclick]`, `[style*="cursor:pointer"]`)는 매칭되지 않았다. 공백 유무에 안전하게 "cursor"로 식별.
+  const faq = t.closest('#faq div[style*="cursor"]');
   if (faq)  return track("faq_toggle", { question: faq.querySelector("span")?.textContent.trim() });
 });
