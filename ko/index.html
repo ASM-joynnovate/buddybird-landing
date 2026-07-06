@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BuddyBird · 집을 비운 사이에도 AI가 말을 가르칩니다</title>
+<meta name="description" content="보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스. App Store와 Google Play에서 만나보세요.">
+<link rel="canonical" href="https://buddybird.xyz/ko/">
+<link rel="alternate" hreflang="ko" href="https://buddybird.xyz/ko/">
+<link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/">
+<link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FF9600">
+
+<!-- 검색엔진 사이트 소유확인 -->
+<meta name="google-site-verification" content="2s-64dieapGG3a-nCfKSOfwd8utzq4Jt-fP0lnkTzpQ">
+<!-- 네이버: 서치어드바이저에서 코드 발급 후 아래 주석 해제·교체
+<meta name="naver-site-verification" content="NAVER_VERIFICATION_CODE"> -->
+
+<!-- Open Graph (카카오톡·페이스북 등 링크 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BuddyBird">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://buddybird.xyz/ko/">
+<meta property="og:title" content="BuddyBird — 집을 비운 사이에도, AI가 대신 말을 가르칩니다">
+<meta property="og:description" content="앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스. App Store와 Google Play에서 만나보세요.">
+<meta property="og:image" content="https://buddybird.xyz/assets/og-image.png">
+<meta property="og:image:secure_url" content="https://buddybird.xyz/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BuddyBird — 앵무새 단어 학습 AI 서비스">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BuddyBird — 집을 비운 사이에도, AI가 대신 말을 가르칩니다">
+<meta name="twitter:description" content="앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스.">
+<meta name="twitter:image" content="https://buddybird.xyz/assets/og-image.png">
+
+<!-- 구조화 데이터 (schema.org JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://buddybird.xyz/#org",
+      "name": "BuddyBird",
+      "url": "https://buddybird.xyz/",
+      "logo": "https://buddybird.xyz/assets/icons/app-icon.png",
+      "sameAs": [
+        "https://www.instagram.com/buddybird.xyz/",
+        "https://www.threads.com/@buddybird.xyz"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://buddybird.xyz/#website",
+      "url": "https://buddybird.xyz/",
+      "name": "BuddyBird",
+      "inLanguage": "ko-KR",
+      "publisher": { "@id": "https://buddybird.xyz/#org" }
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "BuddyBird",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "LifestyleApplication",
+      "inLanguage": "ko-KR",
+      "description": "보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스.",
+      "url": "https://buddybird.xyz/",
+      "downloadUrl": [
+        "https://apps.apple.com/kr/app/id6783652711",
+        "https://play.google.com/store/apps/details?id=com.joynnovate.buddybird"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": { "@id": "https://buddybird.xyz/#org" }
+    }
+  ]
+}
+</script>
+
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<!-- LCP 히어로 이미지: 블로킹 스크립트보다 먼저 다운로드 시작 -->
+<link rel="preload" as="image" href="/assets/images/ko/app-learning.png" fetchpriority="high">
+
+<script src="/assets/js/support.js"></script>
+<script type="module" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #ffffff; }
+  @keyframes bb-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+</style>
+</helmet>
+
+<div style="font-family:'Nunito','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;color:#3C3C3C;line-height:1.5;font-weight:700;background:#ffffff;overflow-x:hidden;">
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:2px solid #F0F0F0;">
+    <nav style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#3C3C3C;margin-right:auto;">
+        <img src="/assets/icons/apple-touch-icon.png" alt="BuddyBird" width="38" height="38" style="width:38px;height:38px;border-radius:11px;box-shadow:0 3px 0 rgba(0,0,0,0.12);display:block;" />
+        <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="#features" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">기능</a>
+        <a href="#preview" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">앱 미리보기</a>
+        <a href="#faq" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">FAQ</a>
+        <span style="color:#D0D0D0;font-weight:700;font-size:14px;">|</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;">
+          <span style="color:#FF9600;">KO</span>
+          <span style="color:#D0D0D0;">·</span>
+          <a href="/en/" style="text-decoration:none;color:#777777;transition:color 80ms;" style-hover="color:#FF9600 !important">EN</a>
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <div id="top"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section style="background:#FFFBF5;border-bottom:2px solid #F4ECE0;">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 24px 72px;">
+
+      <!-- Variant: 텍스트 중심 -->
+      <sc-if value="{{ heroText }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:840px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;">
+          <h1 style="margin:0;font-weight:900;font-size:clamp(38px,6vw,64px);line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
+          <p style="margin:0;max-width:620px;font-weight:700;font-size:clamp(17px,2.2vw,20px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
+            <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
+            <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+            <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid #E5E5E5;border-radius:9999px;padding:8px 16px;font-weight:800;font-size:14px;color:#5A5A5A;"><b style="color:#CE82FF;font-weight:900;">AI Agent</b> 맞춤 커리큘럼</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Variant: 목업 중심 -->
+      <sc-if value="{{ heroMockup }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:space-between;">
+          <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:22px;">
+            <h1 style="margin:0;font-weight:900;font-size:clamp(36px,5vw,58px);line-height:1.12;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
+            <p style="margin:0;max-width:520px;font-weight:700;font-size:clamp(16px,2vw,19px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;">
+              <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
+              <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
+            </div>
+          </div>
+          <div style="flex:0 1 380px;display:flex;justify-content:center;position:relative;min-width:300px;">
+            <div style="position:absolute;top:-12px;left:0;background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 4px 0 #E5E5E5;padding:12px 16px;display:flex;align-items:center;gap:10px;z-index:3;animation:bb-float 4s ease-in-out infinite;">
+              <span style="width:32px;height:32px;border-radius:9px;background:rgba(255,150,0,0.14);display:flex;align-items:center;justify-content:center;color:#FF9600;font-weight:900;">🔥</span>
+              <span style="font-weight:900;font-size:15px;">학습 7일 연속</span>
+            </div>
+            <div style="position:absolute;bottom:18px;right:-6px;background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 4px 0 #E5E5E5;padding:12px 16px;display:flex;align-items:center;gap:10px;z-index:3;animation:bb-float 4.6s ease-in-out infinite;">
+              <span style="width:32px;height:32px;border-radius:9px;background:rgba(28,176,246,0.14);display:flex;align-items:center;justify-content:center;color:#1CB0F6;font-weight:900;">🧠</span>
+              <span style="font-weight:900;font-size:15px;">발음 교정</span>
+            </div>
+            <!-- conor.fyi 스타일 레이어드 목업 (정면): 베벨 스트로크 → 무광 바디 → 함몰 스크린 + 깊이 링 + 글래스 샤인 + 다이내믹 아일랜드 + 9겹 앰비언트 그림자 -->
+            <div style="position:relative;z-index:0;width:300px;padding:2px;border-radius:42px;background:linear-gradient(135deg,#888 0%,#333 35%,#000 100%);box-shadow:0 1px 2px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.12),0 4px 8px rgba(0,0,0,0.10),0 6px 12px 2px rgba(0,0,0,0.08),0 8px 16px 4px rgba(0,0,0,0.06),0 12px 24px 6px rgba(0,0,0,0.05),0 16px 32px 10px rgba(0,0,0,0.04),0 24px 48px 16px rgba(0,0,0,0.03),0 32px 64px 24px rgba(0,0,0,0.03);">
+              <div style="padding:5px;border-radius:40px;background:#181818;">
+                <div style="position:relative;border-radius:36px;overflow:hidden;line-height:0;">
+                  <img src="/assets/images/ko/app-learning.png" alt="BuddyBird 학습 진행 화면 — 앵무새가 단어를 듣고 따라 하는 모습" width="1206" height="2622" fetchpriority="high" style="display:block;width:100%;height:auto;" />
+                  <!-- 깊이 링: 스크린을 베젤 안으로 함몰시켜 매립된 느낌 -->
+                  <div style="position:absolute;inset:0;border-radius:36px;pointer-events:none;z-index:3;box-shadow:inset 0 0 3px 1px rgba(0,0,0,0.40);"></div>
+                  <!-- 글래스 샤인: 부드러운 앰비언트 워시 -->
+                  <div style="position:absolute;inset:0;border-radius:36px;pointer-events:none;z-index:4;background:linear-gradient(160deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0) 35%);"></div>
+                  <!-- 글래스 샤인: 선명한 코너 글린트 -->
+                  <div style="position:absolute;inset:0;border-radius:36px;pointer-events:none;z-index:5;background:linear-gradient(125deg,rgba(255,255,255,0.18) 0%,rgba(255,255,255,0.04) 12%,rgba(255,255,255,0) 28%);"></div>
+                  <!-- 다이내믹 아일랜드 + 카메라 렌즈 -->
+                  <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:96px;height:26px;border-radius:999px;background:#0a0a0a;z-index:6;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;box-shadow:inset 0 0 2px rgba(255,255,255,0.06);">
+                    <div style="width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#26313a 0%,#070b0e 70%);box-shadow:inset 0 0 1px rgba(120,180,255,0.30);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Variant: 마스코트 중심 -->
+      <sc-if value="{{ heroMascot }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;">
+          <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;">
+            <div style="position:relative;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 4px 0 #E5E5E5;padding:14px 22px;font-weight:800;font-size:16px;color:#3C3C3C;">안녕하세요! 저는 버디예요 👋
+              <span style="position:absolute;bottom:-9px;left:50%;transform:translateX(-50%) rotate(45deg);width:16px;height:16px;background:#fff;border-right:2px solid #E5E5E5;border-bottom:2px solid #E5E5E5;"></span>
+            </div>
+            <div style="width:200px;height:200px;border-radius:9999px;background:#FFF1DD;border:3px dashed #FFC27A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;animation:bb-float 4s ease-in-out infinite;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF9600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c0-2.8-2.2-5-5-5S6 4.2 6 7c0 2 1 3.5 2 4.5"/><path d="M8 11.5C6 13 5 15 5 17.5 5 20 7 22 10 22c3.5 0 6-2.5 6-6 0-2-1-4-3-5.5"/><path d="M16 9l4-2-3 3.5"/><circle cx="9.5" cy="7" r="1"/></svg>
+              <span style="font-weight:800;font-size:13px;color:#C77A12;">마스코트 (망고) 자리</span>
+            </div>
+          </div>
+          <h1 style="margin:0;font-weight:900;font-size:clamp(36px,5.5vw,60px);line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
+          <p style="margin:0;max-width:600px;font-weight:700;font-size:clamp(16px,2.2vw,20px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
+            <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
+            <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES (Duolingo-style alternating) ===================== -->
+  <section id="features" style="max-width:1120px;margin:0 auto;padding:84px 24px;">
+    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:64px;">
+      <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#FF9600;">핵심 기능</span>
+      <h2 style="margin:0;font-weight:900;font-size:clamp(28px,4vw,42px);letter-spacing:-0.01em;text-wrap:balance;">단어 학습부터 리포트까지<br>하나의 서비스로</h2>
+      <p style="margin:0;max-width:560px;font-weight:700;font-size:17px;color:#777777;text-wrap:pretty;">앵무새의 소리에 반응해 능동적으로 단어 학습을 이끌고, 그 결과를 데이터로 보여줍니다.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:clamp(64px,9vw,104px);">
+
+      <!-- Row 1: 단어 학습 (orange) — illustration left -->
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);">
+        <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
+          <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#FFF4E4;border:2px solid #FFE3B8;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+            <div style="position:absolute;top:22px;left:22px;z-index:2;background:#fff;border:2px solid #FFE3B8;border-radius:14px;box-shadow:0 4px 0 #FFE3B8;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4s ease-in-out infinite;">
+              <span style="color:#FF9600;font-weight:900;font-size:15px;">🔥</span><span style="font-weight:900;font-size:14px;color:#C77A12;">7일 연속</span>
+            </div>
+            <div style="height:86%;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(224,127,0,0.22);">
+              <img src="/assets/images/ko/app-words-select.png" alt="가르칠 단어와 학습 시간을 고르는 화면" style="display:block;height:100%;width:auto;border-radius:24px;" />
+            </div>
+          </div>
+        </div>
+        <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
+          <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#FF9600;">단어 학습</span>
+          <h3 style="margin:0;font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-0.01em;color:#E88900;text-wrap:balance;">반려 앵에게 딱 맞는<br>단어부터 차근차근</h3>
+          <p style="margin:0;max-width:480px;font-weight:700;font-size:clamp(16px,1.6vw,18px);color:#5A5A5A;line-height:1.65;text-wrap:pretty;">발음을 듣고 얼마나 비슷하게 따라 하는지 확인한 뒤, 잘 따라 하면 다음 단어로, 어려워하면 더 쉬운 단어로 알아서 맞춰줍니다.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+            <span style="background:rgba(255,150,0,0.12);color:#C77A12;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">발음 듣고 확인</span>
+            <span style="background:rgba(255,150,0,0.12);color:#C77A12;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">맞춤 단어 추천</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: 케어 솔루션 (blue) — illustration right -->
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);flex-direction:row-reverse;">
+        <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
+          <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#E7F6FF;border:2px solid #C6E8FB;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+            <div style="position:absolute;top:22px;right:22px;z-index:2;background:#fff;border:2px solid #C6E8FB;border-radius:14px;box-shadow:0 4px 0 #C6E8FB;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.4s ease-in-out infinite;">
+              <span style="color:#1CB0F6;font-weight:900;font-size:15px;">🔁</span><span style="font-weight:900;font-size:14px;color:#1581B5;">반복 재생</span>
+            </div>
+            <div style="height:86%;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(21,129,181,0.22);">
+              <img src="/assets/images/ko/app-rest.png" alt="자리를 비운 사이 AI가 단어를 반복해 들려주는 학습 화면" style="display:block;height:100%;width:auto;border-radius:24px;" />
+            </div>
+          </div>
+        </div>
+        <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
+          <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#1CB0F6;">대신 가르치기</span>
+          <h3 style="margin:0;font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-0.01em;color:#1899D6;text-wrap:balance;">집을 비운 사이에도<br>대신 가르쳐줘요</h3>
+          <p style="margin:0;max-width:480px;font-weight:700;font-size:clamp(16px,1.6vw,18px);color:#5A5A5A;line-height:1.65;text-wrap:pretty;">보호자가 자리를 비워도 AI가 집사 대신 같은 단어를 반복해서 들려주고 따라 하게 해요. 잘 따라 하면 칭찬하고, 심심해하지 않도록 하루 종일 곁에서 말을 걸어줍니다.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+            <span style="background:rgba(28,176,246,0.12);color:#1581B5;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">집사 대신 학습</span>
+            <span style="background:rgba(28,176,246,0.12);color:#1581B5;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">하루 종일 반복</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: 학습·케어 리포트 (purple) — illustration left -->
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);">
+        <div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center;">
+          <div style="position:relative;width:100%;max-width:480px;aspect-ratio:5/4;min-height:280px;border-radius:36px;background:#F5ECFF;border:2px solid #E6D2FA;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+            <div style="position:absolute;top:22px;left:22px;z-index:2;background:#fff;border:2px solid #E6D2FA;border-radius:14px;box-shadow:0 4px 0 #E6D2FA;padding:9px 14px;display:flex;align-items:center;gap:8px;animation:bb-float 4.2s ease-in-out infinite;">
+              <span style="color:#CE82FF;font-weight:900;font-size:15px;">📈</span><span style="font-weight:900;font-size:14px;color:#8E4FC0;">오늘 +12단어</span>
+            </div>
+            <div style="height:86%;background:#3C3C3C;border-radius:30px;padding:7px;box-shadow:0 18px 36px rgba(142,79,192,0.22);">
+              <img src="/assets/images/ko/app-complete.png" alt="학습 완료 후 연속 일수와 총 학습 시간을 보여주는 리포트 화면" style="display:block;height:100%;width:auto;border-radius:24px;" />
+            </div>
+          </div>
+        </div>
+        <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;">
+          <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#CE82FF;">학습 리포트</span>
+          <h3 style="margin:0;font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-0.01em;color:#9B55D6;text-wrap:balance;">오늘 우리 앵,<br>이만큼 배웠어요</h3>
+          <p style="margin:0;max-width:480px;font-weight:700;font-size:clamp(16px,1.6vw,18px);color:#5A5A5A;line-height:1.65;text-wrap:pretty;">어떤 단어를 몇 번 말했는지, 얼마나 잘 따라 했는지 녹음과 함께 보여줘요. 매일 늘어가는 단어 수를 한눈에 확인하고, 다른 앵무새들과 비교하거나 SNS에 자랑할 수도 있습니다.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+            <span style="background:rgba(206,130,255,0.14);color:#8E4FC0;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">한눈에 보는 기록</span>
+            <span style="background:rgba(206,130,255,0.14);color:#8E4FC0;font-weight:800;font-size:13px;padding:7px 13px;border-radius:9999px;">자랑하고 공유</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section style="background:#F7F7F7;border-top:2px solid #ECECEC;border-bottom:2px solid #ECECEC;">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 24px;">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:44px;">
+        <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#1CB0F6;">작동 방식</span>
+        <h2 style="margin:0;font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-0.01em;">소리를 듣고, 분석하고, 반응합니다</h2>
+      </div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:stretch;">
+        <div style="flex:1 1 200px;min-width:0;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 2px 0 #E5E5E5;padding:26px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-weight:900;font-size:15px;color:#fff;background:#FF9600;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #E07F00;">1</span>
+          <h4 style="margin:0;font-weight:900;font-size:18px;">소리 입력</h4>
+          <p style="margin:0;font-weight:700;font-size:14.5px;color:#777;line-height:1.55;">마이크만으로 앵무새의 발성과 행동 소음을 수집합니다.</p>
+        </div>
+        <div style="flex:1 1 200px;min-width:0;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 2px 0 #E5E5E5;padding:26px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-weight:900;font-size:15px;color:#fff;background:#1CB0F6;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #1899D6;">2</span>
+          <h4 style="margin:0;font-weight:900;font-size:18px;">소리 분석</h4>
+          <p style="margin:0;font-weight:700;font-size:14.5px;color:#777;line-height:1.55;">MFCC·DTW 알고리즘으로 발음 정확도를 측정하고 어떤 단어를 얼마나 잘 따라 했는지 분석합니다.</p>
+        </div>
+        <div style="flex:1 1 200px;min-width:0;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 2px 0 #E5E5E5;padding:26px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-weight:900;font-size:15px;color:#fff;background:#CE82FF;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #A85FD6;">3</span>
+          <h4 style="margin:0;font-weight:900;font-size:18px;">맞춤 코칭</h4>
+          <p style="margin:0;font-weight:700;font-size:14.5px;color:#777;line-height:1.55;">LLM이 다음 단어와 난이도를 추천하고 이해하기 쉬운 가이드를 만듭니다.</p>
+        </div>
+        <div style="flex:1 1 200px;min-width:0;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 2px 0 #E5E5E5;padding:26px;display:flex;flex-direction:column;gap:12px;">
+          <span style="font-weight:900;font-size:15px;color:#fff;background:#FFC800;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #E6A800;">4</span>
+          <h4 style="margin:0;font-weight:900;font-size:18px;">자동 학습·리포트</h4>
+          <p style="margin:0;font-weight:700;font-size:14.5px;color:#777;line-height:1.55;">다음 학습을 자동으로 이어가고 학습 변화를 리포트로 전달합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APP PREVIEW ===================== -->
+  <section id="preview" style="background:#DDF4FF;border-bottom:2px solid #C6E8FB;">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px;">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:48px;">
+        <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#1581B5;">앱 미리보기</span>
+        <h2 style="margin:0;font-weight:900;font-size:clamp(26px,3.8vw,40px);letter-spacing:-0.01em;text-wrap:balance;">BuddyBird 앱은 이렇게 생겼어요</h2>
+        <p style="margin:0;max-width:520px;font-weight:700;font-size:16px;color:#3C7A99;text-wrap:pretty;">학습 세션, 단어 관리, 리포트까지 — 한 손에서 진행하는 앵무새 단어 학습</p>
+      </div>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:flex-end;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <div style="width:248px;background:#3C3C3C;border-radius:42px;padding:11px;box-shadow:0 30px 60px rgba(0,0,0,0.18);">
+            <img src="/assets/images/ko/app-setup.png" alt="학습 시간을 직접 설정하는 화면" style="display:block;width:100%;height:auto;border-radius:32px;" />
+          </div>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">학습 설정</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <div style="width:272px;background:#3C3C3C;border-radius:46px;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,0.22);">
+            <img src="/assets/images/ko/app-word-manage.png" alt="가르칠 단어 목록을 관리하는 화면" style="display:block;width:100%;height:auto;border-radius:34px;" />
+          </div>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">단어 관리</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <div style="width:248px;background:#3C3C3C;border-radius:42px;padding:11px;box-shadow:0 30px 60px rgba(0,0,0,0.18);">
+            <img src="/assets/images/ko/app-record.png" alt="가르칠 단어를 직접 녹음하는 화면" style="display:block;width:100%;height:auto;border-radius:32px;" />
+          </div>
+          <span style="font-weight:800;font-size:14px;color:#1581B5;">단어 녹음</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGISTER / CTA ===================== -->
+  <section id="register" style="background:#FF9600;">
+    <div style="max-width:760px;margin:0 auto;padding:84px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;">
+      <h2 style="margin:0;color:#fff;font-weight:900;font-size:clamp(30px,4.5vw,48px);line-height:1.12;letter-spacing:-0.01em;text-wrap:balance;">지금<br>BuddyBird를 만나보세요</h2>
+      <p style="margin:0;max-width:520px;color:#FFF0DC;font-weight:800;font-size:17px;text-wrap:pretty;">App Store와 Google Play에서 BuddyBird를 만나보세요.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <a href="https://apps.apple.com/kr/app/%EB%B2%84%EB%94%94%EB%B2%84%EB%93%9C-buddybird-%EC%95%B5%EB%AC%B4%EC%83%88-%EB%A7%90-%EA%B0%80%EB%A5%B4%EC%B9%98%EA%B8%B0/id6783652711" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#FFF6EB !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #C97600 !important">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#3C3C3C"><path d="M16.36 12.78c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.71 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.59-.03-.01-2.4-.92-2.42-3.65zM14.13 5.93c.63-.77 1.06-1.83.94-2.9-.91.04-2.01.61-2.67 1.37-.59.67-1.1 1.75-.96 2.78 1.02.08 2.06-.52 2.69-1.25z"/></svg>
+          <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
+            <span style="font-weight:700;font-size:12px;color:#777;">Download on the</span>
+            <span style="font-weight:900;font-size:19px;">App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.joynnovate.buddybird&hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#FFF6EB !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #C97600 !important">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3.6 2.3c-.25.26-.4.66-.4 1.18v17.04c0 .52.15.92.4 1.18l.06.05L13.1 12.3v-.22L3.66 2.25l-.06.05z" fill="#00D2FF"/><path d="M16.3 15.5l-3.2-3.2v-.22l3.2-3.2.07.04 3.78 2.15c1.08.61 1.08 1.62 0 2.24l-3.78 2.15-.07.04z" fill="#FFCE00"/><path d="M16.37 15.46L13.1 12.19 3.6 21.7c.36.38.94.42 1.6.05l11.17-6.29z" fill="#FF3A44"/><path d="M16.37 8.92L5.2 2.64c-.66-.38-1.24-.33-1.6.05l9.5 9.5 3.27-3.27z" fill="#00E676"/></svg>
+          <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
+            <span style="font-weight:700;font-size:12px;color:#777;">GET IT ON</span>
+            <span style="font-weight:900;font-size:19px;">Google Play</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" style="max-width:760px;margin:0 auto;padding:84px 24px;">
+    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:40px;">
+      <span style="font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#1CB0F6;">자주 묻는 질문</span>
+      <h2 style="margin:0;font-weight:900;font-size:clamp(26px,3.8vw,38px);letter-spacing:-0.01em;">궁금한 점이 있나요?</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <div onClick="{{ toggleFaq0 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+          <span style="font-weight:900;font-size:17px;">어떤 앵무새 종을 지원하나요?</span>
+          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign0 }}</span>
+        </div>
+        <sc-if value="{{ faqOpen0 }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">코뉴어를 비롯해 종·나이·성별 등 개체 특성에 맞춘 커리큘럼을 제공합니다.</p>
+        </sc-if>
+      </div>
+
+      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <div onClick="{{ toggleFaq1 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+          <span style="font-weight:900;font-size:17px;">핸드폰으로 가능한가요?</span>
+          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign1 }}</span>
+        </div>
+        <sc-if value="{{ faqOpen1 }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">네, 가지고 계신 스마트폰만 있으면 됩니다. 앱을 설치하고 새장 근처에 두기만 하면 핸드폰 마이크로 앵무새의 소리를 듣고 단어 학습과 케어가 진행됩니다. 별도의 기기나 장비는 필요하지 않아요.</p>
+        </sc-if>
+      </div>
+
+      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <div onClick="{{ toggleFaq2 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+          <span style="font-weight:900;font-size:17px;">집을 비워도 학습이 되나요?</span>
+          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign2 }}</span>
+        </div>
+        <sc-if value="{{ faqOpen2 }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">네. 보호자가 없어도 AI가 집사 대신 단어를 반복해서 들려주고 따라 하게 합니다. 마이크로 앵무새의 반응을 듣고, 잘 따라 하면 칭찬을, 어려워하면 더 쉬운 단어로 바꿔가며 혼자서도 학습을 이어갑니다.</p>
+        </sc-if>
+      </div>
+
+      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <div onClick="{{ toggleFaq4 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+          <span style="font-weight:900;font-size:17px;">요금은 어떻게 되나요?</span>
+          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign4 }}</span>
+        </div>
+        <sc-if value="{{ faqOpen4 }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">월 구독으로 단어 학습 기능을 제공할 예정입니다. 구체적인 요금은 출시 시점에 안내드립니다.</p>
+        </sc-if>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#3C3C3C;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+      <div class="f-brand" style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:900;font-size:18px;">BuddyBird</span>
+          <span style="font-weight:700;font-size:13px;color:#B0B0B0;">앵무새 단어 학습을 위한 AI 서비스</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" style-hover="color:#FF9600 !important">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@buddybird.xyz?hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Threads" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" style-hover="color:#FF9600 !important">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
+            </a>
+          </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
+        <a href="/privacy/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">개인정보 처리방침</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/terms/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">서비스 이용약관</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/ko/support/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">고객지원</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+      <div style="border-top:1px solid #555;padding-top:22px;">
+        <span style="font-weight:700;font-size:13px;color:#888;">© 2026 joynnovate. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;텍스트 중심&quot;,&quot;목업 중심&quot;,&quot;마스코트 중심&quot;],&quot;default&quot;:&quot;목업 중심&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { openFaq: 0 };
+
+  renderVals() {
+    const layout = this.props.heroLayout ?? '목업 중심';
+    const o = this.state.openFaq;
+    const r = {
+      heroText: layout === '텍스트 중심',
+      heroMockup: layout === '목업 중심',
+      heroMascot: layout === '마스코트 중심',
+    };
+    for (let i = 0; i < 5; i++) {
+      r['faqOpen' + i] = o === i;
+      r['faqSign' + i] = o === i ? '−' : '+';
+      r['toggleFaq' + i] = () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }));
+    }
+    return r;
+  }
+}
+</script>
+
+<!-- 인페이지 앵커 이동: 주소창에 #해시를 남기지 않고 부드럽게 스크롤 -->
+<script>
+(function () {
+  // 이 페이지를 본 언어를 기억 → 루트(/) 재방문 시 이 언어로 연결
+  try { localStorage.setItem('bb-lang', 'ko'); } catch (e) {}
+  function headerOffset() {
+    var h = document.querySelector('header');
+    return h ? h.getBoundingClientRect().height : 0;
+  }
+  function scrollToId(id) {
+    var el = id ? document.getElementById(id) : null;
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - headerOffset() - 8;
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  }
+  function cleanUrl() {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  // 앵커 클릭 → 부드럽게 스크롤하되 주소창엔 # 흔적을 남기지 않음
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var id = (a.getAttribute('href') || '').slice(1);
+    e.preventDefault();
+    if (id) scrollToId(id);
+    cleanUrl();
+  });
+  // 기존 공유 링크(예: /#register)로 진입한 경우: 해당 위치로 이동 후 주소 정리
+  if (location.hash.length > 1) {
+    var initialId = location.hash.slice(1);
+    window.addEventListener('load', function () {
+      scrollToId(initialId);
+      cleanUrl();
+    });
+  }
+})();
+</script>
+</body>
+</html>
