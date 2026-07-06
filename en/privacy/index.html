@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · BuddyBird</title>
+<meta name="description" content="BuddyBird Privacy Policy. How we collect and process limited analytics and diagnostic data, your U.S. state privacy rights, and our children's privacy practices.">
+<link rel="canonical" href="https://buddybird.xyz/en/privacy/">
+<link rel="alternate" hreflang="ko" href="https://buddybird.xyz/privacy/">
+<link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/privacy/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FF9600">
+
+<!--
+  ============================================================================
+  U.S. PRIVACY POLICY
+  ----------------------------------------------------------------------------
+  반영 완료: 시행일 2026-07-06 · 사업자 Buddybird / 12F, 572 Dohwa-dong,
+  Mapo-gu, Seoul · draft 배너 제거 · §8은 광고 설정과 무관한 옵트아웃 제공형.
+  남은 개선(선택, 리스크 축소 — 게시 차단 아님):
+   A) COPPA: 스토어·마케팅을 성인 반려인 대상으로 포지셔닝(아동 겨냥 금지).
+   B) buddybird-mobile에서 Firebase 광고 기능·AAID·Clarity 세션 리플레이 축소.
+      → 적용 시 §1 수집 항목과 §8을 "sharing 없음"으로 단순화.
+  본 방침은 현재 앱의 실제 데이터 수집을 기준으로 서술됨.
+  ============================================================================
+-->
+
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #ffffff;
+    font-family: 'Nunito','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
+    color: #3C3C3C;
+    line-height: 1.5;
+    font-weight: 700;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+
+  /* 본문(법무 텍스트) 가독성 스타일 */
+  .doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .doc h1 { margin: 0 0 10px; font-weight: 900; font-size: clamp(30px,4.5vw,42px); letter-spacing: -0.02em; }
+  .doc .dates { margin: 0 0 14px; font-weight: 800; font-size: 14px; color: #777777; }
+  .doc .dates span { color: #FF9600; }
+  .doc .lead { margin: 18px 0 0; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc h2 {
+    margin: 0 0 16px; padding-left: 14px;
+    font-weight: 900; font-size: clamp(19px,2.6vw,23px); letter-spacing: -0.01em; color: #3C3C3C;
+    border-left: 5px solid #FF9600; line-height: 1.3;
+  }
+  .doc h3 { margin: 22px 0 10px; font-weight: 800; font-size: 17px; color: #E88900; }
+  .doc article { margin-top: 44px; }
+  .doc p { margin: 0 0 12px; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc ul { margin: 0 0 12px; padding-left: 22px; }
+  .doc li { font-weight: 600; font-size: 16px; line-height: 1.7; color: #3C3C3C; margin-bottom: 6px; }
+  .doc hr { border: 0; border-top: 1px solid #EFEFEF; margin: 44px 0 0; }
+  .doc .pub { margin-top: 48px; padding-top: 22px; border-top: 1px solid #EFEFEF; font-weight: 700; font-size: 15px; color: #5A5A5A; }
+  .doc .pub p { font-weight: 700; color: #5A5A5A; margin: 0 0 6px; }
+  .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; text-decoration: none; font-weight: 800; font-size: 15px; color: #FF9600; }
+  .back:hover { color: #E88900; }
+
+  /* 헤더 nav 링크 */
+  .nav-link { text-decoration: none; color: #777777; font-weight: 800; font-size: 15px; transition: color 80ms; }
+  .nav-link:hover { color: #FF9600; }
+  /* 푸터 legal 링크 hover (정적 페이지 — style-hover 대체) */
+  .footer-link { text-decoration: none; color: #D0D0D0; font-weight: 800; font-size: 14px; transition: color 80ms; }
+  .footer-link:hover { color: #FF9600; }
+  .social { display: inline-flex; color: #B0B0B0; transition: color 80ms; }
+  .social:hover { color: #FF9600; }
+  @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+
+<script type="module" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:2px solid #F0F0F0;">
+    <nav style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;">
+      <a href="/en/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#3C3C3C;margin-right:auto;">
+        <img src="/assets/icons/apple-touch-icon.png" alt="BuddyBird" width="38" height="38" style="width:38px;height:38px;border-radius:11px;box-shadow:0 3px 0 rgba(0,0,0,0.12);display:block;" />
+        <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="/en/#features" class="nav-link">Features</a>
+        <a href="/en/#preview" class="nav-link">Preview</a>
+        <a href="/en/#faq" class="nav-link">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== 본문 ===================== -->
+  <main class="doc">
+    <h1>Privacy Policy</h1>
+    <p class="dates">Effective date <span>July 6, 2026</span> · Last updated <span>July 6, 2026</span></p>
+
+    <p class="lead">This Privacy Policy explains how Buddybird (“we,” “us,” or “our”) collects, uses, and discloses information in connection with the BuddyBird mobile application (the “Service”).</p>
+    <p class="lead">BuddyBird is used without account registration or login, and we do not collect your name, email address, or phone number. We do collect limited analytics and diagnostic information through third-party tools to operate the app and improve its quality, as described below. The Service is intended for a general audience of parrot guardians and is not directed to children under 13 (see Section 6).</p>
+
+    <article>
+      <h2>1. Information We Collect</h2>
+
+      <h3>1.1 Information collected automatically (analytics &amp; diagnostics)</h3>
+      <ul>
+        <li>Device &amp; identifiers: Android Advertising ID (AAID), app instance ID, anonymous install ID (UUID), push notification token (FCM), and a crash-analytics installation identifier. On iOS, the Identifier for Advertisers (IDFA) is included only if you allow tracking.</li>
+        <li>Approximate location: city/region-level location inferred from your IP address (not precise location).</li>
+        <li>App usage: screen navigation, learning sessions, word recording/playback and other in-app events, and session replay (interaction paths such as taps and swipes).</li>
+        <li>Device &amp; environment: app version, OS version, device model, and language setting.</li>
+        <li>Crash &amp; diagnostic information: stack traces and device state at the time of a crash.</li>
+      </ul>
+
+      <h3>1.2 Information you provide</h3>
+      <ul>
+        <li>Parrot (pet) name, species, age, and learning goal.</li>
+        <li>Word names you add or edit for learning.</li>
+      </ul>
+      <p>Some of this text (such as the parrot name and word names) is sent to analytics tools (Google Firebase, Microsoft Clarity) for usability analysis. This is information about your pet and learning content, not about you personally.</p>
+
+      <h3>1.3 Information we do not collect</h3>
+      <ul>
+        <li>Your name, email address, phone number, or other direct identifiers about you.</li>
+        <li>Precise (GPS) location.</li>
+        <li>Photos or videos (a profile avatar photo is used only on your device and is not transmitted).</li>
+        <li>Voice recordings (stored only on your device and not transmitted).</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>2. How We Use Information</h2>
+      <p>We do not offer account registration, login, payment, customer accounts, or advertising/marketing features. We use the information above only for the following purposes:</p>
+      <ul>
+        <li>App usage statistics and usability analysis</li>
+        <li>Diagnosing and fixing crashes and errors</li>
+        <li>Delivering push notifications and app functionality</li>
+        <li>Improving app compatibility and performance</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>3. How We Share Information (Service Providers)</h2>
+      <p>We do not sell your personal information. We use the following service providers to analyze usage and diagnose errors on our behalf. Information is transmitted to them encrypted over HTTPS/TLS.</p>
+
+      <h3>Google LLC (Firebase)</h3>
+      <ul>
+        <li>Data shared: device/advertising identifiers, approximate location, app usage, and crash/diagnostic information.</li>
+        <li>Purpose: usage analytics (Analytics), crash diagnostics (Crashlytics), and push notifications (Cloud Messaging).</li>
+        <li>Processing location: United States.</li>
+      </ul>
+
+      <h3>Microsoft Corporation (Clarity)</h3>
+      <ul>
+        <li>Data shared: app usage, session replay, device information, and user behavior data.</li>
+        <li>Purpose: usability improvement and user experience analysis.</li>
+        <li>Processing location: United States.</li>
+      </ul>
+      <p>We may also disclose information if required by law or to protect our legal rights.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>4. Data Retention</h2>
+      <p>Automatically collected analytics and diagnostic data is retained according to each provider’s data-retention policy (for example, Firebase Analytics up to 14 months; Firebase Crashlytics approximately 90 days).</p>
+      <p>Information you enter (parrot information, learning words, etc.) is stored on your device by default and is deleted, together with anonymous identifiers, when you uninstall the app.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>5. Data Location &amp; International Transfer</h2>
+      <p>We are based in the Republic of Korea, and our analytics providers process data in the United States. As a result, your information may be processed and stored in the United States and the Republic of Korea. Where required, transfers are made using appropriate safeguards and providers’ standard data-protection terms.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>6. Children’s Privacy</h2>
+      <p>The Service is intended for a general audience, primarily adults who keep parrots, and is not directed to children under 13. We do not knowingly collect personal information from children under 13 without verifiable parental consent.</p>
+      <p>If a child under 13 uses the Service, we recommend that they do so under the supervision of a parent or legal guardian.</p>
+      <p>If we learn that we have collected personal information from a child under 13 without the required parental consent, we will delete that information promptly. Parents or guardians may contact us at <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a> to review or request deletion of a child’s information.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>7. Your Privacy Choices</h2>
+      <p>You can control analytics and tracking as follows:</p>
+      <ul>
+        <li>iOS: On first launch, the app asks for your tracking permission (App Tracking Transparency). If you decline, analytics/tracking data including the advertising identifier (IDFA) is disabled (except crash diagnostics). You can change this in Settings → Privacy &amp; Security → Tracking.</li>
+        <li>Android: Analytics and diagnostic information is collected automatically to provide app functionality and cannot be turned off individually within the app. To stop collection, uninstall the app. You can also reset or delete your advertising ID, or limit ad personalization, in your device settings.</li>
+      </ul>
+      <p>Even if you decline, the app’s core learning features continue to work.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>8. Your U.S. State Privacy Rights</h2>
+      <p>Depending on your state of residence (for example, California, Virginia, Colorado, Connecticut, Utah, or Texas), you may have some or all of the following rights regarding your personal information:</p>
+      <ul>
+        <li>The right to know/access the personal information we collect about you</li>
+        <li>The right to delete your personal information</li>
+        <li>The right to correct inaccurate personal information</li>
+        <li>The right to opt out of the “sale” or “sharing” of personal information and of targeted advertising</li>
+        <li>The right to limit the use of sensitive personal information</li>
+        <li>The right to non-discrimination for exercising your rights</li>
+      </ul>
+
+      <h3>Categories of personal information</h3>
+      <p>Under the California Consumer Privacy Act (CCPA/CPRA), we collect the following categories: identifiers (device and advertising identifiers); internet or other electronic network activity (app usage and session replay); and approximate geolocation (city/region-level, not precise). We do not collect Social Security or government ID numbers, financial account information, precise geolocation, or biometric information.</p>
+
+      <h3>Sale &amp; sharing</h3>
+      <!-- 이 문구는 앱의 광고 설정과 무관하게 정합적이도록 "옵트아웃 제공형"으로 작성됨.
+           향후 Firebase 광고 기능(Google signals·AAID)을 완전히 끄면 "sharing 없음"으로 단순화 가능. -->
+      <p>We do not sell your personal information for monetary consideration, and we do not use it to serve you targeted advertising. Our analytics providers do collect advertising and device identifiers; to the extent this is considered “sharing” for cross-context behavioral advertising under applicable state law, you may opt out at any time using your device’s advertising settings and, on iOS, by declining tracking (see Section 7). We do not knowingly sell or share the personal information of consumers under 16 years of age.</p>
+
+      <h3>Sensitive personal information</h3>
+      <p>We do not collect precise geolocation or other sensitive personal information for the purpose of inferring characteristics about you, and we do not use or disclose sensitive personal information beyond the purposes permitted by law.</p>
+
+      <h3>How to exercise your rights</h3>
+      <p>You may submit a request by emailing <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a>. Because the Service operates without accounts or login, we generally cannot associate the analytics data we collect with your identity, which may limit our ability to locate data specific to you. The most effective ways to control your information are to uninstall the app (which deletes on-device data and anonymous identifiers) and to use the choices described in Section 7. We will not discriminate against you for exercising your rights, and where your state provides an appeal process, you may appeal a decision by replying to our response.</p>
+
+      <h3>California “Shine the Light”</h3>
+      <p>We do not disclose personal information to third parties for those third parties’ own direct marketing purposes.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>9. Security</h2>
+      <p>Information is transmitted using encryption (HTTPS/TLS), and we maintain reasonable administrative and technical safeguards to protect it. No method of transmission or storage is completely secure, however, and we cannot guarantee absolute security.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>10. Changes to This Policy</h2>
+      <p>This Privacy Policy applies from its effective date. We may update it to reflect changes in law or in the Service; when we do, we will post the updated policy on this page with a new effective date.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>11. Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or your personal information, contact us:</p>
+      <ul>
+        <li>Buddybird</li>
+        <li>12F, 572 Dohwa-dong, Mapo-gu, Seoul, Republic of Korea</li>
+        <li>Email: <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a></li>
+      </ul>
+    </article>
+
+    <div class="pub">
+      <p>Effective date: July 6, 2026</p>
+      <p>Last updated: July 6, 2026</p>
+    </div>
+
+    <a href="/en/" class="back">← Back to home</a>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#3C3C3C;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+      <div class="f-brand" style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:900;font-size:18px;">BuddyBird</span>
+          <span style="font-weight:700;font-size:13px;color:#B0B0B0;">AI service for parrot word learning</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@buddybird.xyz?hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
+            </a>
+          </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
+        <a href="/en/privacy/" class="footer-link">Privacy Policy</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/en/terms/" class="footer-link">Terms of Service</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/en/support/" class="footer-link">Support</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+      <div style="border-top:1px solid #555;padding-top:22px;">
+        <span style="font-weight:700;font-size:13px;color:#888;">© 2026 joynnovate. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
