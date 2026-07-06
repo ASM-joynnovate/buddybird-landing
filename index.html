@@ -81,6 +81,9 @@
 <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 
+<!-- LCP 히어로 이미지: 블로킹 스크립트보다 먼저 다운로드 시작 -->
+<link rel="preload" as="image" href="assets/images/app-learning.png" fetchpriority="high">
+
 <script src="./assets/js/support.js"></script>
 <script type="module" src="./assets/js/analytics.js"></script>
 </head>
@@ -162,7 +165,7 @@
             <div style="position:relative;z-index:0;width:300px;padding:2px;border-radius:42px;background:linear-gradient(135deg,#888 0%,#333 35%,#000 100%);box-shadow:0 1px 2px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.12),0 4px 8px rgba(0,0,0,0.10),0 6px 12px 2px rgba(0,0,0,0.08),0 8px 16px 4px rgba(0,0,0,0.06),0 12px 24px 6px rgba(0,0,0,0.05),0 16px 32px 10px rgba(0,0,0,0.04),0 24px 48px 16px rgba(0,0,0,0.03),0 32px 64px 24px rgba(0,0,0,0.03);">
               <div style="padding:5px;border-radius:40px;background:#181818;">
                 <div style="position:relative;border-radius:36px;overflow:hidden;line-height:0;">
-                  <img src="assets/images/app-learning.png" alt="BuddyBird 학습 진행 화면 — 앵무새가 단어를 듣고 따라 하는 모습" style="display:block;width:100%;height:auto;" />
+                  <img src="assets/images/app-learning.png" alt="BuddyBird 학습 진행 화면 — 앵무새가 단어를 듣고 따라 하는 모습" width="1206" height="2622" fetchpriority="high" style="display:block;width:100%;height:auto;" />
                   <!-- 깊이 링: 스크린을 베젤 안으로 함몰시켜 매립된 느낌 -->
                   <div style="position:absolute;inset:0;border-radius:36px;pointer-events:none;z-index:3;box-shadow:inset 0 0 3px 1px rgba(0,0,0,0.40);"></div>
                   <!-- 글래스 샤인: 부드러운 앰비언트 워시 -->
