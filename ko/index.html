@@ -87,12 +87,6 @@
 <!-- LCP 히어로 이미지: 블로킹 스크립트보다 먼저 다운로드 시작 -->
 <link rel="preload" as="image" href="/assets/images/ko/app-learning.png" fetchpriority="high">
 
-<script src="/assets/js/support.js"></script>
-<script type="module" src="/assets/js/analytics.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -103,8 +97,26 @@
   @keyframes bb-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+
+  /* interactions (hover / press states) */
+  .bb-link:hover { color: #FF9600 !important; }
+  .bb-cta:hover { background: #E88900 !important; }
+  .bb-cta:active { transform: translateY(5px) !important; box-shadow: 0 1px 0 #E07F00 !important; }
+  .bb-btn2:hover { background: #F7F7F7 !important; }
+  .bb-btn2:active { transform: translateY(4px) !important; box-shadow: 0 1px 0 #E5E5E5 !important; }
+  .bb-store:hover { background: #FFF6EB !important; }
+  .bb-store:active { transform: translateY(4px) !important; box-shadow: 0 1px 0 #C97600 !important; }
+  /* FAQ accordion */
+  .bb-faq > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; cursor: pointer; }
+  .bb-faq > summary::-webkit-details-marker { display: none; }
+  .bb-faq-sign { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 9px; background: #F7F7F7; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; color: #FF9600; }
+  .bb-faq-sign::before { content: '+'; }
+  .bb-faq[open] .bb-faq-sign::before { content: '2'; }
+  .bb-faq-answer { margin: 0; padding: 0 24px 22px; font-weight: 700; font-size: 15.5px; color: #5A5A5A; line-height: 1.6; }
 </style>
-</helmet>
+<script type="module" src="/assets/js/analytics.js"></script>
+</head>
+<body>
 
 <div style="font-family:'Nunito','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;color:#3C3C3C;line-height:1.5;font-weight:700;background:#ffffff;overflow-x:hidden;">
 
@@ -116,14 +128,14 @@
         <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
       </a>
       <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
-        <a href="#features" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">기능</a>
-        <a href="#preview" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">앱 미리보기</a>
-        <a href="#faq" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" style-hover="color:#FF9600 !important">FAQ</a>
+        <a href="#features" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" class="bb-link">기능</a>
+        <a href="#preview" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" class="bb-link">앱 미리보기</a>
+        <a href="#faq" style="text-decoration:none;color:#777777;font-weight:800;font-size:15px;transition:color 80ms;" class="bb-link">FAQ</a>
         <span style="color:#D0D0D0;font-weight:700;font-size:14px;">|</span>
         <span style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;">
           <span style="color:#FF9600;">KO</span>
           <span style="color:#D0D0D0;">·</span>
-          <a href="/en/" style="text-decoration:none;color:#777777;transition:color 80ms;" style-hover="color:#FF9600 !important">EN</a>
+          <a href="/en/" style="text-decoration:none;color:#777777;transition:color 80ms;" class="bb-link">EN</a>
         </span>
       </div>
     </nav>
@@ -135,30 +147,15 @@
   <section style="background:#FFFBF5;border-bottom:2px solid #F4ECE0;">
     <div style="max-width:1200px;margin:0 auto;padding:64px 24px 72px;">
 
-      <!-- Variant: 텍스트 중심 -->
-      <sc-if value="{{ heroText }}" hint-placeholder-val="{{ false }}">
-        <div style="max-width:840px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;">
-          <h1 style="margin:0;font-weight:900;font-size:clamp(38px,6vw,64px);line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
-          <p style="margin:0;max-width:620px;font-weight:700;font-size:clamp(17px,2.2vw,20px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
-            <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
-            <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-            <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid #E5E5E5;border-radius:9999px;padding:8px 16px;font-weight:800;font-size:14px;color:#5A5A5A;"><b style="color:#CE82FF;font-weight:900;">AI Agent</b> 맞춤 커리큘럼</span>
-          </div>
-        </div>
-      </sc-if>
 
-      <!-- Variant: 목업 중심 -->
-      <sc-if value="{{ heroMockup }}" hint-placeholder-val="{{ true }}">
+
         <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:space-between;">
           <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:22px;">
             <h1 style="margin:0;font-weight:900;font-size:clamp(36px,5vw,58px);line-height:1.12;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
             <p style="margin:0;max-width:520px;font-weight:700;font-size:clamp(16px,2vw,19px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;">
-              <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
-              <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
+              <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" class="bb-cta">지금 사용하기</a>
+              <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" class="bb-btn2">기능 둘러보기</a>
             </div>
           </div>
           <div style="flex:0 1 380px;display:flex;justify-content:center;position:relative;min-width:300px;">
@@ -190,28 +187,7 @@
             </div>
           </div>
         </div>
-      </sc-if>
 
-      <!-- Variant: 마스코트 중심 -->
-      <sc-if value="{{ heroMascot }}" hint-placeholder-val="{{ false }}">
-        <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;">
-          <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;">
-            <div style="position:relative;background:#fff;border:2px solid #E5E5E5;border-radius:18px;box-shadow:0 4px 0 #E5E5E5;padding:14px 22px;font-weight:800;font-size:16px;color:#3C3C3C;">안녕하세요! 저는 버디예요 👋
-              <span style="position:absolute;bottom:-9px;left:50%;transform:translateX(-50%) rotate(45deg);width:16px;height:16px;background:#fff;border-right:2px solid #E5E5E5;border-bottom:2px solid #E5E5E5;"></span>
-            </div>
-            <div style="width:200px;height:200px;border-radius:9999px;background:#FFF1DD;border:3px dashed #FFC27A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;animation:bb-float 4s ease-in-out infinite;">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF9600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c0-2.8-2.2-5-5-5S6 4.2 6 7c0 2 1 3.5 2 4.5"/><path d="M8 11.5C6 13 5 15 5 17.5 5 20 7 22 10 22c3.5 0 6-2.5 6-6 0-2-1-4-3-5.5"/><path d="M16 9l4-2-3 3.5"/><circle cx="9.5" cy="7" r="1"/></svg>
-              <span style="font-weight:800;font-size:13px;color:#C77A12;">마스코트 (망고) 자리</span>
-            </div>
-          </div>
-          <h1 style="margin:0;font-weight:900;font-size:clamp(36px,5.5vw,60px);line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;">집을 비운 사이에도,<br>AI가 대신 말을 가르칩니다</h1>
-          <p style="margin:0;max-width:600px;font-weight:700;font-size:clamp(16px,2.2vw,20px);color:#5A5A5A;line-height:1.55;text-wrap:pretty;">BuddyBird는 보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스입니다.</p>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
-            <a href="#register" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FF9600;color:#fff;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;box-shadow:0 6px 0 #E07F00;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#E88900 !important" style-active="transform:translateY(5px) !important;box-shadow:0 1px 0 #E07F00 !important">지금 사용하기</a>
-            <a href="#features" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#FF9600;font-weight:800;font-size:17px;letter-spacing:0.02em;padding:17px 32px;border-radius:16px;border:2px solid #E5E5E5;box-shadow:0 5px 0 #E5E5E5;text-decoration:none;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#F7F7F7 !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #E5E5E5 !important">기능 둘러보기</a>
-          </div>
-        </div>
-      </sc-if>
 
     </div>
   </section>
@@ -367,14 +343,14 @@
       <h2 style="margin:0;color:#fff;font-weight:900;font-size:clamp(30px,4.5vw,48px);line-height:1.12;letter-spacing:-0.01em;text-wrap:balance;">지금<br>BuddyBird를 만나보세요</h2>
       <p style="margin:0;max-width:520px;color:#FFF0DC;font-weight:800;font-size:17px;text-wrap:pretty;">App Store와 Google Play에서 BuddyBird를 만나보세요.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-        <a href="https://apps.apple.com/kr/app/%EB%B2%84%EB%94%94%EB%B2%84%EB%93%9C-buddybird-%EC%95%B5%EB%AC%B4%EC%83%88-%EB%A7%90-%EA%B0%80%EB%A5%B4%EC%B9%98%EA%B8%B0/id6783652711" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#FFF6EB !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #C97600 !important">
+        <a href="https://apps.apple.com/kr/app/%EB%B2%84%EB%94%94%EB%B2%84%EB%93%9C-buddybird-%EC%95%B5%EB%AC%B4%EC%83%88-%EB%A7%90-%EA%B0%80%EB%A5%B4%EC%B9%98%EA%B8%B0/id6783652711" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" class="bb-store">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="#3C3C3C"><path d="M16.36 12.78c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.71 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.59-.03-.01-2.4-.92-2.42-3.65zM14.13 5.93c.63-.77 1.06-1.83.94-2.9-.91.04-2.01.61-2.67 1.37-.59.67-1.1 1.75-.96 2.78 1.02.08 2.06-.52 2.69-1.25z"/></svg>
           <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
             <span style="font-weight:700;font-size:12px;color:#777;">Download on the</span>
             <span style="font-weight:900;font-size:19px;">App Store</span>
           </span>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.joynnovate.buddybird&hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" style-hover="background:#FFF6EB !important" style-active="transform:translateY(4px) !important;box-shadow:0 1px 0 #C97600 !important">
+        <a href="https://play.google.com/store/apps/details?id=com.joynnovate.buddybird&hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 다운로드" style="display:inline-flex;align-items:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border-radius:16px;box-shadow:0 5px 0 #C97600;transition:transform 60ms,box-shadow 60ms;" class="bb-store">
           <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3.6 2.3c-.25.26-.4.66-.4 1.18v17.04c0 .52.15.92.4 1.18l.06.05L13.1 12.3v-.22L3.66 2.25l-.06.05z" fill="#00D2FF"/><path d="M16.3 15.5l-3.2-3.2v-.22l3.2-3.2.07.04 3.78 2.15c1.08.61 1.08 1.62 0 2.24l-3.78 2.15-.07.04z" fill="#FFCE00"/><path d="M16.37 15.46L13.1 12.19 3.6 21.7c.36.38.94.42 1.6.05l11.17-6.29z" fill="#FF3A44"/><path d="M16.37 8.92L5.2 2.64c-.66-.38-1.24-.33-1.6.05l9.5 9.5 3.27-3.27z" fill="#00E676"/></svg>
           <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
             <span style="font-weight:700;font-size:12px;color:#777;">GET IT ON</span>
@@ -393,45 +369,37 @@
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
 
-      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
-        <div onClick="{{ toggleFaq0 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+      <details class="bb-faq" open style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <summary>
           <span style="font-weight:900;font-size:17px;">어떤 앵무새 종을 지원하나요?</span>
-          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign0 }}</span>
-        </div>
-        <sc-if value="{{ faqOpen0 }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">코뉴어를 비롯해 종·나이·성별 등 개체 특성에 맞춘 커리큘럼을 제공합니다.</p>
-        </sc-if>
-      </div>
+          <span class="bb-faq-sign" aria-hidden="true"></span>
+        </summary>
+        <p class="bb-faq-answer">코뉴어를 비롯해 종·나이·성별 등 개체 특성에 맞춘 커리큘럼을 제공합니다.</p>
+      </details>
 
-      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
-        <div onClick="{{ toggleFaq1 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+      <details class="bb-faq" style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <summary>
           <span style="font-weight:900;font-size:17px;">핸드폰으로 가능한가요?</span>
-          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign1 }}</span>
-        </div>
-        <sc-if value="{{ faqOpen1 }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">네, 가지고 계신 스마트폰만 있으면 됩니다. 앱을 설치하고 새장 근처에 두기만 하면 핸드폰 마이크로 앵무새의 소리를 듣고 단어 학습과 케어가 진행됩니다. 별도의 기기나 장비는 필요하지 않아요.</p>
-        </sc-if>
-      </div>
+          <span class="bb-faq-sign" aria-hidden="true"></span>
+        </summary>
+        <p class="bb-faq-answer">네, 가지고 계신 스마트폰만 있으면 됩니다. 앱을 설치하고 새장 근처에 두기만 하면 핸드폰 마이크로 앵무새의 소리를 듣고 단어 학습과 케어가 진행됩니다. 별도의 기기나 장비는 필요하지 않아요.</p>
+      </details>
 
-      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
-        <div onClick="{{ toggleFaq2 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+      <details class="bb-faq" style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <summary>
           <span style="font-weight:900;font-size:17px;">집을 비워도 학습이 되나요?</span>
-          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign2 }}</span>
-        </div>
-        <sc-if value="{{ faqOpen2 }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">네. 보호자가 없어도 AI가 집사 대신 단어를 반복해서 들려주고 따라 하게 합니다. 마이크로 앵무새의 반응을 듣고, 잘 따라 하면 칭찬을, 어려워하면 더 쉬운 단어로 바꿔가며 혼자서도 학습을 이어갑니다.</p>
-        </sc-if>
-      </div>
+          <span class="bb-faq-sign" aria-hidden="true"></span>
+        </summary>
+        <p class="bb-faq-answer">네. 보호자가 없어도 AI가 집사 대신 단어를 반복해서 들려주고 따라 하게 합니다. 마이크로 앵무새의 반응을 듣고, 잘 따라 하면 칭찬을, 어려워하면 더 쉬운 단어로 바꿔가며 혼자서도 학습을 이어갑니다.</p>
+      </details>
 
-      <div style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
-        <div onClick="{{ toggleFaq4 }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+      <details class="bb-faq" style="background:#fff;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 2px 0 #E5E5E5;overflow:hidden;">
+        <summary>
           <span style="font-weight:900;font-size:17px;">요금은 어떻게 되나요?</span>
-          <span style="flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:#F7F7F7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#FF9600;">{{ faqSign4 }}</span>
-        </div>
-        <sc-if value="{{ faqOpen4 }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:0;padding:0 24px 22px;font-weight:700;font-size:15.5px;color:#5A5A5A;line-height:1.6;">월 구독으로 단어 학습 기능을 제공할 예정입니다. 구체적인 요금은 출시 시점에 안내드립니다.</p>
-        </sc-if>
-      </div>
+          <span class="bb-faq-sign" aria-hidden="true"></span>
+        </summary>
+        <p class="bb-faq-answer">월 구독으로 단어 학습 기능을 제공할 예정입니다. 구체적인 요금은 출시 시점에 안내드립니다.</p>
+      </details>
 
     </div>
   </section>
@@ -445,20 +413,20 @@
           <span style="font-weight:700;font-size:13px;color:#B0B0B0;">앵무새 단어 학습을 위한 AI 서비스</span>
         </div>
         <div style="display:flex;gap:14px;align-items:center;">
-            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" style-hover="color:#FF9600 !important">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" class="bb-link">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://www.threads.com/@buddybird.xyz?hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Threads" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" style-hover="color:#FF9600 !important">
+            <a href="https://www.threads.com/@buddybird.xyz?hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Threads" style="display:inline-flex;color:#B0B0B0;transition:color 80ms;" class="bb-link">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
             </a>
           </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
-        <a href="/ko/privacy/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">개인정보 처리방침</a>
+        <a href="/ko/privacy/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" class="bb-link">개인정보 처리방침</a>
         <span style="color:#555;font-weight:700;">·</span>
-        <a href="/ko/terms/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">서비스 이용약관</a>
+        <a href="/ko/terms/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" class="bb-link">서비스 이용약관</a>
         <span style="color:#555;font-weight:700;">·</span>
-        <a href="/ko/support/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" style-hover="color:#FF9600 !important">고객지원</a>
+        <a href="/ko/support/" style="text-decoration:none;color:#D0D0D0;font-weight:800;font-size:14px;transition:color 80ms;" class="bb-link">고객지원</a>
       </div>
     </div>
     <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
@@ -469,28 +437,6 @@
   </footer>
 
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;텍스트 중심&quot;,&quot;목업 중심&quot;,&quot;마스코트 중심&quot;],&quot;default&quot;:&quot;목업 중심&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
-class Component extends DCLogic {
-  state = { openFaq: 0 };
-
-  renderVals() {
-    const layout = this.props.heroLayout ?? '목업 중심';
-    const o = this.state.openFaq;
-    const r = {
-      heroText: layout === '텍스트 중심',
-      heroMockup: layout === '목업 중심',
-      heroMascot: layout === '마스코트 중심',
-    };
-    for (let i = 0; i < 5; i++) {
-      r['faqOpen' + i] = o === i;
-      r['faqSign' + i] = o === i ? '−' : '+';
-      r['toggleFaq' + i] = () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }));
-    }
-    return r;
-  }
-}
-</script>
 
 <!-- 인페이지 앵커 이동: 주소창에 #해시를 남기지 않고 부드럽게 스크롤 -->
 <script>
