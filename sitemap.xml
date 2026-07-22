@@ -3,7 +3,7 @@
   <!-- 한국어 (ko) -->
   <url>
     <loc>https://buddybird.xyz/ko/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,13 +15,13 @@
   </url>
   <url>
     <loc>https://buddybird.xyz/ko/privacy/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://buddybird.xyz/ko/terms/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -29,7 +29,7 @@
   <!-- English (en) -->
   <url>
     <loc>https://buddybird.xyz/en/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
