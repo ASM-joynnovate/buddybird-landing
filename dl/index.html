@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download BuddyBird · 버디버드 받기</title>
+<meta name="description" content="Get BuddyBird on the App Store or Google Play. App Store·Google Play에서 버디버드를 받으세요.">
+
+<!-- QR·오프라인 배포용 단축 진입점. 색인 대상이 아니다 -->
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#FF9600">
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<!-- 스타일·폰트보다 먼저 실행해 모바일이 아래 리소스를 기다리지 않게 한다 -->
+<script>
+(function () {
+  // 지역 코드를 넣지 않는다 — Apple이 방문자 계정 지역의 스토어로 알아서 라우팅한다.
+  var APP_STORE = 'https://apps.apple.com/app/id6783652711';
+  // hl 미지정 — Play가 기기 언어를 따른다.
+  var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.joynnovate.buddybird';
+
+  var ua = navigator.userAgent || '';
+  // iPadOS 13+ 는 UA를 Mac으로 위장하므로 터치 지원 여부로 갈라낸다.
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+
+  // 데스크톱은 보내지 않는다 — 스토어 앱이 없으니 아래 두 버튼에서 직접 고르게 둔다.
+  // history를 남기지 않아야 뒤로가기가 이 페이지에 갇히지 않는다.
+  if (isIOS) location.replace(APP_STORE);
+  else if (isAndroid) location.replace(PLAY_STORE);
+})();
+</script>
+</head>
+<body style="margin:0;font-family:'Nunito',-apple-system,system-ui,sans-serif;background:#FFFBF5;color:#3C3C3C;">
+  <!-- 리다이렉트가 막히는 인앱 브라우저(카카오톡·인스타그램 등)와 데스크톱의 진입점.
+       JS 실행 여부와 무관하게 항상 DOM에 있어야 폴백 역할을 한다 -->
+  <main style="max-width:420px;margin:0 auto;padding:72px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
+    <img src="/assets/icons/app-icon.png" width="88" height="88" alt="BuddyBird" style="border-radius:22px;box-shadow:0 2px 0 #E5E5E5;">
+    <h1 style="margin:4px 0 0;font-weight:900;font-size:26px;letter-spacing:-0.01em;">BuddyBird</h1>
+    <p style="margin:0;font-weight:700;font-size:15px;color:#777;line-height:1.5;">
+      Teach your parrot to talk.<br>
+      <span lang="ko">앵무새에게 말을 가르쳐 보세요.</span>
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;margin-top:12px;">
+      <a href="https://apps.apple.com/app/id6783652711" aria-label="Download on the App Store" style="display:inline-flex;align-items:center;justify-content:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 4px 0 #E5E5E5;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#3C3C3C" aria-hidden="true"><path d="M16.36 12.78c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.71 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.59-.03-.01-2.4-.92-2.42-3.65zM14.13 5.93c.63-.77 1.06-1.83.94-2.9-.91.04-2.01.61-2.67 1.37-.59.67-1.1 1.75-.96 2.78 1.02.08 2.06-.52 2.69-1.25z"/></svg>
+        <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
+          <span style="font-weight:700;font-size:12px;color:#777;">Download on the</span>
+          <span style="font-weight:900;font-size:19px;">App Store</span>
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.joynnovate.buddybird" aria-label="Get it on Google Play" style="display:inline-flex;align-items:center;justify-content:center;gap:13px;background:#fff;color:#3C3C3C;text-decoration:none;height:60px;padding:0 24px;border:2px solid #E5E5E5;border-radius:16px;box-shadow:0 4px 0 #E5E5E5;">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.25.26-.4.66-.4 1.18v17.04c0 .52.15.92.4 1.18l.06.05L13.1 12.3v-.22L3.66 2.25l-.06.05z" fill="#00D2FF"/><path d="M16.3 15.5l-3.2-3.2v-.22l3.2-3.2.07.04 3.78 2.15c1.08.61 1.08 1.62 0 2.24l-3.78 2.15-.07.04z" fill="#FFCE00"/><path d="M16.37 15.46L13.1 12.19 3.6 21.7c.36.38.94.42 1.6.05l11.17-6.29z" fill="#FF3A44"/><path d="M16.37 8.92L5.2 2.64c-.66-.38-1.24-.33-1.6.05l9.5 9.5 3.27-3.27z" fill="#00E676"/></svg>
+        <span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;text-align:left;">
+          <span style="font-weight:700;font-size:12px;color:#777;">GET IT ON</span>
+          <span style="font-weight:900;font-size:19px;">Google Play</span>
+        </span>
+      </a>
+    </div>
+
+    <p style="margin:16px 0 0;font-weight:800;font-size:14px;">
+      <a href="/" style="color:#FF9600;text-decoration:none;">Learn more · 자세히 보기</a>
+    </p>
+  </main>
+</body>
+</html>
