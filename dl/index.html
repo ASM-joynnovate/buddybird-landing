@@ -20,10 +20,39 @@
   // hl 미지정 — Play가 기기 언어를 따른다.
   var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.joynnovate.buddybird';
 
+  // 랜딩과 같은 GA4 속성. 클라이언트에 노출되도록 설계된 공개 값이다.
+  var MEASUREMENT_ID = 'G-7KBZ20F3C5';
+
   var ua = navigator.userAgent || '';
   // iPadOS 13+ 는 UA를 Mac으로 위장하므로 터치 지원 여부로 갈라낸다.
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/.test(ua);
+  var platform = isIOS ? 'ios' : isAndroid ? 'android' : 'desktop';
+
+  // QR 유입 1건을 GA4에 알린다. gtag.js 를 불러 기다리면 그 사이 페이지를 떠나
+  // 집계가 비므로, 라이브러리 없이 sendBeacon 으로 직접 쏜다. sendBeacon 은 큐에
+  // 넣는 즉시 리턴하고 언로드 중에도 전송을 보장하므로 이동이 늦어지지 않는다.
+  function countVisit() {
+    if (!navigator.sendBeacon) return;
+    var cid;
+    try {
+      // 랜딩을 이미 방문했다면 gtag 가 심은 _ga 쿠키의 client id 를 이어 쓴다.
+      var m = document.cookie.match(/_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+      cid = m ? m[1] : Math.floor(Math.random() * 1e9) + '.' + Math.floor(Date.now() / 1000);
+    } catch (e) {
+      cid = Math.floor(Math.random() * 1e9) + '.' + Math.floor(Date.now() / 1000);
+    }
+    var q = 'v=2&tid=' + MEASUREMENT_ID +
+      '&cid=' + encodeURIComponent(cid) +
+      '&en=page_view' +
+      '&dl=' + encodeURIComponent(location.href) +
+      '&dr=' + encodeURIComponent(document.referrer) +
+      '&dt=' + encodeURIComponent(document.title) +
+      '&ep.platform=' + platform;
+    try { navigator.sendBeacon('https://www.google-analytics.com/g/collect?' + q); } catch (e) {}
+  }
+
+  countVisit();
 
   // 데스크톱은 보내지 않는다 — 스토어 앱이 없으니 아래 두 버튼에서 직접 고르게 둔다.
   // history를 남기지 않아야 뒤로가기가 이 페이지에 갇히지 않는다.

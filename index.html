@@ -40,23 +40,11 @@
     if (pref === 'ko' || pref === 'en') { go(pref); return; }
   } catch (e) {}
 
-  // 3) 폴백: 브라우저/시스템 언어 (한국어면 ko, 그 외 en)
-  function byLang() {
-    var l = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-    go(l.indexOf('ko') === 0 ? 'ko' : 'en');
-  }
-
-  // 2) 우선: Cloudflare가 요청 헤더로 판별한 접속 국가 (loc=KR ...). 한국만 ko, 나머지 en
-  try {
-    fetch('/cdn-cgi/trace', { cache: 'no-store' })
-      .then(function (r) { return r.text(); })
-      .then(function (t) {
-        var m = t.match(/(?:^|\n)loc=([A-Z]{2})/);
-        if (m) { go(m[1] === 'KR' ? 'ko' : 'en'); }
-        else { byLang(); }
-      })
-      .catch(byLang);
-  } catch (e) { byLang(); }
+  // 2) 브라우저/시스템 언어로 결정한다 (한국어면 ko, 그 외 en).
+  //    접속 국가가 아니라 언어를 기준으로 삼는다. 해외 거주 한국인이나 방한한
+  //    외국인처럼 국가와 읽는 언어는 자주 어긋나고, 그때 국가 기준은 양쪽 다 틀린다.
+  var l = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+  go(l.indexOf('ko') === 0 ? 'ko' : 'en');
 })();
 </script>
 </head>
