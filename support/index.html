@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>고객지원 · BuddyBird</title>
-<!-- 지원 페이지는 /ko/support/ 로 이동. 기존 URL 유입(외부 등록 링크 등)을 보존하기 위한 리다이렉트 스텁 -->
+<!-- 지원 페이지는 /ko/support/ 로 이동. 기존 URL 유입(외부 등록 링크 등)을 보존하기 위한 리다이렉트 스텁.
+     통합은 canonical 이 맡는다. 여기에 noindex 를 얹으면 Google 이 이 URL 을 표준으로 골랐을 때
+     그 판정이 /ko/support/ 로 번져 목적지까지 색인에서 빠진다. -->
 <link rel="canonical" href="https://buddybird.xyz/ko/support/">
-<meta name="robots" content="noindex,follow">
 <meta http-equiv="refresh" content="0; url=/ko/support/">
 <script>location.replace('/ko/support/' + location.search + location.hash);</script>
 </head>
