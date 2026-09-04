@@ -31,20 +31,24 @@ jobs:
           role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
           aws-region: ap-northeast-2
 
+      # allowlist 방식: 알려진 사이트 경로만 올린다.
+      # --exclude "*" 로 전부 막고 서빙 대상만 --include 로 연다.
+      # --delete 도 이 필터 안에서만 동작하므로 .well-known, 사이트 소유확인 파일처럼
+      # 레포 밖에서 올라간 오브젝트는 삭제되지 않는다. 새 사이트 경로가 생기면 여기에 추가한다.
       - name: S3 sync
         run: |
           aws s3 sync . "s3://${{ secrets.SITE_BUCKET }}" --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "scripts/*" \
-            --exclude "tools/*" \
-            --exclude "node_modules/*" \
-            --exclude ".htmlvalidate.json" \
-            --exclude ".htmlvalidateignore" \
-            --exclude ".gitignore" \
-            --exclude ".thumbnail" \
-            --exclude "README.md" \
-            --exclude "DESIGN.md"
+            --exclude "*" \
+            --include "index.html" \
+            --include "robots.txt" \
+            --include "sitemap.xml" \
+            --include "assets/*" \
+            --include "ko/*" \
+            --include "en/*" \
+            --include "dl/*" \
+            --include "privacy/*" \
+            --include "terms/*" \
+            --include "support/*"
 
       - name: CloudFront invalidation
         run: |
