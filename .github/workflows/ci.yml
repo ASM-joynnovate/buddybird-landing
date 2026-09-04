@@ -1,6 +1,6 @@
 name: CI
 
-# dev/main 으로 올리는 PR 에서 머지 전 검증. 배포는 GitHub Pages(main 자동 서빙) 그대로 둔다.
+# dev/main 으로 올리는 PR 에서 머지 전 검증. 실제 배포는 deploy.yml(main push → S3/CloudFront)이 담당.
 on:
   pull_request:
     branches: [dev, main]

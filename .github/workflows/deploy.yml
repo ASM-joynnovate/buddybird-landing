@@ -1,0 +1,53 @@
+name: Deploy
+
+# main 에 머지되면 랜딩을 S3(prod)로 올리고 CloudFront 캐시를 무효화한다.
+# 인증은 OIDC — aws-infra 가 만든 사이트 배포 역할을 assume 한다(장기 키 없음).
+# 그 역할의 신뢰 정책 sub 이 buddybird-landing 의 refs/heads/main 이라
+# 이 job 에는 environment: 를 붙이지 않는다(붙이면 sub 이 바뀌어 assume 가 실패한다).
+# 역할 ARN·버킷·distribution ID 는 repo secrets 로 주입한다 —
+# 이 저장소는 public 이고 aws-infra 는 private 이라 계정 정보를 코드·로그에 남기지 않는다.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-site-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: S3 배포 + CloudFront 무효화
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ap-northeast-2
+
+      - name: S3 sync
+        run: |
+          aws s3 sync . "s3://${{ secrets.SITE_BUCKET }}" --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "scripts/*" \
+            --exclude "tools/*" \
+            --exclude "node_modules/*" \
+            --exclude ".htmlvalidate.json" \
+            --exclude ".htmlvalidateignore" \
+            --exclude ".gitignore" \
+            --exclude ".thumbnail" \
+            --exclude "README.md" \
+            --exclude "DESIGN.md"
+
+      - name: CloudFront invalidation
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ secrets.SITE_DISTRIBUTION_ID }}" \
+            --paths "/*"
