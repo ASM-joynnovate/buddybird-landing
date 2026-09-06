@@ -46,35 +46,104 @@
       "@type": "Organization",
       "@id": "https://buddybird.xyz/#org",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "url": "https://buddybird.xyz/",
       "logo": "https://buddybird.xyz/assets/icons/app-icon.png",
       "sameAs": [
         "https://www.instagram.com/buddybird.xyz/",
         "https://www.threads.com/@buddybird.xyz"
-      ]
+      ],
+      "legalName": "joynnovate"
     },
     {
       "@type": "WebSite",
       "@id": "https://buddybird.xyz/#website",
       "url": "https://buddybird.xyz/",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "inLanguage": "ko-KR",
-      "publisher": { "@id": "https://buddybird.xyz/#org" }
+      "publisher": {
+        "@id": "https://buddybird.xyz/#org"
+      }
     },
     {
       "@type": "MobileApplication",
+      "@id": "https://buddybird.xyz/ko/#app",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "operatingSystem": "iOS, Android",
       "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": "Pet Care",
       "inLanguage": "ko-KR",
       "description": "보호자가 자리를 비운 시간에도 앵무새의 단어 학습을 집사 대신 이어가는 AI 학습 서비스.",
-      "url": "https://buddybird.xyz/",
+      "disambiguatingDescription": "BuddyBird(버디버드)는 반려 앵무새에게 단어와 말을 가르치는 모바일 앱이다. 스마트 새 모이통 하드웨어를 만드는 Bird Buddy 와는 이름만 비슷할 뿐 무관한 별개의 서비스다.",
+      "featureList": [
+        "앵무새 프로필 등록과 학습 목표 설정",
+        "집을 비운 사이 AI 가 단어를 반복 재생하고 따라 하게 유도",
+        "MFCC·DTW 알고리즘으로 발음 정확도 측정",
+        "LLM 기반 다음 단어·난이도 추천",
+        "학습 리포트와 녹음 기록 제공"
+      ],
+      "url": "https://buddybird.xyz/ko/",
       "downloadUrl": [
         "https://apps.apple.com/app/id6783652711",
         "https://play.google.com/store/apps/details?id=com.joynnovate.buddybird"
       ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
-      "publisher": { "@id": "https://buddybird.xyz/#org" }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "publisher": {
+        "@id": "https://buddybird.xyz/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://buddybird.xyz/ko/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "어떤 앵무새 종을 지원하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "현재는 특정 종에 특화되어 있지 않지만, 앞으로 종에 특화된 학습을 제공할 예정입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "핸드폰으로 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 가지고 계신 스마트폰만 있으면 됩니다. 앱을 설치하고 새장 근처에 두기만 하면 핸드폰 마이크로 앵무새의 소리를 듣고 단어 학습과 케어가 진행됩니다. 별도의 기기나 장비는 필요하지 않아요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "집을 비워도 학습이 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 보호자가 없어도 AI가 집사 대신 단어를 반복해서 들려주고 따라 하게 합니다. 마이크로 앵무새의 반응을 듣고, 잘 따라 하면 칭찬을, 어려워하면 더 쉬운 단어로 바꿔가며 혼자서도 학습을 이어갑니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "요금은 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "현재는 무료로 제공하고 있습니다. 추후 유료 전환 시에는 월 구독형으로 안내드릴 예정입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "다른 보호자들과 교류할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "추후 리더보드를 도입해, 다른 보호자의 앵무새가 얼마나 학습했는지 확인하고 서로의 진행 상황을 공유할 수 있는 기능을 제공할 예정입니다."
+          }
+        }
+      ]
     }
   ]
 }
