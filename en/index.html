@@ -47,35 +47,104 @@
       "@type": "Organization",
       "@id": "https://buddybird.xyz/#org",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "url": "https://buddybird.xyz/",
       "logo": "https://buddybird.xyz/assets/icons/app-icon.png",
       "sameAs": [
         "https://www.instagram.com/buddybird.xyz/",
         "https://www.threads.com/@buddybird.xyz"
-      ]
+      ],
+      "legalName": "joynnovate"
     },
     {
       "@type": "WebSite",
       "@id": "https://buddybird.xyz/#website",
       "url": "https://buddybird.xyz/",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "inLanguage": "en-US",
-      "publisher": { "@id": "https://buddybird.xyz/#org" }
+      "publisher": {
+        "@id": "https://buddybird.xyz/#org"
+      }
     },
     {
       "@type": "MobileApplication",
+      "@id": "https://buddybird.xyz/en/#app",
       "name": "BuddyBird",
+      "alternateName": "버디버드",
       "operatingSystem": "iOS, Android",
       "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": "Pet Care",
       "inLanguage": "en-US",
       "description": "An AI service that keeps teaching your parrot new words while you're away.",
+      "disambiguatingDescription": "BuddyBird is a mobile app that teaches pet parrots to talk. It is a separate, unrelated service from Bird Buddy, the smart bird feeder hardware company with a similar name.",
+      "featureList": [
+        "Register a parrot profile and set learning goals",
+        "AI repeats target words and prompts the parrot to answer while you're away",
+        "Pronunciation accuracy measured with MFCC and DTW algorithms",
+        "LLM-recommended next word and difficulty",
+        "Training reports with recordings of each session"
+      ],
       "url": "https://buddybird.xyz/en/",
       "downloadUrl": [
         "https://apps.apple.com/app/id6783652711",
         "https://play.google.com/store/apps/details?id=com.joynnovate.buddybird"
       ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
-      "publisher": { "@id": "https://buddybird.xyz/#org" }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "publisher": {
+        "@id": "https://buddybird.xyz/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://buddybird.xyz/en/#faq",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which parrot species are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We aren't specialized for specific species yet, but species-tailored training is on the way."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I do this with just my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all you need is your smartphone. Just install the app and set it near the cage. The phone's microphone listens to your parrot and handles the training and care. You don't need any extra devices or equipment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does training work even when I'm away?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Even when you're not there, AI repeats words for your parrot and encourages them to say it back. It listens through the mic, praises them when they get it right, and drops back to easier words when they struggle, all on its own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's free to use right now. If we introduce paid plans later, they'll be offered as a monthly subscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I connect with other owners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We plan to add a leaderboard where you can see how much other owners' parrots have learned and share each other's progress."
+          }
+        }
+      ]
     }
   ]
 }

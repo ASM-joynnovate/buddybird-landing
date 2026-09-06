@@ -91,4 +91,10 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 ## 배포
 
-GitHub Pages가 `main` 브랜치 루트를 그대로 서빙한다(도메인 `buddybird.xyz`). 작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 Pages가 빌드한다.
+`main`에 머지되면 GitHub Actions(`.github/workflows/deploy.yml`)가 AWS S3로 파일을 sync하고 CloudFront 캐시를 무효화한다. 도메인 `buddybird.xyz`는 Cloudflare DNS(CNAME, DNS-only)로 CloudFront에 붙는다.
+
+작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 main push로 배포가 돈다.
+
+- 인증은 OIDC로 aws-infra가 만든 사이트 배포 역할을 assume한다(장기 키 없음). 사이트 신뢰 정책 sub이 `ref:refs/heads/main`이라 배포 job에는 `environment:`를 붙이지 않는다.
+- 인프라 식별자는 repo secrets로 주입한다(Settings → Secrets and variables → Actions → Secrets): `AWS_DEPLOY_ROLE_ARN`, `SITE_BUCKET`, `SITE_DISTRIBUTION_ID`. 이 저장소는 public이고 aws-infra는 private이라 계정 정보를 코드·로그에 남기지 않는다.
+- 인프라 정의(S3·CloudFront·OIDC 역할)는 사내 `aws-infra`의 `buddybird-app`(Pulumi)에 있다. 리전 `ap-northeast-2`.
