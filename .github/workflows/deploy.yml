@@ -42,6 +42,7 @@ jobs:
             --include "index.html" \
             --include "robots.txt" \
             --include "sitemap.xml" \
+            --include "llms.txt" \
             --include "assets/*" \
             --include "ko/*" \
             --include "en/*" \
