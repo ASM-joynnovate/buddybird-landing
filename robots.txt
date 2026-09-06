@@ -1,4 +1,13 @@
 # https://buddybird.xyz/robots.txt
+#
+# 생성형 엔진 크롤러(GPTBot·OAI-SearchBot·PerplexityBot·ClaudeBot·Google-Extended·
+# Applebot-Extended 등)를 일부러 막지 않는다. AI 답변에 인용되는 것이 목표다.
+#
+# 이름을 딴 그룹을 따로 두지 않는 이유: robots.txt 는 크롤러마다 가장 구체적인
+# 그룹 "하나만" 적용한다. GPTBot 그룹을 만들면 GPTBot 은 * 그룹을 아예 안 읽으므로,
+# 나중에 * 에 Disallow 를 추가해도 그 크롤러들만 조용히 빠져나간다.
+# Google-Extended·Applebot-Extended 는 명시하지 않으면 허용이 기본값이라
+# 적어둘 실익도 없다. 차단할 크롤러가 생기면 그때 그 이름으로 그룹을 만든다.
 User-agent: *
 Allow: /
 Disallow: /tools/

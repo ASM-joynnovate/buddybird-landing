@@ -1,0 +1,51 @@
+# BuddyBird (버디버드)
+
+> BuddyBird is a mobile app that teaches pet parrots to speak. AI repeats target
+> words to the bird through a phone speaker, listens to the reply through the
+> phone microphone, scores how closely the parrot mimicked the word, and picks
+> the next word — so training continues while the owner is away from home.
+> No hardware beyond a smartphone is required. Free on iOS and Android.
+>
+> BuddyBird 는 반려 앵무새에게 말을 가르치는 모바일 앱이다. 보호자가 자리를 비운
+> 사이에도 AI 가 단어를 반복해 들려주고, 마이크로 앵무새의 반응을 들어 발음을
+> 채점한 뒤 다음 단어를 고른다. 스마트폰 외의 장비는 필요 없고, iOS·Android 무료.
+
+Not to be confused with **Bird Buddy**, the smart bird-feeder hardware company.
+BuddyBird is an unrelated software product for pet parrot owners, made by
+joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서비스다.
+
+## How it works
+
+1. **Sound input** — the phone microphone collects the parrot's vocalizations and cage noise.
+2. **Sound analysis** — MFCC and DTW algorithms measure pronunciation accuracy and how closely each target word was mimicked.
+3. **Adaptive coaching** — an LLM recommends the next word and difficulty level, and writes a plain-language guide for the owner.
+4. **Reports** — the next session continues automatically and progress is delivered as a report with recordings.
+
+## Facts
+
+- Category: pet care / parrot training, mobile app (iOS and Android)
+- Price: free (a monthly subscription may be introduced later)
+- Equipment needed: a smartphone only — no additional hardware
+- Languages: Korean, English
+- Maker: joynnovate
+- Species support: not species-specific today; species-tailored training is planned
+
+## Pages
+- [English landing page](https://buddybird.xyz/en/): product overview, features, FAQ
+- [English support](https://buddybird.xyz/en/support/): contact and help
+- [English privacy policy](https://buddybird.xyz/en/privacy/)
+- [English terms of service](https://buddybird.xyz/en/terms/)
+- [Korean landing page](https://buddybird.xyz/ko/): 제품 소개·기능·FAQ (한국어)
+- [Korean support](https://buddybird.xyz/ko/support/)
+- [Korean privacy policy](https://buddybird.xyz/ko/privacy/)
+- [Korean terms of service](https://buddybird.xyz/ko/terms/)
+
+## Download
+
+- [App Store](https://apps.apple.com/app/id6783652711)
+- [Google Play](https://play.google.com/store/apps/details?id=com.joynnovate.buddybird)
+
+## Social
+
+- [Instagram](https://www.instagram.com/buddybird.xyz/)
+- [Threads](https://www.threads.com/@buddybird.xyz)
