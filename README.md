@@ -95,6 +95,7 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 main push로 배포가 돈다.
 
+- S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다.
 - 인증은 OIDC로 aws-infra가 만든 사이트 배포 역할을 assume한다(장기 키 없음). 사이트 신뢰 정책 sub이 `ref:refs/heads/main`이라 배포 job에는 `environment:`를 붙이지 않는다.
 - 인프라 식별자는 repo secrets로 주입한다(Settings → Secrets and variables → Actions → Secrets): `AWS_DEPLOY_ROLE_ARN`, `SITE_BUCKET`, `SITE_DISTRIBUTION_ID`. 이 저장소는 public이고 aws-infra는 private이라 계정 정보를 코드·로그에 남기지 않는다.
 - 인프라 정의(S3·CloudFront·OIDC 역할)는 사내 `aws-infra`의 `buddybird-app`(Pulumi)에 있다. 리전 `ap-northeast-2`.
