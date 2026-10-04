@@ -40,6 +40,7 @@ jobs:
           aws s3 sync . "s3://${{ secrets.SITE_BUCKET }}" --delete \
             --exclude "*" \
             --include "index.html" \
+            --include "naver349fb6aafe7542a79514196f0b05ae53.html" \
             --include "robots.txt" \
             --include "sitemap.xml" \
             --include "llms.txt" \
