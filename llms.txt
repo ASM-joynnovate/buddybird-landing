@@ -31,7 +31,7 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - Equipment needed: a smartphone only — no additional hardware
 - Languages: Korean, English
 - Maker: joynnovate
-- Species support: not species-specific today; species-tailored training is planned
+- Species support: no species restrictions, any parrot can use it
 
 ## Pages
 - [English landing page](https://buddybird.xyz/en/): product overview, features, FAQ
