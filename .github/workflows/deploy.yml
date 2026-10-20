@@ -13,8 +13,7 @@ on:
     branches: [main]
     paths-ignore:
       - CHANGELOG.md
-      - version.txt
-      - .release-please-manifest.json
+      - .github/.release-please-manifest.json
   workflow_dispatch:
 
 permissions:
