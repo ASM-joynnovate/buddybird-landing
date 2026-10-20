@@ -72,6 +72,7 @@ jobs:
             --include "en/*" \
             --include "ja/*" \
             --include "ru/*" \
+            --include "es/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
