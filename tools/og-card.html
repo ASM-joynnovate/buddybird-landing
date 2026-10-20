@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-  og-card.html — buddybird.xyz 링크 공유 미리보기(og-image.png / og-image-en.png / og-image-ja.png / og-image-ru.png) 생성용 소스.
-  헤드리스 Chrome로 1200×630 렌더 → 한국어는 그대로, 영어는 ?lang=en, 일본어는 ?lang=ja, 러시아어는 ?lang=ru 로 렌더.
+  og-card.html — buddybird.xyz 링크 공유 미리보기(og-image.png / og-image-en.png / og-image-ja.png / og-image-ru.png / og-image-es.png) 생성용 소스.
+  헤드리스 Chrome로 1200×630 렌더 → 한국어는 그대로, 영어는 ?lang=en, 일본어는 ?lang=ja, 러시아어는 ?lang=ru, 스페인어는 ?lang=es 로 렌더.
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
       --screenshot=assets/og-image.png    "http://localhost:8910/tools/og-card.html"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
@@ -10,6 +10,8 @@
       --screenshot=assets/og-image-ja.png "http://localhost:8910/tools/og-card.html?lang=ja"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
       --screenshot=assets/og-image-ru.png "http://localhost:8910/tools/og-card.html?lang=ru"
+    chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
+      --screenshot=assets/og-image-es.png "http://localhost:8910/tools/og-card.html?lang=es"
   (사이트 본문이 아니라 OG 이미지 빌드용 파일입니다.)
 -->
 <html lang="ko">
@@ -38,6 +40,7 @@
   html[lang="en"] h1 { font-size: 48px; }
   html[lang="ja"] h1 { font-size: 52px; }
   html[lang="ru"] h1 { font-size: 46px; }
+  html[lang="es"] h1 { font-size: 46px; }
   .free { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 21px; color: #6B5A45; }
   .free b { color: #3C3C3C; }
 
@@ -73,7 +76,7 @@
   <div class="note n2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.8v14.4c0 .9 1 1.4 1.7.9l10.6-7.2c.6-.4.6-1.4 0-1.8L8.7 3.9C8 3.4 7 3.9 7 4.8z"/></svg></span><span id="t2">따라 한 소리 다시 듣기</span></div>
 
 <script>
-  // ?lang=en / ?lang=ja / ?lang=ru render the English / Japanese / Russian card from the same layout
+  // ?lang=en / ?lang=ja / ?lang=ru / ?lang=es render the English / Japanese / Russian / Spanish card from the same layout
   var lang = new URLSearchParams(location.search).get('lang');
   if (lang === 'en') {
     document.documentElement.lang = 'en';
@@ -95,6 +98,13 @@
     document.getElementById('t1').textContent = 'Запись вашим голосом';
     document.getElementById('t2').textContent = 'Слушайте, что он повторил';
     document.getElementById('shot').src = '../assets/images/ru/screen-summary.webp';
+  } else if (lang === 'es') {
+    document.documentElement.lang = 'es';
+    document.getElementById('h').innerHTML = 'Mientras estás fuera,<br><span class="hl">tu loro aprende a hablar</span>';
+    document.getElementById('f').innerHTML = 'Gratis<b>en App Store y Google Play</b>';
+    document.getElementById('t1').textContent = 'Grabado con tu voz';
+    document.getElementById('t2').textContent = 'Vuelve a oír lo que imitó';
+    document.getElementById('shot').src = '../assets/images/es/screen-summary.webp';
   }
 </script>
 </body>

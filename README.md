@@ -5,19 +5,20 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 ## 구성
 
 ### 페이지
-- `index.html` — 루트 언어 라우터. 브라우저의 선호 언어 목록(`navigator.languages`)을 순서대로 보고 지원하는 첫 언어(`/ko/`·`/ja/`·`/ru/`·`/en/`)로 보낸다. 맞는 언어가 없으면 영어. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다. 새 언어를 열면 라우터의 `LANGS`와 각 페이지의 언어 메뉴에 추가한다
+- `index.html` — 루트 언어 라우터. 브라우저의 선호 언어 목록(`navigator.languages`)을 순서대로 보고 지원하는 첫 언어(`/ko/`·`/ja/`·`/ru/`·`/es/`·`/en/`)로 보낸다. 맞는 언어가 없으면 영어. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다. 새 언어를 열면 라우터의 `LANGS`와 각 페이지의 언어 메뉴에 추가한다
 - `ko/`, `en/` — 실제 랜딩 본문. 각 언어 아래에 `privacy/`, `terms/`, `support/`가 있다
 - `ja/` — 일본어 랜딩과 `privacy/`, `terms/`, `support/`. 개인정보 처리방침·이용약관은 한국어판을 번역한 것이다
 - `ru/` — 러시아어 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같다. 키릴 문자는 Nunito(Google Fonts)가 그리므로 글꼴 서브셋이 따로 없다
+- `es/` — 스페인어(스페인, 앱과 같은 es-ES·tú) 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같고, 글자는 Nunito가 그린다
 - 개인정보 처리방침·이용약관은 한국어판이 원본이다. 각 언어판의 마지막 조항(언어)에 "번역본과 다르면 한국어판이 우선한다"고 적어 두었으니, 한국어판을 고치면 다른 언어판도 함께 고친다
 - 언어 없는 `/privacy/`, `/terms/`, `/support/` — 파일은 없다. CloudFront 가 없는 경로에 루트 `index.html`을 돌려주므로, 라우터가 경로를 보고 방문자 언어의 같은 문서(`/ja/privacy/` 등)로 보낸다
 - `dl/` — 스토어 진입점. 아래 "스토어 링크와 QR" 참고
 
 ### 에셋
 - `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity)
-- `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/` — 언어별 앱 스크린샷. `ja`·`ru`는 로컬 mock 데이터로 찍은 화면이다
+- `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/`, `assets/images/es/` — 언어별 앱 스크린샷. `ja`·`ru`·`es`는 로컬 mock 데이터로 찍은 화면이다
 - `assets/icons/` — `app-icon.png`(앵무새 원본 2048), `apple-touch-icon.png`(180), `favicon.png`(48)
-- `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
+- `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png`, `og-image-es.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
 - `assets/fonts/` — 일본어 글꼴(M PLUS Rounded 1c) 서브셋. 페이지에 쓰인 글자만 담아 굵기당 40~100KB다. 일본어 문구를 고치면 `pip install fonttools brotli` 후 `python3 scripts/subset-fonts.py`로 다시 만든다. CI가 `--check`로 빠진 글자를 잡는다
 - 글꼴: 영문·숫자는 Nunito, 일본어는 M PLUS Rounded 1c, 한글은 Pretendard. 글꼴 목록은 Nunito → (언어 글꼴) → Pretendard 순서이고, 브라우저는 앞 글꼴에 없는 글자만 다음 글꼴로 그린다. 새 언어는 같은 둥근 계열을 목록에 더한다(힌디어 Baloo 2, 벵골어 Baloo Da 2)
 - `assets/qr/` — `/dl/`로 가는 QR 코드
@@ -48,7 +49,7 @@ https://apps.apple.com/app/id6783652711
 
 `/kr/`이나 `/us/`를 끼우면 그 지역 스토어로 고정되어, 다른 지역 계정 사용자는 설치할 수 없는 페이지를 보게 된다. 지역 코드를 빼면 Apple이 방문자 계정 지역의 스토어로 라우팅한다.
 
-Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`, `/ja/`, `/ru/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
+Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`, `/ja/`, `/ru/`, `/es/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
 
 링크가 들어 있는 곳은 언어별 랜딩의 하단 CTA와 `<head>`의 JSON-LD `downloadUrl`, 그리고 `dl/index.html`이다. 앱 ID가 바뀌면 세 곳을 함께 고쳐야 한다.
 
