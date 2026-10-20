@@ -1,6 +1,6 @@
 // analytics.js — Firebase Analytics(GA4) + Microsoft Clarity
-// 정적 HTML 사이트(DotComponents)용 분석 연동. index.html <head>에서
-// <script type="module" src="./analytics.js"></script> 로 로드된다.
+// 정적 HTML 사이트(DotComponents)용 분석 연동. 페이지에서 직접 로드하지 않고,
+// consent.js 가 방문자 동의를 확인한 뒤 동적 import 로 로드한다.
 //
 // 주의: 아래 Firebase 웹 config와 Clarity 프로젝트 ID는 클라이언트에 노출되도록
 // 설계된 공개 값이므로 그대로 커밋해도 보안상 문제 없다.

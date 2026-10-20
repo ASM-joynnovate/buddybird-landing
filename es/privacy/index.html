@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad · BuddyBird</title>
+<meta name="description" content="Política de privacidad de BuddyBird. Para mejorar la calidad de la app, se recogen algunos datos mediante herramientas de análisis; aquí se explica qué datos se recogen, para qué, el encargo del tratamiento a terceros y las transferencias internacionales.">
+<link rel="canonical" href="https://buddybird.xyz/es/privacy/">
+<link rel="alternate" hreflang="ko" href="https://buddybird.xyz/ko/privacy/">
+<link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/privacy/">
+<link rel="alternate" hreflang="ja" href="https://buddybird.xyz/ja/privacy/">
+<link rel="alternate" hreflang="ru" href="https://buddybird.xyz/ru/privacy/">
+<link rel="alternate" hreflang="es" href="https://buddybird.xyz/es/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/privacy/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FF9600">
+
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #ffffff;
+    font-family: 'Nunito','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
+    color: #3C3C3C;
+    line-height: 1.5;
+    font-weight: 700;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+
+  /* 본문(법무 텍스트) 가독성 스타일 */
+  .doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .doc h1 { margin: 0 0 10px; font-weight: 900; font-size: clamp(30px,4.5vw,42px); letter-spacing: -0.02em; }
+  .doc .dates { margin: 0 0 14px; font-weight: 800; font-size: 14px; color: #777777; }
+  .doc .dates span { color: #FF9600; }
+  .doc .lead { margin: 18px 0 0; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc h2 {
+    margin: 0 0 16px; padding-left: 14px;
+    font-weight: 900; font-size: clamp(19px,2.6vw,23px); letter-spacing: -0.01em; color: #3C3C3C;
+    border-left: 5px solid #FF9600; line-height: 1.3;
+  }
+  .doc h3 { margin: 22px 0 10px; font-weight: 800; font-size: 17px; color: #E88900; }
+  .doc article { margin-top: 44px; }
+  .doc p { margin: 0 0 12px; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc ul { margin: 0 0 12px; padding-left: 22px; }
+  .doc li { font-weight: 600; font-size: 16px; line-height: 1.7; color: #3C3C3C; margin-bottom: 6px; }
+  .doc hr { border: 0; border-top: 1px solid #EFEFEF; margin: 44px 0 0; }
+  .doc .pub { margin-top: 48px; padding-top: 22px; border-top: 1px solid #EFEFEF; font-weight: 700; font-size: 15px; color: #5A5A5A; }
+  .doc .pub p { font-weight: 700; color: #5A5A5A; margin: 0 0 6px; }
+  .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; text-decoration: none; font-weight: 800; font-size: 15px; color: #FF9600; }
+  .back:hover { color: #E88900; }
+
+  /* 헤더 nav 링크 */
+  .nav-link { text-decoration: none; color: #777777; font-weight: 800; font-size: 15px; transition: color 80ms; }
+  .nav-link:hover { color: #FF9600; }
+  /* 푸터 legal 링크 hover (정적 페이지 — style-hover 대체) */
+  .footer-link { text-decoration: none; color: #D0D0D0; font-weight: 800; font-size: 14px; transition: color 80ms; }
+  .footer-link:hover { color: #FF9600; }
+  .social { display: inline-flex; color: #B0B0B0; transition: color 80ms; }
+  .social:hover { color: #FF9600; }
+  @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+
+<script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:2px solid #F0F0F0;">
+    <nav style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;">
+      <a href="/es/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#3C3C3C;margin-right:auto;">
+        <img src="/assets/icons/apple-touch-icon.png" alt="BuddyBird" width="38" height="38" style="width:38px;height:38px;border-radius:11px;box-shadow:0 3px 0 rgba(0,0,0,0.12);display:block;" />
+        <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="/es/#day" class="nav-link">Un día con BuddyBird</a>
+        <a href="/es/#faq" class="nav-link">Preguntas frecuentes</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== 본문 ===================== -->
+  <main class="doc">
+    <h1>Política de privacidad</h1>
+    <p class="dates">Fecha de publicación <span>20 de octubre de 2026</span> · Fecha de entrada en vigor <span>20 de octubre de 2026</span></p>
+
+    <p class="lead">BuddyBird (en adelante, el “Servicio”) está gestionado por joynnovate (en adelante, el “Operador”), que concede gran importancia a los datos personales de los usuarios y cumple la Ley de Protección de Datos Personales de la República de Corea (개인정보 보호법) y el resto de la normativa aplicable.</p>
+    <p class="lead">El Servicio se usa sin registro ni inicio de sesión y no recoge datos que te identifiquen directamente, como tu nombre real, tu dirección de correo electrónico o tu número de teléfono. No obstante, para ofrecer las funciones de la app y analizar su calidad y sus errores, recoge y trata mediante herramientas de análisis los datos que se indican a continuación, y te informa de ello del siguiente modo.</p>
+
+    <article>
+      <h2>Artículo 1. Finalidades del tratamiento de los datos personales</h2>
+      <p>El Servicio no ofrece funciones de registro, inicio de sesión, pago, atención personalizada, publicidad ni marketing. No obstante, recoge y usa datos personales con las siguientes finalidades:</p>
+      <ul>
+        <li>Estadísticas de uso de la app y análisis de su usabilidad</li>
+        <li>Diagnóstico y corrección de cierres inesperados (fallos) y errores</li>
+        <li>Prestación de funciones de la app, como las notificaciones push</li>
+        <li>Mejora de la compatibilidad y el rendimiento de la app</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 2. Datos personales que se tratan</h2>
+
+      <h3>1. Datos recogidos automáticamente mediante herramientas de análisis</h3>
+      <ul>
+        <li>Dispositivo e identificadores: ID de publicidad de Android (AAID), ID de instancia de la app, ID de instalación anónimo (UUID), token de notificaciones push (FCM) e identificador de instalación para el análisis de fallos (en iOS, también el identificador de publicidad (IDFA) si permites el seguimiento)</li>
+        <li>Ubicación aproximada: ubicación a nivel de ciudad o región estimada a partir de la dirección IP (no es una ubicación precisa)</li>
+        <li>Registro de uso de la app: eventos dentro de la app, como la navegación entre pantallas, las sesiones de entrenamiento y la grabación o reproducción de palabras, y la reproducción de sesiones (recorrido de las interacciones en pantalla, como toques y deslizamientos)</li>
+        <li>Información del dispositivo y del entorno: versión de la app, versión del sistema operativo, modelo del dispositivo e idioma configurado</li>
+        <li>Información sobre cierres inesperados (fallos) y de diagnóstico: trazas de pila, estado del dispositivo en el momento del fallo, etc.</li>
+      </ul>
+
+      <h3>2. Datos que introduces tú</h3>
+      <ul>
+        <li>Nombre, especie, edad y objetivo de entrenamiento de tu loro (mascota)</li>
+        <li>Nombres de las palabras de entrenamiento que añades o editas</li>
+      </ul>
+
+      <h3>3. Datos que solo se recogen si das tu consentimiento</h3>
+      <ul>
+        <li>Sonidos grabados durante el entrenamiento y archivos de audio de las palabras que grabas, información sobre las grabaciones (como la hora y la duración), un identificador anónimo (uid anónimo de Firebase) y la versión de la app y la información del dispositivo</li>
+      </ul>
+      <p>Estos datos se envían al servidor solo si das tu consentimiento en la pantalla de consentimiento para la recogida de audio de la app, con el fin de crear y mejorar la función de entrenamiento de la pronunciación del loro. Si no das tu consentimiento, las grabaciones se guardan solo en tu dispositivo, y negarte no cambia en nada el uso del Servicio.</p>
+      <p>Parte del texto que introduces, como el nombre del loro y los nombres de las palabras de entrenamiento, se envía a herramientas de análisis (Google Firebase, Microsoft Clarity) para analizar la usabilidad. Se trata de información sobre la mascota y el contenido de entrenamiento, no sobre ti como cuidador.</p>
+
+      <h3>4. Datos que no se recogen</h3>
+      <ul>
+        <li>Datos que te identifiquen directamente, como tu nombre real, tu dirección de correo electrónico o tu número de teléfono</li>
+        <li>Ubicación precisa (GPS)</li>
+        <li>Fotos y vídeos (la foto de perfil solo se usa en el dispositivo y no se envía fuera de él)</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 3. Forma de recogida de los datos personales</h2>
+      <p>El Servicio recoge datos personales de las siguientes formas:</p>
+      <ul>
+        <li>Recogida automática mediante herramientas de análisis (Google Firebase Analytics, Crashlytics y Cloud Messaging, y Microsoft Clarity) mientras usas la app</li>
+        <li>Datos que introduces tú directamente en la app</li>
+        <li>Envío al servidor del Operador de las grabaciones de los usuarios que han dado su consentimiento para la recogida de audio</li>
+      </ul>
+      <p>Todos los datos recogidos se transmiten cifrados (HTTPS/TLS) a través de redes de comunicaciones.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 4. Tratamiento y plazo de conservación de los datos personales</h2>
+      <p>Los datos de análisis y diagnóstico recogidos automáticamente se conservan según la política de conservación de datos de cada proveedor de análisis (por ejemplo, hasta 14 meses por defecto en Firebase Analytics y unos 90 días en Firebase Crashlytics).</p>
+      <p>Los datos que introduces (información del loro, palabras de entrenamiento, etc.) se guardan por defecto en el dispositivo y, si desinstalas la app, se eliminan junto con los identificadores anónimos.</p>
+      <p>Las grabaciones y la información sobre las grabaciones enviadas al servidor con tu consentimiento para la recogida de audio se eliminan automáticamente una vez transcurridos 180 días desde su recogida.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 5. Cesión de datos personales a terceros</h2>
+      <p>El Servicio no vende tus datos personales ni los cede a terceros, salvo en los casos expresamente previstos por la ley.</p>
+      <p>No obstante, encarga a servicios externos especializados las tareas de análisis y diagnóstico de errores necesarias para su funcionamiento, tal como se indica en el artículo 6.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 6. Encargo del tratamiento y transferencia internacional de datos personales</h2>
+      <p>Para mejorar la calidad de la app y analizar las estadísticas de uso y los errores, el Servicio encarga el tratamiento de datos personales a los servicios en el extranjero que se indican a continuación. Además, para gestionar sus servidores, usa un servicio en la nube con región en la República de Corea.</p>
+
+      <h3>1. Google LLC (Firebase)</h3>
+      <ul>
+        <li>Destinatario: Google LLC</li>
+        <li>País de destino / lugar de almacenamiento: Estados Unidos</li>
+        <li>Datos transferidos: identificadores del dispositivo y de publicidad, ubicación aproximada, registro de uso de la app, información sobre fallos y de diagnóstico, etc.</li>
+        <li>Tareas encargadas: análisis de estadísticas de uso (Analytics), diagnóstico de cierres inesperados (Crashlytics) y notificaciones push (Cloud Messaging)</li>
+        <li>Momento y forma de la transferencia: al usar la app, mediante transmisión cifrada (HTTPS/TLS) a través de redes de comunicaciones</li>
+      </ul>
+
+      <h3>2. Microsoft Corporation (Clarity)</h3>
+      <ul>
+        <li>Destinatario: Microsoft Corporation</li>
+        <li>País de destino / lugar de almacenamiento: Estados Unidos</li>
+        <li>Datos transferidos: registro de uso de la app, reproducción de sesiones, información del dispositivo, datos de comportamiento del usuario, etc.</li>
+        <li>Tareas encargadas: mejora de la usabilidad y análisis de la experiencia de usuario</li>
+        <li>Momento y forma de la transferencia: al usar la app, mediante transmisión cifrada (HTTPS/TLS) a través de redes de comunicaciones</li>
+      </ul>
+
+      <h3>3. Amazon Web Services, Inc. (AWS)</h3>
+      <ul>
+        <li>Encargado del tratamiento: Amazon Web Services, Inc.</li>
+        <li>Lugar de almacenamiento: República de Corea (región de Seúl)</li>
+        <li>Datos tratados: grabaciones de los usuarios que han dado su consentimiento para la recogida de audio, información sobre las grabaciones, identificadores anónimos, y versión de la app e información del dispositivo</li>
+        <li>Tareas encargadas: gestión del servidor y almacenamiento de las grabaciones</li>
+        <li>Plazo de conservación: eliminación automática una vez transcurridos 180 días desde la recogida</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 7. Consentimiento para la recogida y el uso de datos personales y cómo negarlo</h2>
+      <p>Puedes elegir lo siguiente sobre la recogida de datos personales con fines de análisis y seguimiento:</p>
+      <ul>
+        <li>iOS: la primera vez que abres la app, se te pide permiso para el seguimiento (App Tracking Transparency). Si lo deniegas, se desactiva la recogida de datos de análisis y seguimiento, incluido el identificador de publicidad (IDFA) (salvo el diagnóstico de fallos). Puedes cambiarlo en [Ajustes] → [Privacidad y seguridad] → [Rastreo].</li>
+        <li>Android: los datos de análisis y diagnóstico se recogen automáticamente para prestar las funciones de la app y no se pueden desactivar por separado dentro de la app. Si quieres detener la recogida de datos, desinstala la app.</li>
+      </ul>
+      <p>Aunque no des tu consentimiento, puedes seguir usando con normalidad las funciones principales de entrenamiento de la app.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 8. Tratamiento de datos personales de menores de 14 años</h2>
+      <p>El Servicio es una aplicación para todos los públicos (clasificación por edad en las tiendas de apps: a partir de 3 años) que no se dirige a ningún grupo de edad concreto, y está pensada para que la usen las personas que cuidan de aves de compañía.</p>
+      <p>El Servicio no recoge datos personales de menores de 14 años sin el consentimiento de su representante legal. Si un menor de 14 años usa el Servicio, se recomienda que lo haga bajo la orientación y supervisión de su representante legal (madre, padre o tutor).</p>
+      <p>Si el Operador tiene conocimiento de que se han recogido datos personales de un menor de 14 años sin el consentimiento de su representante legal, los destruirá sin demora. Las solicitudes de acceso o supresión de los datos personales de un menor y otras consultas relacionadas pueden dirigirse a los datos de contacto que figuran en el artículo 15.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 9. Cookies e información sobre el comportamiento</h2>
+      <p>El Servicio no muestra publicidad personalizada. No obstante, las herramientas de análisis mencionadas pueden usar identificadores de publicidad, identificadores del dispositivo y otros similares para elaborar estadísticas de uso y analizar la usabilidad.</p>
+      <p>Puedes limitar parte de esta recogida restableciendo o eliminando el identificador de publicidad, o limitando la personalización de anuncios, en los ajustes de tu dispositivo.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 10. Procedimiento y forma de destrucción de los datos personales</h2>
+      <p>Si desinstalas la app, se eliminan los datos guardados en el dispositivo y los identificadores anónimos. Los datos enviados a los servicios de análisis se destruyen al terminar el plazo de conservación, según la política de conservación de cada proveedor. Las grabaciones y la información sobre las grabaciones enviadas al servidor se destruyen automáticamente una vez transcurridos 180 días desde su recogida.</p>
+      <p>Los datos en formato de archivo electrónico se eliminan de forma segura para que no puedan recuperarse ni reproducirse.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 11. Medidas para garantizar la seguridad de los datos personales</h2>
+      <p>El Operador aplica las siguientes medidas para garantizar la seguridad de los datos personales:</p>
+      <ul>
+        <li>Cifrado en tránsito: todos los datos recogidos se transmiten cifrados (HTTPS/TLS) a través de redes de comunicaciones.</li>
+        <li>Medidas de protección administrativas y técnicas: se mantienen medidas administrativas y técnicas razonables, como la gestión de los permisos de acceso a los datos personales.</li>
+      </ul>
+      <p>No obstante, ningún método de transmisión por redes de comunicaciones ni de almacenamiento electrónico es completamente seguro, por lo que el Operador no puede garantizar una seguridad absoluta.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 12. Derechos y obligaciones del interesado y cómo ejercerlos</h2>
+      <p>Puedes ejercer los siguientes derechos en relación con la protección de tus datos personales:</p>
+      <ul>
+        <li>Solicitar el acceso a tus datos personales</li>
+        <li>Solicitar la rectificación o la supresión de tus datos personales</li>
+        <li>Solicitar la suspensión del tratamiento de tus datos personales</li>
+        <li>Solicitar la retirada de tu consentimiento</li>
+      </ul>
+      <p>Puedes presentar estas solicitudes a través de los datos de contacto que figuran en el artículo 15.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 13. Derechos adicionales de los residentes en Estados Unidos</h2>
+      <p>Si resides en determinados estados de Estados Unidos (por ejemplo, California, Virginia, Colorado, Connecticut, Utah o Texas), es posible que, según la legislación de tu estado, tengas todos o algunos de los siguientes derechos:</p>
+      <ul>
+        <li>Derecho a saber qué datos personales ha recogido el Operador y a acceder a ellos</li>
+        <li>Derecho a solicitar la supresión de tus datos personales</li>
+        <li>Derecho a solicitar la rectificación de datos personales inexactos</li>
+        <li>Derecho a oponerte (opt-out) a la “venta” o al “intercambio” de datos personales y a la publicidad dirigida</li>
+        <li>Derecho a solicitar que se limite el uso de datos personales sensibles</li>
+        <li>Derecho a no ser discriminado por ejercer tus derechos</li>
+      </ul>
+
+      <h3>1. Categorías de datos personales que se recogen</h3>
+      <p>Según las categorías de la Ley de Privacidad del Consumidor de California (CCPA/CPRA), el Operador recoge identificadores (identificadores del dispositivo y de publicidad), información sobre la actividad en internet u otras redes electrónicas (registro de uso de la app y reproducción de sesiones), información de ubicación aproximada (a nivel de ciudad o región, no precisa) e información de audio (grabaciones, si has dado tu consentimiento para la recogida de audio). No recoge números de identificación emitidos por el gobierno, como el número de la Seguridad Social, información de cuentas financieras, ubicación precisa ni datos biométricos.</p>
+
+      <h3>2. Venta e intercambio</h3>
+      <p>El Operador no vende datos personales a cambio de una contraprestación económica ni los usa para mostrarte publicidad dirigida. No obstante, los proveedores de las herramientas de análisis recogen identificadores de publicidad e identificadores del dispositivo. En la medida en que esto se considere un “intercambio” con fines de publicidad conductual entre contextos (cross-context behavioral advertising) según la legislación estatal aplicable, puedes oponerte en cualquier momento mediante los ajustes de publicidad de tu dispositivo y, en iOS, denegando el seguimiento (véase el artículo 7). El Operador no vende ni intercambia a sabiendas datos personales de consumidores menores de 16 años.</p>
+
+      <h3>3. Datos personales sensibles</h3>
+      <p>El Operador no recoge datos personales sensibles, como la ubicación precisa, con el fin de inferir características sobre ti, ni usa o divulga datos personales sensibles más allá de las finalidades que permite la ley.</p>
+
+      <h3>4. Cómo ejercer tus derechos</h3>
+      <p>Puedes ejercer tus derechos enviando una solicitud por correo electrónico (joynnovate@gmail.com). Como el Servicio funciona sin registro ni inicio de sesión, por lo general el Operador no puede vincular los datos de análisis recogidos con tu identidad, por lo que puede tener limitaciones para localizar los datos de un usuario concreto. La forma más eficaz de controlar tus datos es desinstalar la app (lo que elimina los datos del dispositivo y los identificadores anónimos) y usar las opciones descritas en el artículo 7. El Operador no te discriminará por ejercer tus derechos y, si la legislación de tu estado prevé un procedimiento de recurso, puedes recurrir respondiendo a la contestación del Operador.</p>
+
+      <h3>5. “Shine the Light” de California</h3>
+      <p>El Operador no cede datos personales a terceros para los fines de marketing directo de esos terceros.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 14. Información adicional para residentes en el Espacio Económico Europeo, el Reino Unido y Suiza</h2>
+      <p>Si resides en el Espacio Económico Europeo (EEE), el Reino Unido o Suiza, se te aplica además este artículo conforme al Reglamento General de Protección de Datos de la Unión Europea (RGPD) y a la legislación equivalente. En lo no previsto en este artículo, se aplican los artículos 1 a 13.</p>
+
+      <h3>1. Base jurídica del tratamiento</h3>
+      <ul>
+        <li>Prestación de las funciones de la app, como las notificaciones push: tratamiento necesario para prestar el servicio que has solicitado (artículo 6, apartado 1, letra b), del RGPD)</li>
+        <li>Diagnóstico de cierres inesperados (fallos) y errores, y mejora de la compatibilidad y el rendimiento de la app: interés legítimo del Operador en prestar un servicio estable (letra f) del mismo apartado)</li>
+        <li>Estadísticas de uso de la app y análisis de la usabilidad: tu consentimiento, si has permitido el seguimiento en iOS (letra a) del mismo apartado); en los demás casos, el interés legítimo del Operador en mejorar el Servicio (letra f) del mismo apartado)</li>
+        <li>Recogida de grabaciones e información sobre las grabaciones: tu consentimiento (letra a) del mismo apartado)</li>
+      </ul>
+      <p>Cuando el tratamiento se basa en el interés legítimo, el Operador limita los datos tratados a lo que no vulnere tus derechos e intereses. El Operador no toma decisiones automatizadas, incluida la elaboración de perfiles, que produzcan efectos jurídicos en ti o te afecten significativamente de modo similar.</p>
+
+      <h3>2. Derechos del interesado</h3>
+      <p>Además de los derechos del artículo 12, tienes los siguientes derechos:</p>
+      <ul>
+        <li>Derecho a la limitación del tratamiento: derecho a solicitar que se limite el tratamiento en los casos previstos por la ley, por ejemplo, mientras impugnas la exactitud de los datos</li>
+        <li>Derecho a la portabilidad de los datos: derecho a recibir en un formato estructurado los datos tratados de forma automatizada sobre la base de tu consentimiento o de la necesidad de prestar el servicio, o a solicitar que se transmitan a otro responsable del tratamiento</li>
+        <li>Derecho de oposición: derecho a oponerte en cualquier momento al tratamiento basado en el interés legítimo</li>
+        <li>Derecho a retirar el consentimiento: puedes retirar tu consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento realizado antes de su retirada</li>
+      </ul>
+      <p>Puedes ejercer tus derechos a través de los datos de contacto que figuran en el artículo 15, y el Operador responderá en el plazo de un mes desde la recepción de la solicitud. Como el Servicio funciona sin registro ni inicio de sesión, el ejercicio de tus derechos sobre datos que no permiten al Operador identificarte puede verse limitado, salvo que facilites la información adicional necesaria para tu identificación (artículo 11 del RGPD).</p>
+
+      <h3>3. Derecho a presentar una reclamación ante una autoridad de control</h3>
+      <p>Puedes presentar una reclamación ante la autoridad de control de protección de datos del lugar en que residas, trabajes o se haya producido la infracción. Por ejemplo, en España puedes presentarla ante la Agencia Española de Protección de Datos (AEPD), www.aepd.es.</p>
+
+      <h3>4. Transferencias fuera del Espacio Económico Europeo</h3>
+      <p>Cuando tus datos se transfieren fuera del EEE, se aplican las siguientes garantías:</p>
+      <ul>
+        <li>Operador establecido en la República de Corea y servidores de la región de Seúl: decisión de adecuación de la Comisión Europea relativa a la República de Corea (diciembre de 2021)</li>
+        <li>Encargados del tratamiento estadounidenses del artículo 6 (Google LLC, Microsoft Corporation y Amazon Web Services, Inc.): certificación de cada encargado en el Marco de Privacidad de Datos UE-EE. UU. y cláusulas contractuales tipo (CCT) de la Comisión Europea</li>
+      </ul>
+
+      <h3>5. Menores</h3>
+      <p>La edad de 14 años del artículo 8 es la que se aplica en la República de Corea y en España. Si la legislación de tu país de residencia fija una edad distinta (entre 13 y 16 años), el tratamiento basado en el consentimiento de un menor que no haya alcanzado esa edad requiere el consentimiento de su representante legal.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 15. Responsable de la protección de datos personales</h2>
+      <p>Para atender las consultas relacionadas con la protección de datos personales, se ha designado la siguiente persona responsable de la protección de datos personales:</p>
+      <ul>
+        <li>Persona responsable: Heejin Jung (정희진)</li>
+        <li>Correo electrónico: joynnovate@gmail.com</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 16. Vías de reclamación por vulneración de derechos</h2>
+      <p>Si necesitas denunciar una vulneración de tu derecho a la protección de datos personales o recibir asesoramiento al respecto, puedes dirigirte a los siguientes organismos (todos ellos de la República de Corea):</p>
+      <ul>
+        <li>Centro de Denuncias de Vulneraciones de Datos Personales (개인정보침해신고센터): 118 (sin prefijo)</li>
+        <li>Comité de Mediación de Conflictos sobre Datos Personales (개인정보분쟁조정위원회): 1833-6972</li>
+        <li>Fiscalía Suprema (대검찰청): 1301</li>
+        <li>Agencia Nacional de Policía (경찰청): 182</li>
+      </ul>
+      <p>Si resides en el Espacio Económico Europeo, el Reino Unido o Suiza, también puedes presentar una reclamación ante la autoridad de control indicada en el artículo 14, apartado 3.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 17. Modificación de la Política de privacidad</h2>
+      <p>La presente Política de privacidad se aplica desde su fecha de entrada en vigor.</p>
+      <p>La Política de privacidad puede modificarse para reflejar cambios en la normativa aplicable o en el Servicio; en ese caso, se informará en esta página.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Artículo 18. Idioma</h2>
+      <p>La presente Política de privacidad se ha redactado en coreano. Las traducciones a otros idiomas, como el inglés o el japonés, se ofrecen para facilitar su comprensión; si una traducción difiere de la versión en coreano, prevalecerá la versión en coreano.</p>
+    </article>
+
+    <div class="pub">
+      <p>Fecha de publicación: 20 de octubre de 2026</p>
+      <p>Fecha de entrada en vigor: 20 de octubre de 2026</p>
+    </div>
+
+    <a href="/es/" class="back">← Volver al inicio</a>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#3C3C3C;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+      <div class="f-brand" style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:900;font-size:18px;">BuddyBird</span>
+          <span style="font-weight:700;font-size:13px;color:#B0B0B0;">Servicio con IA para enseñar a hablar a tu loro</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@buddybird.xyz?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
+            </a>
+          </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
+        <a href="/es/privacy/" class="footer-link">Política de privacidad</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/es/terms/" class="footer-link">Condiciones de uso</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/es/support/" class="footer-link">Ayuda</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+      <div style="border-top:1px solid #555;padding-top:22px;">
+        <span style="font-weight:700;font-size:13px;color:#888;">© 2026 joynnovate. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

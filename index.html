@@ -20,11 +20,11 @@
 <meta name="twitter:description" content="An AI service that keeps teaching your parrot new words even while you're away.">
 <meta name="twitter:image" content="https://buddybird.xyz/assets/og-image.png">
 
-<!-- 루트는 접속 언어에 따라 /ko/ 또는 /en/ 으로 연결하는 라우터. 실제 콘텐츠는 각 언어 경로에 있고,
+<!-- 루트는 접속 언어에 따라 /ko/·/en/·/ja/·/ru/·/es/ 로 연결하는 라우터. 실제 콘텐츠는 각 언어 경로에 있고,
      색인은 /en/ 으로 통합한다. 크롤러는 이 라우터를 실행해 /en/ 에 닿으므로 둘이 같은
      페이지로 묶이는데, 방향을 명시하지 않으면 Google 이 링크가 몰리는 루트를 표준으로 골라
      버린다. 여기에 noindex 까지 있으면 그 판정이 /en/ 으로 번져 /en/ 이 색인에서 빠진다.
-     hreflang 은 표준 페이지인 /ko/·/en/ 에만 두고 루트에서는 걷어낸다. -->
+     hreflang 은 표준 페이지인 /ko/·/en/·/ja/·/ru/·/es/ 에만 두고 루트에서는 걷어낸다. -->
 <link rel="canonical" href="https://buddybird.xyz/en/">
 <meta name="google-site-verification" content="2s-64dieapGG3a-nCfKSOfwd8utzq4Jt-fP0lnkTzpQ">
 <meta name="theme-color" content="#FF9600">
@@ -32,21 +32,34 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <script>
 (function () {
-  // 목적지 언어(ko/en)를 정해 해시·쿼리를 보존하며 이동한다.
-  var suffix = location.search + location.hash;
+  // 목적지 언어(ko/en/ja/ru/es)를 정해 해시·쿼리를 보존하며 이동한다.
+  // 언어 없는 /privacy·/terms·/support 는 버킷에 파일이 없어 CloudFront 가 이 라우터를 대신 돌려주므로,
+  // 경로를 보고 같은 문서의 언어판(/ko/privacy/ 등)으로 보낸다. 그 밖의 경로는 언어별 첫 화면으로 간다.
+  var page = location.pathname.replace(/^\/+|\/+$/g, '');
+  if (['privacy', 'terms', 'support'].indexOf(page) === -1) page = '';
+  var suffix = (page ? page + '/' : '') + location.search + location.hash;
   function go(lang) { location.replace('/' + lang + '/' + suffix); }
+
+  // 지원 언어. 새 언어 페이지를 만들면 여기에 코드를 더한다.
+  var LANGS = ['ko', 'en', 'ja', 'ru', 'es'];
 
   // 1) 이전에 선택/조회한 언어가 있으면 그대로 존중 (수동 전환 기억)
   try {
     var pref = localStorage.getItem('bb-lang');
-    if (pref === 'ko' || pref === 'en') { go(pref); return; }
+    if (LANGS.indexOf(pref) !== -1) { go(pref); return; }
   } catch (e) {}
 
-  // 2) 브라우저/시스템 언어로 결정한다 (한국어면 ko, 그 외 en).
-  //    접속 국가가 아니라 언어를 기준으로 삼는다. 해외 거주 한국인이나 방한한
-  //    외국인처럼 국가와 읽는 언어는 자주 어긋나고, 그때 국가 기준은 양쪽 다 틀린다.
-  var l = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-  go(l.indexOf('ko') === 0 ? 'ko' : 'en');
+  // 2) 브라우저에 설정된 선호 언어 목록을 순서대로 보고, 지원하는 첫 언어로 보낸다.
+  //    첫 언어만 보면 [pt, es, en] 처럼 미지원 언어가 앞에 있는 사용자가 en 으로 떨어진다.
+  //    없으면 en. 접속 국가·시간대가 아니라 언어를 기준으로 삼는다. 해외 거주 한국인이나
+  //    방한한 외국인처럼 국가와 읽는 언어는 자주 어긋나고, 한 시간대·국가에서 여러 언어를
+  //    쓰는 곳(인도 등)도 많아 국가 기준은 틀리기 쉽다.
+  var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  for (var i = 0; i < prefs.length; i++) {
+    var code = String(prefs[i]).toLowerCase().split('-')[0];
+    if (LANGS.indexOf(code) !== -1) { go(code); return; }
+  }
+  go('en');
 })();
 </script>
 </head>
@@ -55,13 +68,13 @@
   <noscript>
     <div style="max-width:480px;margin:96px auto;padding:0 24px;text-align:center;">
       <p style="font-weight:900;font-size:22px;margin:0 0 8px;">BuddyBird</p>
-      <p style="font-weight:700;color:#777;margin:0 0 20px;">Choose your language · 언어를 선택하세요</p>
-      <p style="font-weight:800;"><a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a></p>
+      <p style="font-weight:700;color:#777;margin:0 0 20px;">Choose your language · 언어를 선택하세요 · 言語を選択 · Выберите язык · Elige tu idioma</p>
+      <p style="font-weight:800;"><a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a> &nbsp;·&nbsp; <a href="/ru/" style="color:#FF9600;">Русский</a> &nbsp;·&nbsp; <a href="/es/" style="color:#FF9600;">Español</a></p>
     </div>
   </noscript>
   <div style="max-width:480px;margin:96px auto;padding:0 24px;text-align:center;color:#999;font-weight:700;">
     Redirecting… &nbsp;
-    <a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a>
+    <a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a> &nbsp;·&nbsp; <a href="/ru/" style="color:#FF9600;">Русский</a> &nbsp;·&nbsp; <a href="/es/" style="color:#FF9600;">Español</a>
   </div>
 </body>
 </html>

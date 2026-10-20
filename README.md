@@ -5,16 +5,23 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 ## 구성
 
 ### 페이지
-- `index.html` — 루트 언어 라우터. 브라우저 언어를 보고 `/ko/` 또는 `/en/`으로 보낸다. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다
+- `index.html` — 루트 언어 라우터. 브라우저의 선호 언어 목록(`navigator.languages`)을 순서대로 보고 지원하는 첫 언어(`/ko/`·`/ja/`·`/ru/`·`/es/`·`/en/`)로 보낸다. 맞는 언어가 없으면 영어. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다. 새 언어를 열면 라우터의 `LANGS`와 각 페이지의 언어 메뉴에 추가한다
 - `ko/`, `en/` — 실제 랜딩 본문. 각 언어 아래에 `privacy/`, `terms/`, `support/`가 있다
-- `privacy/`, `terms/`, `support/` — 예전 경로. `/ko/`의 같은 페이지로 넘기는 리다이렉트 스텁이며 외부에 이미 퍼진 링크 때문에 남겨 둔다
+- `ja/` — 일본어 랜딩과 `privacy/`, `terms/`, `support/`. 개인정보 처리방침·이용약관은 한국어판을 번역한 것이다
+- `ru/` — 러시아어 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같다. 키릴 문자는 Nunito(Google Fonts)가 그리므로 글꼴 서브셋이 따로 없다
+- `es/` — 스페인어(스페인, 앱과 같은 es-ES·tú) 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같고, 글자는 Nunito가 그린다
+- 개인정보 처리방침·이용약관은 한국어판이 원본이다. 각 언어판의 마지막 조항(언어)에 "번역본과 다르면 한국어판이 우선한다"고 적어 두었으니, 한국어판을 고치면 다른 언어판도 함께 고친다
+- 언어 없는 `/privacy/`, `/terms/`, `/support/` — 파일은 없다. CloudFront 가 없는 경로에 루트 `index.html`을 돌려주므로, 라우터가 경로를 보고 방문자 언어의 같은 문서(`/ja/privacy/` 등)로 보낸다
 - `dl/` — 스토어 진입점. 아래 "스토어 링크와 QR" 참고
 
 ### 에셋
-- `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity)
-- `assets/images/ko/`, `assets/images/en/` — 언어별 앱 스크린샷
+- `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity), `consent.js`(쿠키 동의)
+- 쿠키 동의 — 페이지는 `analytics.js`를 직접 로드하지 않고 `consent.js`를 로드한다. 브라우저 시간대가 유럽(`Europe/*`, 카나리아·키프로스 등 포함)이면 동의 배너를 띄우고, 허용해야 `analytics.js`를 불러온다. 선택은 `localStorage`의 `bb-consent`에 남고 푸터의 "쿠키 설정"으로 바꿀 수 있다. 그 밖의 시간대는 바로 로드한다. 배너 일본어 문구도 글꼴 서브셋 대상이라 문구를 고치면 `subset-fonts.py`를 다시 돌린다
+- `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/`, `assets/images/es/` — 언어별 앱 스크린샷. `ja`·`ru`·`es`는 로컬 mock 데이터로 찍은 화면이다
 - `assets/icons/` — `app-icon.png`(앵무새 원본 2048), `apple-touch-icon.png`(180), `favicon.png`(48)
-- `assets/og-image.png` — 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
+- `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png`, `og-image-es.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
+- `assets/fonts/` — 일본어 글꼴(M PLUS Rounded 1c) 서브셋. 페이지에 쓰인 글자만 담아 굵기당 40~100KB다. 일본어 문구를 고치면 `pip install fonttools brotli` 후 `python3 scripts/subset-fonts.py`로 다시 만든다. CI가 `--check`로 빠진 글자를 잡는다
+- 글꼴: 영문·숫자는 Nunito, 일본어는 M PLUS Rounded 1c, 한글은 Pretendard. 글꼴 목록은 Nunito → (언어 글꼴) → Pretendard 순서이고, 브라우저는 앞 글꼴에 없는 글자만 다음 글꼴로 그린다. 새 언어는 같은 둥근 계열을 목록에 더한다(힌디어 Baloo 2, 벵골어 Baloo Da 2)
 - `assets/qr/` — `/dl/`로 가는 QR 코드
 - `tools/og-card.html` — OG 이미지 생성용 소스 (헤드리스 Chrome로 렌더)
 - `DESIGN.md` — 디자인 가이드
@@ -43,7 +50,7 @@ https://apps.apple.com/app/id6783652711
 
 `/kr/`이나 `/us/`를 끼우면 그 지역 스토어로 고정되어, 다른 지역 계정 사용자는 설치할 수 없는 페이지를 보게 된다. 지역 코드를 빼면 Apple이 방문자 계정 지역의 스토어로 라우팅한다.
 
-Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
+Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`, `/ja/`, `/ru/`, `/es/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
 
 링크가 들어 있는 곳은 언어별 랜딩의 하단 CTA와 `<head>`의 JSON-LD `downloadUrl`, 그리고 `dl/index.html`이다. 앱 ID가 바뀌면 세 곳을 함께 고쳐야 한다.
 
@@ -96,6 +103,9 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 main push로 배포가 돈다.
 
 - S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다.
+- 캐시: `assets/`는 브라우저에 1년 캐시(immutable)한다. 배포 직전 `scripts/stamp-assets.py`가 HTML의 `/assets/…` 참조에 내용 해시(`?v=…`)를 붙여, 파일이 바뀌면 URL도 바뀐다. 이 스크립트는 HTML을 직접 고치므로 로컬에서 돌렸다면 `git checkout -- '*.html'`로 되돌린다
+- HTML 등 나머지는 브라우저가 매번 확인하고(`max-age=0`), CloudFront 엣지는 1년 보관한다(`s-maxage`). 배포 때 무효화(`/*`)로 엣지를 비운다
+- `og-image*.png`, `icons/app-icon.png`는 외부(SNS·검색)에 절대 URL로 노출돼 해시를 붙일 수 없으므로 HTML과 같은 규칙이다. `assets/` 파일을 HTML이 아닌 곳에서 절대 URL로 새로 쓰게 되면 `deploy.yml`의 두 sync 목록에 같이 옮긴다
 - 인증은 OIDC로 aws-infra가 만든 사이트 배포 역할을 assume한다(장기 키 없음). 사이트 신뢰 정책 sub이 `ref:refs/heads/main`이라 배포 job에는 `environment:`를 붙이지 않는다.
 - 인프라 식별자는 repo secrets로 주입한다(Settings → Secrets and variables → Actions → Secrets): `AWS_DEPLOY_ROLE_ARN`, `SITE_BUCKET`, `SITE_DISTRIBUTION_ID`. 이 저장소는 public이고 aws-infra는 private이라 계정 정보를 코드·로그에 남기지 않는다.
 - 인프라 정의(S3·CloudFront·OIDC 역할)는 사내 `aws-infra`의 `buddybird-app`(Pulumi)에 있다. 리전 `ap-northeast-2`.

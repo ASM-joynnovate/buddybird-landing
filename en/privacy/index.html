@@ -8,6 +8,9 @@
 <link rel="canonical" href="https://buddybird.xyz/en/privacy/">
 <link rel="alternate" hreflang="ko" href="https://buddybird.xyz/ko/privacy/">
 <link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/privacy/">
+<link rel="alternate" hreflang="ja" href="https://buddybird.xyz/ja/privacy/">
+<link rel="alternate" hreflang="ru" href="https://buddybird.xyz/ru/privacy/">
+<link rel="alternate" hreflang="es" href="https://buddybird.xyz/es/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/privacy/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#FF9600">
@@ -86,7 +89,7 @@
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 </style>
 
-<script type="module" src="/assets/js/analytics.js"></script>
+<script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script>
 </head>
 <body>
 
@@ -108,121 +111,177 @@
   <!-- ===================== 본문 ===================== -->
   <main class="doc">
     <h1>Privacy Policy</h1>
-    <p class="dates">Effective date <span>September 23, 2026</span> · Last updated <span>September 23, 2026</span></p>
+    <p class="dates">Effective date <span>October 20, 2026</span> · Last updated <span>October 20, 2026</span></p>
 
-    <p class="lead">This Privacy Policy explains how joynnovate ("we," "us," or "our") collects, uses, and discloses information in connection with the BuddyBird mobile application (the "Service").</p>
-    <p class="lead">BuddyBird is used without account registration or login, and we do not collect your name, email address, or phone number. We do collect limited analytics and diagnostic information through third-party tools to operate the app and improve its quality, as described below. The Service is intended for a general audience of parrot guardians and is not directed to children under 13 (see Section 6).</p>
-
-    <article>
-      <h2>1. Information We Collect</h2>
-
-      <h3>1.1 Information collected automatically (analytics &amp; diagnostics)</h3>
-      <ul>
-        <li>Device &amp; identifiers: Android Advertising ID (AAID), app instance ID, anonymous install ID (UUID), push notification token (FCM), and a crash-analytics installation identifier. On iOS, the Identifier for Advertisers (IDFA) is included only if you allow tracking.</li>
-        <li>Approximate location: city/region-level location inferred from your IP address (not precise location).</li>
-        <li>App usage: screen navigation, learning sessions, word recording/playback and other in-app events, and session replay (interaction paths such as taps and swipes).</li>
-        <li>Device &amp; environment: app version, OS version, device model, and language setting.</li>
-        <li>Crash &amp; diagnostic information: stack traces and device state at the time of a crash.</li>
-      </ul>
-
-      <h3>1.2 Information you provide</h3>
-      <ul>
-        <li>Parrot (pet) name, species, age, and learning goal.</li>
-        <li>Word names you add or edit for learning.</li>
-      </ul>
-      <p>Some of this text (such as the parrot name and word names) is sent to analytics tools (Google Firebase, Microsoft Clarity) for usability analysis. This is information about your pet and learning content, not about you personally.</p>
-
-      <h3>1.3 Information collected only with your consent</h3>
-      <ul>
-        <li>Sounds recorded during training and word recordings you make, recording details (such as time and length), an anonymous identifier (Firebase anonymous uid), and app version and device information.</li>
-      </ul>
-      <p>This information is sent to our servers only if you agree on the in-app audio collection screen, so we can build and improve speech coaching for parrots. If you decline, recordings stay on your device only. Declining does not change how you use the app.</p>
-
-      <h3>1.4 Information we do not collect</h3>
-      <ul>
-        <li>Your name, email address, phone number, or other direct identifiers about you.</li>
-        <li>Precise (GPS) location.</li>
-        <li>Photos or videos (a profile avatar photo is used only on your device and is not transmitted).</li>
-      </ul>
-    </article>
-    <hr>
+    <p class="lead">BuddyBird (the "Service") is operated by joynnovate ("we," "us," or "our"). We value the personal information of our users and comply with the Personal Information Protection Act of Korea and other applicable laws.</p>
+    <p class="lead">The Service is used without account registration or login, and we do not collect direct identifiers about you, such as your real name, email address, or phone number. However, to provide app functionality and analyze quality and errors, we collect and process the information described below through analytics tools, and we disclose the details as follows.</p>
 
     <article>
-      <h2>2. How We Use Information</h2>
-      <p>We do not offer account registration, login, payment, customer accounts, or advertising/marketing features. We use the information above only for the following purposes:</p>
+      <h2>1. Purposes of Processing Personal Information</h2>
+      <p>The Service does not offer account registration, login, payment, customer support consultation, or advertising/marketing features. However, we collect and use personal information for the following purposes:</p>
       <ul>
         <li>App usage statistics and usability analysis</li>
         <li>Diagnosing and fixing crashes and errors</li>
-        <li>Delivering push notifications and app functionality</li>
+        <li>Providing app functionality such as push notifications</li>
         <li>Improving app compatibility and performance</li>
       </ul>
     </article>
     <hr>
 
     <article>
-      <h2>3. How We Share Information (Service Providers)</h2>
-      <p>We do not sell your personal information. We use the following service providers to analyze usage and diagnose errors on our behalf. Information is transmitted to them encrypted over HTTPS/TLS.</p>
+      <h2>2. Personal Information We Process</h2>
 
-      <h3>Google LLC (Firebase)</h3>
+      <h3>1. Information collected automatically through analytics tools</h3>
       <ul>
-        <li>Data shared: device/advertising identifiers, approximate location, app usage, and crash/diagnostic information.</li>
-        <li>Purpose: usage analytics (Analytics), crash diagnostics (Crashlytics), and push notifications (Cloud Messaging).</li>
-        <li>Processing location: United States.</li>
+        <li>Device &amp; identifiers: Android Advertising ID (AAID), app instance ID, anonymous install ID (UUID), push notification token (FCM), and a crash-analytics installation identifier (on iOS, the Identifier for Advertisers (IDFA) is included if you allow tracking)</li>
+        <li>Approximate location: city/region-level location inferred from your IP address (not precise location)</li>
+        <li>App usage: screen navigation, learning sessions, word recording/playback and other in-app events, and session replay (interaction paths such as taps and swipes)</li>
+        <li>Device &amp; environment: app version, OS version, device model, and language setting</li>
+        <li>Crash &amp; diagnostic information: stack traces, device state at the time of a crash, and similar information</li>
       </ul>
 
-      <h3>Microsoft Corporation (Clarity)</h3>
+      <h3>2. Information you enter directly</h3>
       <ul>
-        <li>Data shared: app usage, session replay, device information, and user behavior data.</li>
-        <li>Purpose: usability improvement and user experience analysis.</li>
-        <li>Processing location: United States.</li>
+        <li>Parrot (pet) name, species, age, and learning goal</li>
+        <li>Word names you add or edit for learning</li>
       </ul>
 
-      <h3>Amazon Web Services, Inc. (AWS)</h3>
+      <h3>3. Information collected only with your consent</h3>
       <ul>
-        <li>Data shared: recordings and recording details from users who agreed to audio collection, anonymous identifiers, and app version and device information.</li>
-        <li>Purpose: server hosting and storage of recordings.</li>
-        <li>Processing location: Republic of Korea (Seoul region).</li>
+        <li>Sounds recorded during training and word recordings you make, recording details (such as time and length), an anonymous identifier (Firebase anonymous uid), and app version and device information</li>
       </ul>
-      <p>We may also disclose information if required by law or to protect our legal rights.</p>
-    </article>
-    <hr>
+      <p>This information is sent to our servers only if you agree on the in-app audio collection consent screen, so we can build and improve the parrot pronunciation training feature. If you do not agree, recordings are stored on your device only, and declining does not change how you use the Service.</p>
+      <p>Some of the text you enter above, such as the parrot name and word names, is sent to analytics tools (Google Firebase, Microsoft Clarity) for usability analysis. This is information about your pet and learning content, not about you as the guardian.</p>
 
-    <article>
-      <h2>4. Data Retention</h2>
-      <p>Automatically collected analytics and diagnostic data is retained according to each provider's data-retention policy (for example, Firebase Analytics up to 14 months; Firebase Crashlytics approximately 90 days).</p>
-      <p>Information you enter (parrot information, learning words, etc.) is stored on your device by default and is deleted, together with anonymous identifiers, when you uninstall the app.</p>
-      <p>Recordings and recording details sent to our servers with your consent are deleted automatically after 180 days from collection.</p>
-    </article>
-    <hr>
-
-    <article>
-      <h2>5. Data Location &amp; International Transfer</h2>
-      <p>We are based in the Republic of Korea, and our analytics providers process data in the United States. As a result, your information may be processed and stored in the United States and the Republic of Korea. Where required, transfers are made using appropriate safeguards and providers' standard data-protection terms.</p>
-    </article>
-    <hr>
-
-    <article>
-      <h2>6. Children's Privacy</h2>
-      <p>The Service is intended for a general audience, primarily adults who keep parrots, and is not directed to children under 13. We do not knowingly collect personal information from children under 13 without verifiable parental consent.</p>
-      <p>If a child under 13 uses the Service, we recommend that they do so under the supervision of a parent or legal guardian.</p>
-      <p>If we learn that we have collected personal information from a child under 13 without the required parental consent, we will delete that information promptly. Parents or guardians may contact us at <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a> to review or request deletion of a child's information.</p>
-    </article>
-    <hr>
-
-    <article>
-      <h2>7. Your Privacy Choices</h2>
-      <p>You can control analytics and tracking as follows:</p>
+      <h3>4. Information we do not collect</h3>
       <ul>
-        <li>iOS: On first launch, the app asks for your tracking permission (App Tracking Transparency). If you decline, analytics/tracking data including the advertising identifier (IDFA) is disabled (except crash diagnostics). You can change this in Settings → Privacy &amp; Security → Tracking.</li>
-        <li>Android: Analytics and diagnostic information is collected automatically to provide app functionality and cannot be turned off individually within the app. To stop collection, uninstall the app. You can also reset or delete your advertising ID, or limit ad personalization, in your device settings.</li>
+        <li>Your real name, email address, phone number, or other direct identifiers about you</li>
+        <li>Precise (GPS) location</li>
+        <li>Photos or videos (a profile avatar photo is used only on your device and is not transmitted externally)</li>
       </ul>
-      <p>Even if you decline, the app's core learning features continue to work.</p>
     </article>
     <hr>
 
     <article>
-      <h2>8. Your U.S. State Privacy Rights</h2>
-      <p>Depending on your state of residence (for example, California, Virginia, Colorado, Connecticut, Utah, or Texas), you may have some or all of the following rights regarding your personal information:</p>
+      <h2>3. How We Collect Personal Information</h2>
+      <p>The Service collects personal information in the following ways:</p>
+      <ul>
+        <li>Automatic collection through analytics tools (Google Firebase Analytics, Crashlytics, and Cloud Messaging; Microsoft Clarity) while you use the app</li>
+        <li>Information you enter directly in the app</li>
+        <li>Transmission of recordings to our servers from users who agreed to audio collection</li>
+      </ul>
+      <p>All collected information is transmitted over the network encrypted using HTTPS/TLS.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>4. Processing and Retention Period of Personal Information</h2>
+      <p>Automatically collected analytics and diagnostic information is retained according to each analytics provider's data-retention policy (for example, Firebase Analytics up to 14 months by default; Firebase Crashlytics approximately 90 days).</p>
+      <p>Information you enter (parrot information, learning words, etc.) is stored on your device by default, and when you uninstall the app, the information stored on your device and the anonymous identifiers are deleted together.</p>
+      <p>Recordings and recording details sent to our servers with your consent to audio collection are deleted automatically after 180 days from the date of collection.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>5. Provision of Personal Information to Third Parties</h2>
+      <p>The Service does not sell your personal information and does not provide it to third parties, except where specifically required by law.</p>
+      <p>However, we entrust analytics and error-diagnosis work needed to operate the Service to external specialized services, as described in Section 6 below.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>6. Entrustment of Personal Information Processing and International Transfer</h2>
+      <p>To improve app quality and analyze usage statistics and errors, the Service entrusts personal information processing to overseas services as follows. The Service also uses a cloud service in a Korean region to operate its servers.</p>
+
+      <h3>1. Google LLC (Firebase)</h3>
+      <ul>
+        <li>Recipient: Google LLC</li>
+        <li>Transfer country / storage location: United States</li>
+        <li>Items transferred: device/advertising identifiers, approximate location, app usage, crash/diagnostic information, etc.</li>
+        <li>Entrusted work: usage analytics (Analytics), crash diagnostics (Crashlytics), and push notifications (Cloud Messaging)</li>
+        <li>Time and method of transfer: transmitted over the network, encrypted using HTTPS/TLS, when you use the app</li>
+      </ul>
+
+      <h3>2. Microsoft Corporation (Clarity)</h3>
+      <ul>
+        <li>Recipient: Microsoft Corporation</li>
+        <li>Transfer country / storage location: United States</li>
+        <li>Items transferred: app usage, session replay, device information, user behavior data, etc.</li>
+        <li>Entrusted work: usability improvement and user experience analysis</li>
+        <li>Time and method of transfer: transmitted over the network, encrypted using HTTPS/TLS, when you use the app</li>
+      </ul>
+
+      <h3>3. Amazon Web Services, Inc. (AWS)</h3>
+      <ul>
+        <li>Entrustee: Amazon Web Services, Inc.</li>
+        <li>Storage location: Republic of Korea (Seoul region)</li>
+        <li>Items processed: recordings and recording details from users who agreed to audio collection, anonymous identifiers, and app version and device information</li>
+        <li>Entrusted work: server operation and storage of recordings</li>
+        <li>Retention period: deleted automatically after 180 days from the date of collection</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>7. Consent to Collection and Use of Personal Information and How to Decline</h2>
+      <p>You can make the following choices about the collection of personal information for analytics and tracking purposes:</p>
+      <ul>
+        <li>iOS: On first launch, the app asks for your tracking permission (App Tracking Transparency). If you decline, analytics/tracking data collection, including the advertising identifier (IDFA), is disabled (except crash diagnostics). You can change this in Settings → Privacy &amp; Security → Tracking.</li>
+        <li>Android: Analytics and diagnostic information is collected automatically to provide app functionality and cannot be turned off individually within the app. To stop collection, uninstall the app.</li>
+      </ul>
+      <p>Even if you decline, you can continue to use the app's core learning features normally.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>8. Processing of Personal Information of Children Under 14</h2>
+      <p>The Service is an application for all ages (app store age rating 3+) that is not targeted at any particular age group, and it is intended to be used by guardians who care for pet birds.</p>
+      <p>The Service does not collect personal information from children under 14 without the consent of their legal representative. If a child under 14 uses the Service, we recommend that they do so under the guidance and supervision of their legal representative (parent or guardian).</p>
+      <p>If we become aware that personal information of a child under 14 has been collected without the consent of their legal representative, we will destroy that information without delay. Requests to access or delete a child's personal information, and related inquiries, may be made through the contact details in Section 15.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>9. Cookies and Behavioral Information</h2>
+      <p>The Service does not run personalized advertising. However, the analytics tools above may use advertising identifiers, device identifiers, and similar identifiers for usage statistics and usability analysis.</p>
+      <p>You can limit some collection by resetting or deleting your advertising identifier, or by limiting ad personalization, in your device settings.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>10. Procedures and Methods for Destroying Personal Information</h2>
+      <p>When you uninstall the app, the information stored on your device and the anonymous identifiers are deleted. Information sent to analytics services is destroyed after the retention period expires, according to each provider's retention policy. Recordings and recording details sent to our servers are destroyed automatically after 180 days from the date of collection.</p>
+      <p>Information in electronic file form is deleted securely so that it cannot be recovered or reproduced.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>11. Measures to Ensure the Security of Personal Information</h2>
+      <p>We take the following measures to ensure the security of personal information:</p>
+      <ul>
+        <li>Encryption in transit: all collected information is transmitted over the network encrypted using HTTPS/TLS.</li>
+        <li>Administrative and technical safeguards: we maintain reasonable administrative and technical safeguards, such as managing access rights to personal information.</li>
+      </ul>
+      <p>No method of transmission over a network or electronic storage is completely secure, however, and we cannot guarantee absolute security.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>12. Rights and Obligations of Data Subjects and How to Exercise Them</h2>
+      <p>You may exercise the following rights regarding your personal information:</p>
+      <ul>
+        <li>Request access to your personal information</li>
+        <li>Request correction or deletion of your personal information</li>
+        <li>Request suspension of processing of your personal information</li>
+        <li>Request withdrawal of consent</li>
+      </ul>
+      <p>You may make these requests through the contact details in Section 15 below.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>13. Additional Rights for U.S. Residents</h2>
+      <p>Depending on your state of residence (for example, California, Virginia, Colorado, Connecticut, Utah, or Texas), you may have some or all of the following rights under the laws of your state:</p>
       <ul>
         <li>The right to know/access the personal information we collect about you</li>
         <li>The right to delete your personal information</li>
@@ -232,49 +291,101 @@
         <li>The right to non-discrimination for exercising your rights</li>
       </ul>
 
-      <h3>Categories of personal information</h3>
-      <p>Under the California Consumer Privacy Act (CCPA/CPRA), we collect the following categories: identifiers (device and advertising identifiers); internet or other electronic network activity (app usage and session replay); and approximate geolocation (city/region-level, not precise). We do not collect Social Security or government ID numbers, financial account information, precise geolocation, or biometric information.</p>
+      <h3>1. Categories of personal information we collect</h3>
+      <p>Under the categories of the California Consumer Privacy Act (CCPA/CPRA), we collect identifiers (device and advertising identifiers); internet or other electronic network activity information (app usage and session replay); approximate geolocation (city/region-level, not precise); and audio information (recordings, if you agreed to audio collection). We do not collect Social Security or other government-issued ID numbers, financial account information, precise geolocation, or biometric information.</p>
 
-      <h3>Sale &amp; sharing</h3>
+      <h3>2. Sale and sharing</h3>
       <!-- 이 문구는 앱의 광고 설정과 무관하게 정합적이도록 "옵트아웃 제공형"으로 작성됨.
            향후 Firebase 광고 기능(Google signals·AAID)을 완전히 끄면 "sharing 없음"으로 단순화 가능. -->
       <p>We do not sell your personal information for monetary consideration, and we do not use it to serve you targeted advertising. Our analytics providers do collect advertising and device identifiers; to the extent this is considered "sharing" for cross-context behavioral advertising under applicable state law, you may opt out at any time using your device's advertising settings and, on iOS, by declining tracking (see Section 7). We do not knowingly sell or share the personal information of consumers under 16 years of age.</p>
 
-      <h3>Sensitive personal information</h3>
+      <h3>3. Sensitive personal information</h3>
       <p>We do not collect precise geolocation or other sensitive personal information for the purpose of inferring characteristics about you, and we do not use or disclose sensitive personal information beyond the purposes permitted by law.</p>
 
-      <h3>How to exercise your rights</h3>
+      <h3>4. How to exercise your rights</h3>
       <p>You may submit a request by emailing <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a>. Because the Service operates without accounts or login, we generally cannot associate the analytics data we collect with your identity, which may limit our ability to locate data specific to you. The most effective ways to control your information are to uninstall the app (which deletes on-device data and anonymous identifiers) and to use the choices described in Section 7. We will not discriminate against you for exercising your rights, and where your state provides an appeal process, you may appeal a decision by replying to our response.</p>
 
-      <h3>California "Shine the Light"</h3>
+      <h3>5. California "Shine the Light"</h3>
       <p>We do not disclose personal information to third parties for those third parties' own direct marketing purposes.</p>
     </article>
     <hr>
 
     <article>
-      <h2>9. Security</h2>
-      <p>Information is transmitted using encryption (HTTPS/TLS), and we maintain reasonable administrative and technical safeguards to protect it. No method of transmission or storage is completely secure, however, and we cannot guarantee absolute security.</p>
-    </article>
-    <hr>
+      <h2>14. Additional Information for Residents of the EEA, the United Kingdom, and Switzerland</h2>
+      <p>If you reside in the European Economic Area (EEA), the United Kingdom, or Switzerland, this Section applies to you in addition to the rest of this Privacy Policy, pursuant to the EU General Data Protection Regulation (GDPR) and equivalent laws. Matters not addressed in this Section are governed by Sections 1 through 13.</p>
 
-    <article>
-      <h2>10. Changes to This Policy</h2>
-      <p>This Privacy Policy applies from its effective date. We may update it to reflect changes in law or in the Service; when we do, we will post the updated policy on this page with a new effective date.</p>
-    </article>
-    <hr>
-
-    <article>
-      <h2>11. Contact Us</h2>
-      <p>If you have questions about this Privacy Policy or your personal information, contact us:</p>
+      <h3>1. Legal bases for processing</h3>
       <ul>
-        <li>joynnovate</li>
+        <li>Providing app features such as push notifications: processing necessary to provide the service you have requested (Article 6(1)(b) GDPR)</li>
+        <li>Diagnosing crashes and errors, and improving app compatibility and performance: our legitimate interest in providing a stable service (Article 6(1)(f))</li>
+        <li>App usage statistics and usability analysis: your consent where you have allowed tracking on iOS (Article 6(1)(a)); otherwise, our legitimate interest in improving the Service (Article 6(1)(f))</li>
+        <li>Collection of recordings and recording details: your consent (Article 6(1)(a))</li>
+      </ul>
+      <p>Where we rely on legitimate interests, we limit the data processed to what does not override your rights and interests. We do not engage in automated decision-making, including profiling, that produces legal effects concerning you or similarly significantly affects you.</p>
+
+      <h3>2. Your rights as a data subject</h3>
+      <p>In addition to the rights described in Section 12, you have the following rights:</p>
+      <ul>
+        <li>Right to restriction of processing: the right to request that we restrict processing in the cases provided by law, such as while you contest the accuracy of your data</li>
+        <li>Right to data portability: the right to receive data that is processed by automated means on the basis of consent or of necessity for providing the Service in a structured format, or to have it transmitted to another controller</li>
+        <li>Right to object: the right to object at any time to processing based on legitimate interests</li>
+        <li>Right to withdraw consent: you may withdraw your consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal</li>
+      </ul>
+      <p>You may exercise these rights through the contact details in Section 15, and we will respond within one month of receiving your request. Because the Service operates without accounts or login, your ability to exercise these rights over data that we cannot use to identify you may be limited unless you provide additional information that enables your identification (Article 11 GDPR).</p>
+
+      <h3>3. Right to lodge a complaint with a supervisory authority</h3>
+      <p>You may lodge a complaint with the data protection supervisory authority in the place of your habitual residence, your place of work, or the place of the alleged infringement. In Spain, for example, you may lodge a complaint with the Spanish Data Protection Agency (AEPD, www.aepd.es).</p>
+
+      <h3>4. Transfers outside the EEA</h3>
+      <p>When we transfer data outside the EEA, we apply the following safeguards:</p>
+      <ul>
+        <li>The operator in the Republic of Korea and servers in the Seoul region: the European Commission's adequacy decision for the Republic of Korea (December 2021)</li>
+        <li>The U.S. processors listed in Section 6 (Google LLC, Microsoft Corporation, and Amazon Web Services, Inc.): each processor's certification under the EU-U.S. Data Privacy Framework and the European Commission's Standard Contractual Clauses (SCCs)</li>
+      </ul>
+
+      <h3>5. Children</h3>
+      <p>The age of 14 referred to in Section 8 is the threshold under the laws of the Republic of Korea and Spain. Where the law of your country of residence sets a different age (between 13 and 16), processing based on the consent of a child under that age requires the consent of the holder of parental responsibility.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>15. Privacy Officer</h2>
+      <p>We have designated the following privacy officer to handle inquiries related to personal information protection:</p>
+      <ul>
+        <li>Name: Heejin Jung</li>
         <li>Email: <a href="mailto:joynnovate@gmail.com">joynnovate@gmail.com</a></li>
       </ul>
     </article>
+    <hr>
+
+    <article>
+      <h2>16. Remedies for Infringement of Rights</h2>
+      <p>If you need to report or seek advice about an infringement of your personal information, you may contact the following organizations:</p>
+      <ul>
+        <li>Personal Information Infringement Report Center: 118 (no area code)</li>
+        <li>Personal Information Dispute Mediation Committee: 1833-6972</li>
+        <li>Supreme Prosecutors' Office: 1301</li>
+        <li>Korean National Police Agency: 182</li>
+      </ul>
+      <p>Users residing in the EEA, the United Kingdom, or Switzerland may also lodge a complaint with the supervisory authority described in Section 14, item 3.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>17. Changes to This Privacy Policy</h2>
+      <p>This Privacy Policy applies from its effective date.</p>
+      <p>We may revise this Privacy Policy to reflect changes in applicable laws or in the Service, and we will notify you of any changes through this page.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>18. Language</h2>
+      <p>This Privacy Policy was written in Korean. Translations into English, Japanese, or other languages are provided for your convenience; if a translation conflicts with the Korean version, the Korean version prevails.</p>
+    </article>
 
     <div class="pub">
-      <p>Effective date: September 23, 2026</p>
-      <p>Last updated: September 23, 2026</p>
+      <p>Effective date: October 20, 2026</p>
+      <p>Last updated: October 20, 2026</p>
     </div>
 
     <a href="/en/" class="back">← Back to home</a>
