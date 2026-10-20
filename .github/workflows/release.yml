@@ -8,6 +8,7 @@ name: Release
 # 토큰은 기본 GITHUB_TOKEN 이다(buddybird-api·ai-api·mbti-web 과 같음). 이 토큰이 만든 PR 에서는
 # GitHub 정책상 CI 가 돌지 않지만, 릴리스 PR 은 사이트 파일을 건드리지 않고 main 에 필수 검사도 없어 그대로 머지한다.
 # issues: write 는 릴리스 PR 에 autorelease 라벨을 만들고 붙이는 데 필요하다.
+# target-branch: 저장소 기본 브랜치가 dev 라, 지정하지 않으면 dev 를 읽고 dev 로 릴리스 PR 을 연다.
 on:
   push:
     branches: [main]
@@ -30,5 +31,6 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v5
         with:
+          target-branch: main
           config-file: .github/release-please-config.json
           manifest-file: .github/.release-please-manifest.json
