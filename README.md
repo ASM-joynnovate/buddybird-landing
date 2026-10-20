@@ -122,6 +122,6 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 같은 변경이 CHANGELOG에 두 번 들어가지 않게 하는 규칙:
 
-- release-please는 커밋 본문에서 빈 줄 뒤의 `feat:`·`fix:` 줄을 별도 커밋으로 읽는다. 그래서 저장소 설정에서 squash 커밋은 PR 제목만, 본문은 비우도록 했다(Settings → General → Pull Requests: squash는 "Pull request title", merge commit은 "Default message"의 본문 없음). buddybird-mobile과 같은 설정이다
-- `dev` → `main` 배포 PR 제목은 `release(landing): …`처럼 CHANGELOG에 안 들어가는 접두어를 쓴다. `feat:`로 시작하면 이미 들어간 변경이 한 번 더 들어간다
+- release-please는 커밋 본문에서 빈 줄 뒤의 `feat:`·`fix:` 줄을 별도 커밋으로 읽는다. 머지 커밋 본문이 `feat(…)`로 시작하는 PR 제목이면 dev에서 이미 읽은 변경이 한 번 더 들어간다(2026-10-20 드라이런으로 재현). 그래서 저장소 설정에서 머지 커밋과 squash 커밋 모두 제목은 PR 제목, 본문은 비운다(Settings → General → Pull Requests의 "Pull request title"). buddybird-mobile과 같은 설정이다
+- 머지 커밋 제목이 PR 제목이 되므로, `dev` → `main` 배포 PR 제목은 `release(landing): …`처럼 CHANGELOG에 안 들어가는 접두어를 쓴다. `feat:`로 시작하면 dev에서 이미 들어간 변경이 한 번 더 들어간다
 - 릴리스 PR의 커밋은 `main`에만 생긴다. `dev`는 이 파일들을 고치지 않으므로 충돌은 없고, 다음 배포 PR에서 그대로 합쳐진다
