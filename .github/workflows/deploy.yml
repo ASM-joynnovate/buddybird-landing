@@ -6,9 +6,15 @@ name: Deploy
 # 이 job 에는 environment: 를 붙이지 않는다(붙이면 sub 이 바뀌어 assume 가 실패한다).
 # 역할 ARN·버킷·distribution ID 는 repo secrets 로 주입한다 —
 # 이 저장소는 public 이고 aws-infra 는 private 이라 계정 정보를 코드·로그에 남기지 않는다.
+#
+# release.yml 의 릴리스 PR 은 버전 기록 파일만 고치므로, 그 파일만 바뀐 push 는 배포하지 않는다.
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - CHANGELOG.md
+      - version.txt
+      - .release-please-manifest.json
   workflow_dispatch:
 
 permissions:

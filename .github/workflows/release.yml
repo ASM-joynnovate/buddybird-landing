@@ -1,0 +1,45 @@
+name: Release
+
+# main push(= 배포)마다 release-please 가 커밋을 읽어 릴리스 PR 을 만들거나 갱신한다.
+# 릴리스 PR 을 머지하면 태그(vX.Y.Z)와 GitHub Release 가 생긴다. 태그가 곧 배포된 버전이다.
+# 릴리스 PR 은 CHANGELOG.md·version.txt·.release-please-manifest.json 만 고치므로
+# deploy.yml 의 paths-ignore 로 재배포하지 않는다.
+#
+# 토큰: 기본 GITHUB_TOKEN 이 만든 PR 에서는 GitHub 정책상 CI 가 돌지 않는다.
+# RELEASE_APP_ID·RELEASE_APP_PRIVATE_KEY(buddybird-mobile 과 같은 GitHub App)가 있으면 앱 토큰을 쓰고,
+# 없으면 GITHUB_TOKEN 으로 동작한다. 릴리스 PR 은 사이트 파일을 건드리지 않아 CI 없이 머지해도 된다.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    name: 릴리스 PR·태그
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      HAS_APP: ${{ secrets.RELEASE_APP_ID != '' }}
+    steps:
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        if: env.HAS_APP == 'true'
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - uses: googleapis/release-please-action@v5
+        with:
+          token: ${{ steps.app-token.outputs.token || github.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
