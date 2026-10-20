@@ -3,15 +3,15 @@
   og-card.html — buddybird.xyz 링크 공유 미리보기(og-image.png / og-image-en.png / og-image-ja.png / og-image-ru.png / og-image-es.png) 생성용 소스.
   헤드리스 Chrome로 1200×630 렌더 → 한국어는 그대로, 영어는 ?lang=en, 일본어는 ?lang=ja, 러시아어는 ?lang=ru, 스페인어는 ?lang=es 로 렌더.
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
-      --screenshot=assets/og-image.png    "http://localhost:8910/tools/og-card.html"
+      --screenshot=assets/og-image.png    "http://localhost:8910/scripts/og-card.html"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
-      --screenshot=assets/og-image-en.png "http://localhost:8910/tools/og-card.html?lang=en"
+      --screenshot=assets/og-image-en.png "http://localhost:8910/scripts/og-card.html?lang=en"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
-      --screenshot=assets/og-image-ja.png "http://localhost:8910/tools/og-card.html?lang=ja"
+      --screenshot=assets/og-image-ja.png "http://localhost:8910/scripts/og-card.html?lang=ja"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
-      --screenshot=assets/og-image-ru.png "http://localhost:8910/tools/og-card.html?lang=ru"
+      --screenshot=assets/og-image-ru.png "http://localhost:8910/scripts/og-card.html?lang=ru"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
-      --screenshot=assets/og-image-es.png "http://localhost:8910/tools/og-card.html?lang=es"
+      --screenshot=assets/og-image-es.png "http://localhost:8910/scripts/og-card.html?lang=es"
   (사이트 본문이 아니라 OG 이미지 빌드용 파일입니다.)
 -->
 <html lang="ko">

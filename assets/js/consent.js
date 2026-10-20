@@ -1,10 +1,6 @@
-// consent.js — 분석(analytics.js) 로드 전에 쿠키 동의를 확인한다.
-// 페이지에서 <script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script> 로 로드한다.
-// analytics.js 경로를 data 속성으로 받는 이유: 배포 때 stamp-assets.py 가 HTML 안의 /assets/ 참조에만
+// consent.js — 유럽 시간대 방문자에게만 쿠키 동의를 받고 analytics.js 를 로드한다(README "에셋").
+// analytics.js 경로를 data 속성으로 받는 이유: stamp-assets.py 가 HTML 안의 /assets/ 참조에만
 // 버전 쿼리(?v=)를 붙이므로, JS 안에 경로를 적으면 1년 캐시된 옛 파일을 계속 받는다.
-//
-// EU 등 사전 동의가 필요한 지역(브라우저 시간대로 판별)에서만 배너를 띄운다.
-// 그 밖의 방문자는 지금까지처럼 바로 분석을 로드한다.
 
 (function () {
   var ANALYTICS = document.currentScript && document.currentScript.dataset.analytics;

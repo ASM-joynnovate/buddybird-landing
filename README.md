@@ -23,7 +23,7 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 - `assets/fonts/` — 일본어 글꼴(M PLUS Rounded 1c) 서브셋. 페이지에 쓰인 글자만 담아 굵기당 40~100KB다. 일본어 문구를 고치면 `pip install fonttools brotli` 후 `python3 scripts/subset-fonts.py`로 다시 만든다. CI가 `--check`로 빠진 글자를 잡는다
 - 글꼴: 영문·숫자는 Nunito, 일본어는 M PLUS Rounded 1c, 한글은 Pretendard. 글꼴 목록은 Nunito → (언어 글꼴) → Pretendard 순서이고, 브라우저는 앞 글꼴에 없는 글자만 다음 글꼴로 그린다. 새 언어는 같은 둥근 계열을 목록에 더한다(힌디어 Baloo 2, 벵골어 Baloo Da 2)
 - `assets/qr/` — `/dl/`로 가는 QR 코드
-- `tools/og-card.html` — OG 이미지 생성용 소스 (헤드리스 Chrome로 렌더)
+- `scripts/og-card.html` — OG 이미지 생성용 소스 (헤드리스 Chrome로 렌더). 서빙 대상이 아니라 HTML 검사에서 뺀다
 - `DESIGN.md` — 디자인 가이드
 - `.thumbnail` — 페이지 미리보기 이미지 (WebP)
 
@@ -102,10 +102,26 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 main push로 배포가 돈다.
 
-- S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다.
+- S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다. `--delete`도 이 필터 안에서만 동작해, `.well-known`이나 사이트 소유확인 파일처럼 레포 밖에서 올린 오브젝트는 지우지 않는다
 - 캐시: `assets/`는 브라우저에 1년 캐시(immutable)한다. 배포 직전 `scripts/stamp-assets.py`가 HTML의 `/assets/…` 참조에 내용 해시(`?v=…`)를 붙여, 파일이 바뀌면 URL도 바뀐다. 이 스크립트는 HTML을 직접 고치므로 로컬에서 돌렸다면 `git checkout -- '*.html'`로 되돌린다
 - HTML 등 나머지는 브라우저가 매번 확인하고(`max-age=0`), CloudFront 엣지는 1년 보관한다(`s-maxage`). 배포 때 무효화(`/*`)로 엣지를 비운다
 - `og-image*.png`, `icons/app-icon.png`는 외부(SNS·검색)에 절대 URL로 노출돼 해시를 붙일 수 없으므로 HTML과 같은 규칙이다. `assets/` 파일을 HTML이 아닌 곳에서 절대 URL로 새로 쓰게 되면 `deploy.yml`의 두 sync 목록에 같이 옮긴다
 - 인증은 OIDC로 aws-infra가 만든 사이트 배포 역할을 assume한다(장기 키 없음). 사이트 신뢰 정책 sub이 `ref:refs/heads/main`이라 배포 job에는 `environment:`를 붙이지 않는다.
 - 인프라 식별자는 repo secrets로 주입한다(Settings → Secrets and variables → Actions → Secrets): `AWS_DEPLOY_ROLE_ARN`, `SITE_BUCKET`, `SITE_DISTRIBUTION_ID`. 이 저장소는 public이고 aws-infra는 private이라 계정 정보를 코드·로그에 남기지 않는다.
 - 인프라 정의(S3·CloudFront·OIDC 역할)는 사내 `aws-infra`의 `buddybird-app`(Pulumi)에 있다. 리전 `ap-northeast-2`.
+
+### 버전과 릴리스
+
+배포할 버전은 태그(`vX.Y.Z`)와 GitHub Release, `CHANGELOG.md`로 남긴다. buddybird-api와 같은 구성의 release-please다(`.github/workflows/release.yml`, 설정 `.github/release-please-config.json`).
+
+1. 작업 PR을 `dev`에 squash 머지하면, release-please가 마지막 태그 이후 커밋을 읽어 `dev` 대상 릴리스 PR(`chore(dev): release X.Y.Z`)을 만들거나 갱신한다
+2. 배포할 때 릴리스 PR을 먼저 머지한다. `dev`에 태그와 GitHub Release가 생긴다
+3. 그 상태를 `dev` → `main` 배포 PR로 머지하면 운영에 나간다. 태그는 "이 버전을 배포한다"는 표시이고, 실제 배포는 main 머지 시점이다
+
+버전은 커밋 접두어로 정해진다. `feat`는 마이너, `fix`·`perf`·`docs`는 패치다. `docs`는 처리방침·약관 개정이라 릴리스에 넣는다. `ci`·`chore`·`refactor`·`style`·`build`·`test`만 있으면 릴리스를 만들지 않는다. 그래서 버전은 "릴리스할 변경이 있는 배포"마다 생긴다. 메이저는 PR 제목에 `!`를 붙인다(`feat(landing)!: …`). squash 커밋 본문은 비우므로 본문의 `BREAKING CHANGE:`는 반영되지 않는다. 시작 버전은 2026-10-20 배포(#50) 직전의 dev 커밋(#49, `1e71692`)을 `v1.0.0`으로 잡았다(`bootstrap-sha`).
+
+지켜야 할 규칙:
+
+- 작업 PR 제목이 곧 CHANGELOG 항목이다. 저장소 설정에서 squash 커밋 제목은 PR 제목, 본문은 비운다(Settings → General → Pull Requests의 "Pull request title", buddybird-mobile과 같은 설정). release-please는 커밋 본문에서 빈 줄 뒤의 `feat:`·`fix:` 줄을 별도 커밋으로 읽어, 본문이 남으면 같은 변경이 두 번 들어갈 수 있다
+- `dev`에는 squash 머지만 한다. release-please는 커밋을 날짜 역순으로 읽다가 직전 릴리스 커밋에서 멈추는데(googleapis/release-please#2883), merge commit으로 들어온 커밋은 원래 날짜를 가져 릴리스 커밋보다 "과거"로 읽혀 빠질 수 있다. squash 커밋은 머지 시점 날짜를 받아 이 문제가 없다. 이 때문에 release-please를 main이 아니라 dev에서 돌린다
+- `dev` → `main` 배포 PR은 "Create a merge commit"으로 머지한다. squash나 rebase로 머지하면 dev와 main 이력이 갈라진다

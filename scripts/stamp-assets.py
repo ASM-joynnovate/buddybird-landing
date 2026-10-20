@@ -29,7 +29,7 @@ def main() -> int:
     missing: list[str] = []
     stamped = 0
     for html in sorted(ROOT.rglob("*.html")):
-        if ".git" in html.parts or "tools" in html.parts:
+        if ".git" in html.parts or "scripts" in html.parts:
             continue
         text = html.read_text(encoding="utf-8")
 
