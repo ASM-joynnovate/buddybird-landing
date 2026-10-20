@@ -15,7 +15,8 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 - `dl/` — 스토어 진입점. 아래 "스토어 링크와 QR" 참고
 
 ### 에셋
-- `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity)
+- `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity), `consent.js`(쿠키 동의)
+- 쿠키 동의 — 페이지는 `analytics.js`를 직접 로드하지 않고 `consent.js`를 로드한다. 브라우저 시간대가 유럽(`Europe/*`, 카나리아·키프로스 등 포함)이면 동의 배너를 띄우고, 허용해야 `analytics.js`를 불러온다. 선택은 `localStorage`의 `bb-consent`에 남고 푸터의 "쿠키 설정"으로 바꿀 수 있다. 그 밖의 시간대는 바로 로드한다. 배너 일본어 문구도 글꼴 서브셋 대상이라 문구를 고치면 `subset-fonts.py`를 다시 돌린다
 - `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/`, `assets/images/es/` — 언어별 앱 스크린샷. `ja`·`ru`·`es`는 로컬 mock 데이터로 찍은 화면이다
 - `assets/icons/` — `app-icon.png`(앵무새 원본 2048), `apple-touch-icon.png`(180), `favicon.png`(48)
 - `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png`, `og-image-es.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
