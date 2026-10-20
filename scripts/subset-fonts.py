@@ -29,9 +29,10 @@ SRC_URL = f"https://raw.githubusercontent.com/google/fonts/{SRC_COMMIT}/ofl/mplu
 WEIGHTS = {700: "Bold", 800: "ExtraBold", 900: "Black"}
 
 # 랜딩과 문서 페이지는 글자 수 차이가 커서(약 260자 / 650자) 따로 자른다.
+# consent.js 는 두 그룹 페이지 모두에 쿠키 배너(일본어 문구 포함)를 띄우므로 양쪽에 넣는다.
 GROUPS = {
-    "ja-landing": ["ja/index.html"],
-    "ja-docs": ["ja/support/index.html", "ja/privacy/index.html", "ja/terms/index.html"],
+    "ja-landing": ["ja/index.html", "assets/js/consent.js"],
+    "ja-docs": ["ja/support/index.html", "ja/privacy/index.html", "ja/terms/index.html", "assets/js/consent.js"],
 }
 
 
