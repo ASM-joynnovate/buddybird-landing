@@ -112,17 +112,16 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 ### 버전과 릴리스
 
-배포된 버전은 태그(`vX.Y.Z`)와 GitHub Release, `CHANGELOG.md`로 남긴다. buddybird-mobile·api와 같은 release-please를 쓴다(`.github/workflows/release.yml`).
+배포할 버전은 태그(`vX.Y.Z`)와 GitHub Release, `CHANGELOG.md`로 남긴다. buddybird-api와 같은 구성의 release-please다(`.github/workflows/release.yml`, 설정 `.github/release-please-config.json`).
 
-1. `dev` → `main` 머지로 배포되면, release-please가 마지막 태그 이후 커밋을 읽어 릴리스 PR(`chore(main): release X.Y.Z`)을 만들거나 갱신한다
-2. 릴리스 PR을 머지하면 태그와 GitHub Release가 생긴다. 릴리스 PR은 `CHANGELOG.md`와 `.github/.release-please-manifest.json`만 고치므로 `deploy.yml`이 다시 배포하지 않는다
-3. 다음 배포 전에 릴리스 PR을 머지해 두지 않으면, 다음 배포 내용이 같은 릴리스 PR에 쌓인다
+1. 작업 PR을 `dev`에 squash 머지하면, release-please가 마지막 태그 이후 커밋을 읽어 `dev` 대상 릴리스 PR(`chore(dev): release X.Y.Z`)을 만들거나 갱신한다
+2. 배포할 때 릴리스 PR을 먼저 머지한다. `dev`에 태그와 GitHub Release가 생긴다
+3. 그 상태를 `dev` → `main` 배포 PR로 머지하면 운영에 나간다. 태그는 "이 버전을 배포한다"는 표시이고, 실제 배포는 main 머지 시점이다
 
-설정은 `.github/release-please-config.json`에 있다. 버전은 커밋 접두어로 정해진다. `feat`는 마이너, `fix`·`perf`·`docs`는 패치, 커밋 본문의 `BREAKING CHANGE:`는 메이저다. `docs`는 처리방침·약관 개정이라 릴리스에 넣는다. `ci`·`chore`·`refactor`·`style`은 릴리스를 만들지 않는다. 시작 버전은 2026-10-20 배포(#50)를 `v1.0.0`으로 잡았다(`bootstrap-sha`).
+버전은 커밋 접두어로 정해진다. `feat`는 마이너, `fix`·`perf`·`docs`는 패치다. `docs`는 처리방침·약관 개정이라 릴리스에 넣는다. `ci`·`chore`·`refactor`·`style`·`build`·`test`만 있으면 릴리스를 만들지 않는다. 그래서 버전은 "릴리스할 변경이 있는 배포"마다 생긴다. 메이저는 PR 제목에 `!`를 붙인다(`feat(landing)!: …`). squash 커밋 본문은 비우므로 본문의 `BREAKING CHANGE:`는 반영되지 않는다. 시작 버전은 2026-10-20 배포(#50) 직전의 dev 커밋(#49, `1e71692`)을 `v1.0.0`으로 잡았다(`bootstrap-sha`).
 
-같은 변경이 CHANGELOG에 두 번 들어가지 않게 하는 규칙:
+지켜야 할 규칙:
 
-- release-please는 커밋 본문에서 빈 줄 뒤의 `feat:`·`fix:` 줄을 별도 커밋으로 읽는다. 머지 커밋 본문이 `feat(…)`로 시작하는 PR 제목이면 dev에서 이미 읽은 변경이 한 번 더 들어간다(2026-10-20 드라이런으로 재현). 그래서 저장소 설정에서 머지 커밋과 squash 커밋 모두 제목은 PR 제목, 본문은 비운다(Settings → General → Pull Requests의 "Pull request title"). buddybird-mobile과 같은 설정이다
-- `dev` → `main` 배포 PR은 반드시 "Create a merge commit"으로 머지한다. squash로 머지하면 dev의 `feat`·`fix` 커밋이 `release(landing): …` 한 커밋으로 합쳐져 릴리스가 만들어지지 않고, rebase로 머지하면 dev 커밋이 새 해시로 복사돼 dev와 main 이력이 갈라진다
-- 머지 커밋 제목이 PR 제목이 되므로, `dev` → `main` 배포 PR 제목은 `release(landing): …`처럼 CHANGELOG에 안 들어가는 접두어를 쓴다. `feat:`로 시작하면 dev에서 이미 들어간 변경이 한 번 더 들어간다
-- 릴리스 PR의 커밋은 `main`에만 생긴다. `dev`는 이 파일들을 고치지 않으므로 충돌은 없고, 다음 배포 PR에서 그대로 합쳐진다
+- 작업 PR 제목이 곧 CHANGELOG 항목이다. 저장소 설정에서 squash 커밋 제목은 PR 제목, 본문은 비운다(Settings → General → Pull Requests의 "Pull request title", buddybird-mobile과 같은 설정). release-please는 커밋 본문에서 빈 줄 뒤의 `feat:`·`fix:` 줄을 별도 커밋으로 읽어, 본문이 남으면 같은 변경이 두 번 들어갈 수 있다
+- `dev`에는 squash 머지만 한다. release-please는 커밋을 날짜 역순으로 읽다가 직전 릴리스 커밋에서 멈추는데(googleapis/release-please#2883), merge commit으로 들어온 커밋은 원래 날짜를 가져 릴리스 커밋보다 "과거"로 읽혀 빠질 수 있다. squash 커밋은 머지 시점 날짜를 받아 이 문제가 없다. 이 때문에 release-please를 main이 아니라 dev에서 돌린다
+- `dev` → `main` 배포 PR은 "Create a merge commit"으로 머지한다. squash나 rebase로 머지하면 dev와 main 이력이 갈라진다
