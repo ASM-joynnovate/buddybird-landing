@@ -29,7 +29,7 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - Category: pet care / parrot training, mobile app (iOS and Android)
 - Price: free (a monthly subscription may be introduced later)
 - Equipment needed: a smartphone only — no additional hardware
-- Languages: Korean, English, Japanese
+- Languages: Korean, English, Japanese, Russian
 - Maker: joynnovate
 - Species support: no species restrictions, any parrot can use it
 
@@ -46,6 +46,10 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - [Japanese support](https://buddybird.xyz/ja/support/)
 - [Japanese privacy policy](https://buddybird.xyz/ja/privacy/)
 - [Japanese terms of service](https://buddybird.xyz/ja/terms/)
+- [Russian landing page](https://buddybird.xyz/ru/): описание продукта, функции, FAQ (на русском)
+- [Russian support](https://buddybird.xyz/ru/support/)
+- [Russian privacy policy](https://buddybird.xyz/ru/privacy/)
+- [Russian terms of service](https://buddybird.xyz/ru/terms/)
 
 ## Download
 

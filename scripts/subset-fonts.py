@@ -10,7 +10,7 @@
   일본어 문구에 새 글자가 생겼는데 서브셋을 다시 만들지 않았으면 실패한다.
   다시 만들지 않으면 그 글자만 다음 글꼴(Pretendard)로 보인다.
 
-영문·숫자는 앞선 Nunito 가 맡으므로 ASCII 는 담지 않는다. 한글은 원본에 없어 Pretendard 가 맡는다.
+영문·숫자·키릴 문자(언어 메뉴의 «Русский»)는 앞선 Nunito 가 맡으므로 담지 않는다. 한글은 원본에 없어 Pretendard 가 맡는다.
 """
 import hashlib
 import json
@@ -40,7 +40,7 @@ def needed_chars(pages: list[str]) -> str:
     for page in pages:
         text = (ROOT / page).read_text(encoding="utf-8")
         text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
-        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣"))
+        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not ("\u0400" <= c <= "\u04ff"))
     return "".join(sorted(chars))
 
 

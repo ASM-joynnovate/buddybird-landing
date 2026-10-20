@@ -71,6 +71,7 @@ jobs:
             --include "ko/*" \
             --include "en/*" \
             --include "ja/*" \
+            --include "ru/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
