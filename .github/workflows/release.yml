@@ -5,9 +5,8 @@ name: Release
 # 릴리스 PR 은 CHANGELOG.md 와 .github/.release-please-manifest.json 만 고치므로
 # deploy.yml 의 paths-ignore 로 재배포하지 않는다. 설정은 .github/release-please-config.json.
 #
-# 토큰: 기본 GITHUB_TOKEN 이 만든 PR 에서는 GitHub 정책상 CI 가 돌지 않는다.
-# RELEASE_APP_CLIENT_ID·RELEASE_APP_PRIVATE_KEY(buddybird-mobile 과 같은 GitHub App)가 둘 다 있으면 앱 토큰을 쓰고,
-# 없거나 토큰 발급에 실패하면 GITHUB_TOKEN 으로 동작한다. 릴리스 PR 은 사이트 파일을 건드리지 않아 CI 없이 머지해도 된다.
+# 토큰은 기본 GITHUB_TOKEN 이다(buddybird-api·ai-api·mbti-web 과 같음). 이 토큰이 만든 PR 에서는
+# GitHub 정책상 CI 가 돌지 않지만, 릴리스 PR 은 사이트 파일을 건드리지 않고 main 에 필수 검사도 없어 그대로 머지한다.
 # issues: write 는 릴리스 PR 에 autorelease 라벨을 만들고 붙이는 데 필요하다.
 on:
   push:
@@ -28,22 +27,8 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    env:
-      HAS_APP: ${{ secrets.RELEASE_APP_CLIENT_ID != '' && secrets.RELEASE_APP_PRIVATE_KEY != '' }}
     steps:
-      - uses: actions/create-github-app-token@v3
-        id: app-token
-        if: env.HAS_APP == 'true'
-        continue-on-error: true
-        with:
-          client-id: ${{ secrets.RELEASE_APP_CLIENT_ID }}
-          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
-          permission-contents: write
-          permission-issues: write
-          permission-pull-requests: write
-
       - uses: googleapis/release-please-action@v5
         with:
-          token: ${{ steps.app-token.outputs.token || github.token }}
           config-file: .github/release-please-config.json
           manifest-file: .github/.release-please-manifest.json
