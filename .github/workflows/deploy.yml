@@ -70,6 +70,7 @@ jobs:
             --include "assets/icons/app-icon.png" \
             --include "ko/*" \
             --include "en/*" \
+            --include "ja/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
