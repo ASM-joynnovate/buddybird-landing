@@ -3,3 +3,6 @@
 
 # macOS
 .DS_Store
+
+# scripts/subset-fonts.py 가 받는 원본 글꼴
+.cache/

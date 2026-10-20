@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー · BuddyBird</title>
+<meta name="description" content="BuddyBirdのプライバシーポリシー。アプリの品質改善のための分析ツールを通じて一部の情報を収集しており、収集項目・目的・第三者への処理委託および国外移転の内容についてご案内します。">
+<link rel="canonical" href="https://buddybird.xyz/ja/privacy/">
+<link rel="alternate" hreflang="ko" href="https://buddybird.xyz/ko/privacy/">
+<link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/privacy/">
+<link rel="alternate" hreflang="ja" href="https://buddybird.xyz/ja/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/privacy/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FF9600">
+
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  /* 일본어: 페이지에 쓰인 글자만 담은 M PLUS Rounded 1c 서브셋 (scripts/subset-fonts.py 로 만든다) */
+  @font-face{font-family:"M PLUS Rounded 1c";font-weight:700;font-display:swap;src:url(/assets/fonts/mplus-rounded-1c-ja-docs-700.woff2) format("woff2")}
+  @font-face{font-family:"M PLUS Rounded 1c";font-weight:800;font-display:swap;src:url(/assets/fonts/mplus-rounded-1c-ja-docs-800.woff2) format("woff2")}
+  @font-face{font-family:"M PLUS Rounded 1c";font-weight:900;font-display:swap;src:url(/assets/fonts/mplus-rounded-1c-ja-docs-900.woff2) format("woff2")}
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #ffffff;
+    font-family: 'Nunito','M PLUS Rounded 1c','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
+    color: #3C3C3C;
+    line-height: 1.5;
+    font-weight: 700;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+
+  /* 본문(법무 텍스트) 가독성 스타일 */
+  .doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .doc h1 { margin: 0 0 10px; font-weight: 900; font-size: clamp(30px,4.5vw,42px); letter-spacing: -0.02em; }
+  .doc .dates { margin: 0 0 14px; font-weight: 800; font-size: 14px; color: #777777; }
+  .doc .dates span { color: #FF9600; }
+  .doc .lead { margin: 18px 0 0; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc h2 {
+    margin: 0 0 16px; padding-left: 14px;
+    font-weight: 900; font-size: clamp(19px,2.6vw,23px); letter-spacing: -0.01em; color: #3C3C3C;
+    border-left: 5px solid #FF9600; line-height: 1.3;
+  }
+  .doc h3 { margin: 22px 0 10px; font-weight: 800; font-size: 17px; color: #E88900; }
+  .doc article { margin-top: 44px; }
+  .doc p { margin: 0 0 12px; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc ul { margin: 0 0 12px; padding-left: 22px; }
+  .doc li { font-weight: 600; font-size: 16px; line-height: 1.7; color: #3C3C3C; margin-bottom: 6px; }
+  .doc hr { border: 0; border-top: 1px solid #EFEFEF; margin: 44px 0 0; }
+  .doc .pub { margin-top: 48px; padding-top: 22px; border-top: 1px solid #EFEFEF; font-weight: 700; font-size: 15px; color: #5A5A5A; }
+  .doc .pub p { font-weight: 700; color: #5A5A5A; margin: 0 0 6px; }
+  .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; text-decoration: none; font-weight: 800; font-size: 15px; color: #FF9600; }
+  .back:hover { color: #E88900; }
+
+  /* 헤더 nav 링크 */
+  .nav-link { text-decoration: none; color: #777777; font-weight: 800; font-size: 15px; transition: color 80ms; }
+  .nav-link:hover { color: #FF9600; }
+  /* 푸터 legal 링크 hover (정적 페이지 — style-hover 대체) */
+  .footer-link { text-decoration: none; color: #D0D0D0; font-weight: 800; font-size: 14px; transition: color 80ms; }
+  .footer-link:hover { color: #FF9600; }
+  .social { display: inline-flex; color: #B0B0B0; transition: color 80ms; }
+  .social:hover { color: #FF9600; }
+  @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+
+<script type="module" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:2px solid #F0F0F0;">
+    <nav style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;">
+      <a href="/ja/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#3C3C3C;margin-right:auto;">
+        <img src="/assets/icons/apple-touch-icon.png" alt="BuddyBird" width="38" height="38" style="width:38px;height:38px;border-radius:11px;box-shadow:0 3px 0 rgba(0,0,0,0.12);display:block;" />
+        <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="/ja/#day" class="nav-link">1日の流れ</a>
+        <a href="/ja/#faq" class="nav-link">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== 본문 ===================== -->
+  <main class="doc">
+    <h1>プライバシーポリシー</h1>
+    <p class="dates">公告日 <span>2026年9月23日</span> · 施行日 <span>2026年9月23日</span></p>
+
+    <p class="lead">BuddyBird（以下「本サービス」といいます。）は、joynnovate（以下「運営者」といいます。）が運営するサービスであり、利用者の個人情報を重要なものと考え、個人情報保護法（韓国「개인정보 보호법」）その他の関係法令を遵守します。</p>
+    <p class="lead">本サービスは、会員登録・ログインを行わずにご利用いただけるものであり、利用者ご本人の氏名・メールアドレス・電話番号等の直接的な識別情報は収集しません。ただし、アプリの機能提供および品質・エラー分析のため、分析ツールを通じて以下の情報を収集・処理しており、その内容を次のとおり公開します。</p>
+
+    <article>
+      <h2>第1条（個人情報の処理目的）</h2>
+      <p>本サービスは、会員登録、ログイン、決済、相談、広告・マーケティングの機能を提供していません。ただし、次の目的のために個人情報を収集・利用します。</p>
+      <ul>
+        <li>アプリの利用統計および使いやすさの分析</li>
+        <li>異常終了（クラッシュ）およびエラーの診断・修正</li>
+        <li>プッシュ通知等のアプリ機能の提供</li>
+        <li>アプリの互換性および性能の改善</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第2条（処理する個人情報の項目）</h2>
+
+      <h3>1. 分析ツールを通じて自動的に収集される項目</h3>
+      <ul>
+        <li>端末および識別子：Android広告ID（AAID）、アプリインスタンスID、匿名インストールID（UUID）、プッシュ通知トークン（FCM）、クラッシュ分析用インストール識別子（iOSでは、トラッキングに同意した場合は広告識別子（IDFA）を含みます。）</li>
+        <li>おおよその位置：IPアドレスから推定される市区町村・地域レベルの位置（精密な位置情報ではありません。）</li>
+        <li>アプリの利用記録：画面遷移、学習セッション、単語の録音・再生等のアプリ内イベント、セッションリプレイ（タップ・スワイプ等の画面操作の動線）</li>
+        <li>端末・環境情報：アプリのバージョン、OSのバージョン、端末のモデル、言語設定</li>
+        <li>異常終了（クラッシュ）および診断情報：スタックトレース、クラッシュ発生時の端末の状態等</li>
+      </ul>
+
+      <h3>2. 利用者が直接入力する項目</h3>
+      <ul>
+        <li>インコ・オウム（ペット）の名前、種類（species）、年齢、学習目標</li>
+        <li>利用者が登録・修正した学習単語の名称</li>
+      </ul>
+
+      <h3>3. 利用者が同意した場合に限り収集する項目</h3>
+      <ul>
+        <li>学習中に録音された音声および利用者が録音した単語の音声ファイル、録音日時・長さ等の録音情報、匿名識別子（Firebase匿名uid）、アプリのバージョン・端末情報</li>
+      </ul>
+      <p>上記の項目は、インコ・オウムの発音学習機能の開発および改善のため、アプリ内の音声収集に関する同意画面で同意した場合に限り、サーバーへ送信されます。同意しない場合、録音ファイルは端末内にのみ保存され、同意を拒否した場合でも本サービスのご利用に違いはありません。</p>
+      <p>上記の入力項目のうち、インコ・オウムの名前・学習単語の名称等の一部のテキストは、使いやすさの分析のため、分析ツール（Google Firebase、Microsoft Clarity）へ送信されます。これは飼い主ご本人の情報ではなく、ペットおよび学習コンテンツに関する情報です。</p>
+
+      <h3>4. 収集しない項目</h3>
+      <ul>
+        <li>利用者ご本人の氏名、メールアドレス、電話番号等の直接的な識別情報</li>
+        <li>正確な（GPS）位置情報</li>
+        <li>写真・動画（プロフィールのアバター写真は端末内でのみ使用され、外部へ送信されません。）</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第3条（個人情報の収集方法）</h2>
+      <p>本サービスは、次の方法により個人情報を収集します。</p>
+      <ul>
+        <li>アプリの利用過程における分析ツール（Google Firebase Analytics・Crashlytics・Cloud Messaging、Microsoft Clarity）を通じた自動収集</li>
+        <li>利用者がアプリ内で直接入力する情報</li>
+        <li>音声収集に同意した利用者の録音ファイルの運営者サーバーへの送信</li>
+      </ul>
+      <p>収集されるすべての情報は、情報通信網を通じて暗号化（HTTPS/TLS）されたうえで送信されます。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第4条（個人情報の処理および保有期間）</h2>
+      <p>自動的に収集される分析・診断情報は、各分析サービス提供者のデータ保管ポリシーに従って保管されます（例：Firebase Analyticsは標準で最大14か月、Firebase Crashlyticsは約90日）。</p>
+      <p>利用者が入力した情報（インコ・オウムの情報、学習単語等）は原則として端末内に保存され、アプリを削除すると、端末に保存された情報および匿名識別子もあわせて削除されます。</p>
+      <p>音声収集に同意したことによりサーバーへ送信された録音ファイルおよび録音情報は、収集日から180日経過後に自動的に削除されます。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第5条（個人情報の第三者提供）</h2>
+      <p>本サービスは、利用者の個人情報を外部に販売せず、法令に特別の定めがある場合を除き、第三者に提供しません。</p>
+      <p>ただし、本サービスの運営に必要な分析・エラー診断業務を、下記第6条のとおり外部の専門サービスに委託しています。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第6条（個人情報の処理の委託および国外移転）</h2>
+      <p>本サービスは、アプリの品質向上ならびに利用統計およびエラーの分析のため、以下のとおり個人情報の処理業務を国外のサービスに委託しています。また、本サービスのサーバー運営のため、韓国国内リージョンのクラウドサービスを利用しています。</p>
+
+      <h3>1. Google LLC（Firebase）</h3>
+      <ul>
+        <li>提供を受ける者：Google LLC</li>
+        <li>移転先の国／保管場所：米国</li>
+        <li>移転する項目：端末・広告識別子、おおよその位置、アプリの利用記録、クラッシュ・診断情報等</li>
+        <li>委託業務：利用統計の分析（Analytics）、異常終了の診断（Crashlytics）、プッシュ通知（Cloud Messaging）</li>
+        <li>移転の時期および方法：アプリ利用時に、情報通信網を通じて暗号化（HTTPS/TLS）されたうえで送信</li>
+      </ul>
+
+      <h3>2. Microsoft Corporation（Clarity）</h3>
+      <ul>
+        <li>提供を受ける者：Microsoft Corporation</li>
+        <li>移転先の国／保管場所：米国</li>
+        <li>移転する項目：アプリの利用記録、セッションリプレイ、端末情報、利用者の行動データ等</li>
+        <li>委託業務：使いやすさの改善およびユーザー体験の分析</li>
+        <li>移転の時期および方法：アプリ利用時に、情報通信網を通じて暗号化（HTTPS/TLS）されたうえで送信</li>
+      </ul>
+
+      <h3>3. Amazon Web Services, Inc.（AWS）</h3>
+      <ul>
+        <li>受託者：Amazon Web Services, Inc.</li>
+        <li>保管場所：大韓民国（ソウルリージョン）</li>
+        <li>処理する項目：音声収集に同意した利用者の録音ファイル、録音情報、匿名識別子、アプリのバージョン・端末情報</li>
+        <li>委託業務：サーバーの運営および録音ファイルの保管</li>
+        <li>保有期間：収集日から180日経過後に自動削除</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第7条（個人情報の収集・利用に関する同意および拒否の方法）</h2>
+      <p>利用者は、分析・トラッキングを目的とする個人情報の収集について、次のとおり選択することができます。</p>
+      <ul>
+        <li>iOS：アプリの初回起動時に、トラッキングへの同意（App Tracking Transparency）を確認します。拒否された場合、広告識別子（IDFA）を含む分析・トラッキングデータの収集は無効になります（クラッシュ診断を除きます。）。［設定］→［プライバシーとセキュリティ］→［トラッキング］から変更することができます。</li>
+        <li>Android：分析・診断情報はアプリの機能提供のために自動的に収集され、アプリ内で個別にオフにすることはできません。収集の停止をご希望の場合は、アプリを削除してください。</li>
+      </ul>
+      <p>同意を拒否された場合でも、アプリの主要な学習機能は通常どおりご利用いただけます。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第8条（14歳未満の児童の個人情報の処理）</h2>
+      <p>本サービスは、特定の年齢層を対象としない全年齢向け（アプリストアの年齢レーティング：満3歳以上）のアプリケーションであり、飼い鳥の世話をする飼い主が利用することを前提としています。</p>
+      <p>本サービスは、満14歳未満の児童の個人情報を法定代理人の同意なく収集しません。満14歳未満の児童が本サービスを利用する場合は、法定代理人（保護者）の指導・監督のもとでご利用いただくことを推奨します。</p>
+      <p>運営者は、法定代理人の同意なく満14歳未満の児童の個人情報が収集されたことを認識した場合、遅滞なく当該情報を消去します。児童の個人情報の閲覧・削除等については、第14条の連絡先までお問い合わせください。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第9条（Cookieおよび行動情報の処理）</h2>
+      <p>本サービスは、ターゲティング広告を運営していません。ただし、上記の分析ツールは、利用統計および使いやすさの分析のため、広告識別子・端末識別子等を利用することがあります。</p>
+      <p>利用者は、端末の設定から広告識別子のリセット・削除またはパーソナライズド広告の制限を行うことにより、一部の収集を制限することができます。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第10条（個人情報の消去の手続および方法）</h2>
+      <p>利用者がアプリを削除すると、端末に保存された情報および匿名識別子は削除されます。分析サービスに送信された情報は、各提供者の保管ポリシーに従い、保有期間の経過後に消去されます。サーバーへ送信された録音ファイルおよび録音情報は、収集日から180日経過後に自動的に消去されます。</p>
+      <p>電子ファイル形式の情報は、復元または再生できないよう安全に削除します。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第11条（個人情報の安全性確保措置）</h2>
+      <p>運営者は、個人情報の安全性を確保するため、次の措置を講じています。</p>
+      <ul>
+        <li>通信経路の暗号化：収集されるすべての情報は、情報通信網を通じて暗号化（HTTPS/TLS）して送信されます。</li>
+        <li>管理的・技術的保護措置：個人情報へのアクセス権限の管理など、合理的な管理的・技術的保護措置を維持します。</li>
+      </ul>
+      <p>ただし、情報通信網を通じた送信や電子的な保管方法は完全に安全とはいえないため、運営者は絶対的な安全性を保証するものではありません。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第12条（情報主体の権利・義務およびその行使方法）</h2>
+      <p>利用者は、個人情報の保護に関して次の権利を行使することができます。</p>
+      <ul>
+        <li>個人情報の閲覧の請求</li>
+        <li>個人情報の訂正・削除の請求</li>
+        <li>個人情報の処理停止の請求</li>
+        <li>同意の撤回の請求</li>
+      </ul>
+      <p>これらの請求は、下記第14条の連絡先を通じて行うことができます。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第13条（米国に居住する利用者の追加の権利）</h2>
+      <p>米国の一部の州（例：カリフォルニア州、バージニア州、コロラド州、コネチカット州、ユタ州、テキサス州）に居住する利用者は、居住する州の法律に基づき、次の権利の全部または一部を有する場合があります。</p>
+      <ul>
+        <li>運営者が収集した個人情報を知る権利および閲覧する権利</li>
+        <li>個人情報の削除を求める権利</li>
+        <li>不正確な個人情報の訂正を求める権利</li>
+        <li>個人情報の「販売」または「共有」およびターゲティング広告を拒否（オプトアウト）する権利</li>
+        <li>センシティブな個人情報の利用制限を求める権利</li>
+        <li>権利の行使を理由に差別されない権利</li>
+      </ul>
+
+      <h3>1. 収集する個人情報のカテゴリー</h3>
+      <p>カリフォルニア州消費者プライバシー法（CCPA/CPRA）上のカテゴリーでは、運営者は、識別子（端末識別子および広告識別子）、インターネットその他の電子ネットワーク活動情報（アプリの利用履歴およびセッションリプレイ）、おおよその位置情報（市区町村・地域レベルであり、精密な位置情報ではありません）、音声情報（音声収集に同意した場合の録音ファイル）を収集します。社会保障番号などの政府発行の識別番号、金融口座情報、精密な位置情報、生体情報は収集しません。</p>
+
+      <h3>2. 販売および共有</h3>
+      <p>運営者は、金銭的対価を得て個人情報を販売することはなく、利用者にターゲティング広告を提供するために個人情報を利用することもありません。ただし、分析ツールの提供者は広告識別子および端末識別子を収集します。これが関連する州法上のクロスコンテキスト行動広告（cross-context behavioral advertising）のための「共有」に該当する範囲において、利用者は端末の広告設定およびiOSでのトラッキングの拒否（第7条参照）により、いつでもこれを拒否できます。運営者は、16歳未満の消費者の個人情報をそれと知りながら販売または共有することはありません。</p>
+
+      <h3>3. センシティブな個人情報</h3>
+      <p>運営者は、利用者の特性を推測する目的で精密な位置情報その他のセンシティブな個人情報を収集することはなく、法律で認められた目的を超えてセンシティブな個人情報を利用または開示することはありません。</p>
+
+      <h3>4. 権利の行使方法</h3>
+      <p>権利の行使は、メール（joynnovate@gmail.com）にてご請求いただけます。本サービスは会員登録・ログインなしで運営されているため、運営者は収集した分析情報を通常は利用者の身元と結び付けることができず、そのため特定の利用者の情報を特定することに制約が生じる場合があります。情報を管理する最も効果的な方法は、アプリを削除すること（端末内の情報および匿名識別子が削除されます）と、第7条に定める選択方法を利用することです。運営者は、権利の行使を理由に利用者を差別することはありません。居住する州の法律が異議申立ての手続を定めている場合、利用者は運営者の回答に返信する方法で異議を申し立てることができます。</p>
+
+      <h3>5. カリフォルニア州「Shine the Light」法</h3>
+      <p>運営者は、第三者のダイレクトマーケティング目的のために、個人情報を第三者に提供することはありません。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第14条（個人情報保護責任者）</h2>
+      <p>個人情報の保護に関するお問い合わせに対応するため、以下のとおり個人情報保護責任者を指定しています。</p>
+      <ul>
+        <li>担当者：Heejin Jung（정희진）</li>
+        <li>メールアドレス：joynnovate@gmail.com</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第15条（権利侵害の救済方法）</h2>
+      <p>利用者は、個人情報の侵害に関する申告や相談が必要な場合、以下の機関にお問い合わせいただけます（いずれも韓国の機関です）。</p>
+      <ul>
+        <li>個人情報侵害申告センター（개인정보침해신고센터）：（市外局番なし）118</li>
+        <li>個人情報紛争調停委員会（개인정보분쟁조정위원회）：1833-6972</li>
+        <li>大検察庁（대검찰청）：1301</li>
+        <li>警察庁（경찰청）：182</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第16条（プライバシーポリシーの変更）</h2>
+      <p>本プライバシーポリシーは、施行日から適用されます。</p>
+      <p>関係法令または本サービスの変更内容を反映するため、本プライバシーポリシーを改定することがあり、変更する場合は本ページを通じてお知らせします。</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>第17条（言語）</h2>
+      <p>本プライバシーポリシーは韓国語で作成されています。英語・日本語その他の言語による翻訳版は理解を助けるために提供するものであり、翻訳版と韓国語版の内容に相違がある場合は、韓国語版が優先します。</p>
+    </article>
+
+    <div class="pub">
+      <p>公告日：2026年9月23日</p>
+      <p>施行日：2026年9月23日</p>
+    </div>
+
+    <a href="/ja/" class="back">← ホームに戻る</a>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#3C3C3C;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+      <div class="f-brand" style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:900;font-size:18px;">BuddyBird</span>
+          <span style="font-weight:700;font-size:13px;color:#B0B0B0;">インコ・オウムに言葉を教えるAI</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@buddybird.xyz?hl=ja" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
+            </a>
+          </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
+        <a href="/ja/privacy/" class="footer-link">プライバシーポリシー</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/ja/terms/" class="footer-link">利用規約</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/ja/support/" class="footer-link">サポート</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+      <div style="border-top:1px solid #555;padding-top:22px;">
+        <span style="font-weight:700;font-size:13px;color:#888;">© 2026 joynnovate. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
