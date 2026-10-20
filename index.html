@@ -20,11 +20,11 @@
 <meta name="twitter:description" content="An AI service that keeps teaching your parrot new words even while you're away.">
 <meta name="twitter:image" content="https://buddybird.xyz/assets/og-image.png">
 
-<!-- 루트는 접속 언어에 따라 /ko/·/en/·/ja/ 로 연결하는 라우터. 실제 콘텐츠는 각 언어 경로에 있고,
+<!-- 루트는 접속 언어에 따라 /ko/·/en/·/ja/·/ru/ 로 연결하는 라우터. 실제 콘텐츠는 각 언어 경로에 있고,
      색인은 /en/ 으로 통합한다. 크롤러는 이 라우터를 실행해 /en/ 에 닿으므로 둘이 같은
      페이지로 묶이는데, 방향을 명시하지 않으면 Google 이 링크가 몰리는 루트를 표준으로 골라
      버린다. 여기에 noindex 까지 있으면 그 판정이 /en/ 으로 번져 /en/ 이 색인에서 빠진다.
-     hreflang 은 표준 페이지인 /ko/·/en/·/ja/ 에만 두고 루트에서는 걷어낸다. -->
+     hreflang 은 표준 페이지인 /ko/·/en/·/ja/·/ru/ 에만 두고 루트에서는 걷어낸다. -->
 <link rel="canonical" href="https://buddybird.xyz/en/">
 <meta name="google-site-verification" content="2s-64dieapGG3a-nCfKSOfwd8utzq4Jt-fP0lnkTzpQ">
 <meta name="theme-color" content="#FF9600">
@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <script>
 (function () {
-  // 목적지 언어(ko/en/ja)를 정해 해시·쿼리를 보존하며 이동한다.
+  // 목적지 언어(ko/en/ja/ru)를 정해 해시·쿼리를 보존하며 이동한다.
   // 언어 없는 /privacy·/terms·/support 는 버킷에 파일이 없어 CloudFront 가 이 라우터를 대신 돌려주므로,
   // 경로를 보고 같은 문서의 언어판(/ko/privacy/ 등)으로 보낸다. 그 밖의 경로는 언어별 첫 화면으로 간다.
   var page = location.pathname.replace(/^\/+|\/+$/g, '');
@@ -41,7 +41,7 @@
   function go(lang) { location.replace('/' + lang + '/' + suffix); }
 
   // 지원 언어. 새 언어 페이지를 만들면 여기에 코드를 더한다.
-  var LANGS = ['ko', 'en', 'ja'];
+  var LANGS = ['ko', 'en', 'ja', 'ru'];
 
   // 1) 이전에 선택/조회한 언어가 있으면 그대로 존중 (수동 전환 기억)
   try {
@@ -68,13 +68,13 @@
   <noscript>
     <div style="max-width:480px;margin:96px auto;padding:0 24px;text-align:center;">
       <p style="font-weight:900;font-size:22px;margin:0 0 8px;">BuddyBird</p>
-      <p style="font-weight:700;color:#777;margin:0 0 20px;">Choose your language · 언어를 선택하세요 · 言語を選択</p>
-      <p style="font-weight:800;"><a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a></p>
+      <p style="font-weight:700;color:#777;margin:0 0 20px;">Choose your language · 언어를 선택하세요 · 言語を選択 · Выберите язык</p>
+      <p style="font-weight:800;"><a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a> &nbsp;·&nbsp; <a href="/ru/" style="color:#FF9600;">Русский</a></p>
     </div>
   </noscript>
   <div style="max-width:480px;margin:96px auto;padding:0 24px;text-align:center;color:#999;font-weight:700;">
     Redirecting… &nbsp;
-    <a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a>
+    <a href="/en/" style="color:#FF9600;">English</a> &nbsp;·&nbsp; <a href="/ko/" style="color:#FF9600;">한국어</a> &nbsp;·&nbsp; <a href="/ja/" style="color:#FF9600;">日本語</a> &nbsp;·&nbsp; <a href="/ru/" style="color:#FF9600;">Русский</a>
   </div>
 </body>
 </html>
