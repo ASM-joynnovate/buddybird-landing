@@ -31,19 +31,43 @@ jobs:
           role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
           aws-region: ap-northeast-2
 
+      # 브라우저 캐시 전략
+      # - assets/ : 1년 immutable. 배포 직전 stamp-assets.py 가 HTML 의 /assets/ 참조에 내용 해시(?v=)를
+      #   붙이므로, 파일이 바뀌면 URL 이 바뀌어 새 파일을 받고 안 바뀐 파일은 재방문 때 요청조차 하지 않는다.
+      # - HTML 등 나머지 : 브라우저는 매번 확인(max-age=0, 바뀌지 않았으면 304 로 본문 없이 끝남),
+      #   CloudFront 엣지는 1년(s-maxage) 보관. 배포 때 아래 무효화가 엣지를 비우므로 새 내용이 바로 보인다.
+      #   해외 엣지가 서울 원본까지 가는 일을 줄이는 게 목적이다.
+      # - 절대 URL 로 외부에 노출되는 og-image*, icons/app-icon.png 는 해시를 붙일 수 없어 HTML 과 같은 규칙.
+      - name: Stamp asset versions
+        run: python3 scripts/stamp-assets.py
+
       # allowlist 방식: 알려진 사이트 경로만 올린다.
       # --exclude "*" 로 전부 막고 서빙 대상만 --include 로 연다.
       # --delete 도 이 필터 안에서만 동작하므로 .well-known, 사이트 소유확인 파일처럼
       # 레포 밖에서 올라간 오브젝트는 삭제되지 않는다. 새 사이트 경로가 생기면 여기에 추가한다.
-      - name: S3 sync
+      # privacy/·terms/·support/ 는 레포에서 지운 옛 리다이렉트 스텁이다. 필터에 남겨 두어야
+      # --delete 가 버킷의 옛 파일을 지우고, 그 뒤 이 경로는 루트 라우터가 언어판으로 보낸다.
+      - name: S3 sync (assets, long cache)
         run: |
           aws s3 sync . "s3://${{ secrets.SITE_BUCKET }}" --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "*" \
+            --include "assets/*" \
+            --exclude "assets/og-image*" \
+            --exclude "assets/icons/app-icon.png"
+
+      - name: S3 sync (pages, revalidate)
+        run: |
+          aws s3 sync . "s3://${{ secrets.SITE_BUCKET }}" --delete \
+            --cache-control "public, max-age=0, must-revalidate, s-maxage=31536000" \
             --exclude "*" \
             --include "index.html" \
+            --include "naver349fb6aafe7542a79514196f0b05ae53.html" \
             --include "robots.txt" \
             --include "sitemap.xml" \
             --include "llms.txt" \
-            --include "assets/*" \
+            --include "assets/og-image*" \
+            --include "assets/icons/app-icon.png" \
             --include "ko/*" \
             --include "en/*" \
             --include "dl/*" \
