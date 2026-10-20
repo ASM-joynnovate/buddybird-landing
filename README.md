@@ -102,7 +102,7 @@ npx qrcode -e H -t png -w 1024 -o assets/qr/buddybird-dl.png "https://buddybird.
 
 작업 브랜치에서 `dev`로 PR을 올려 머지하고, 배포할 때 `dev` → `main` PR을 머지하면 main push로 배포가 돈다.
 
-- S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다.
+- S3 sync는 allowlist 방식이다. `--exclude "*"`로 전부 막고 서빙 대상만 `--include`로 열기 때문에, 새 서빙 경로를 만들면 `deploy.yml`의 목록에 같이 추가해야 한다. 빼먹으면 배포는 성공하고 그 경로만 404가 된다. `--delete`도 이 필터 안에서만 동작해, `.well-known`이나 사이트 소유확인 파일처럼 레포 밖에서 올린 오브젝트는 지우지 않는다
 - 캐시: `assets/`는 브라우저에 1년 캐시(immutable)한다. 배포 직전 `scripts/stamp-assets.py`가 HTML의 `/assets/…` 참조에 내용 해시(`?v=…`)를 붙여, 파일이 바뀌면 URL도 바뀐다. 이 스크립트는 HTML을 직접 고치므로 로컬에서 돌렸다면 `git checkout -- '*.html'`로 되돌린다
 - HTML 등 나머지는 브라우저가 매번 확인하고(`max-age=0`), CloudFront 엣지는 1년 보관한다(`s-maxage`). 배포 때 무효화(`/*`)로 엣지를 비운다
 - `og-image*.png`, `icons/app-icon.png`는 외부(SNS·검색)에 절대 URL로 노출돼 해시를 붙일 수 없으므로 HTML과 같은 규칙이다. `assets/` 파일을 HTML이 아닌 곳에서 절대 URL로 새로 쓰게 되면 `deploy.yml`의 두 sync 목록에 같이 옮긴다
