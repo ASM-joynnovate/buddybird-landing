@@ -58,6 +58,7 @@ jobs:
             --include "ja/*" \
             --include "ru/*" \
             --include "es/*" \
+            --include "zh-tw/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
