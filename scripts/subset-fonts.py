@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""CJK 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
+"""CJK·태국어 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
 
 - 일본어: M PLUS Rounded 1c (google/fonts)
 - 번체 중국어: 源泉圓體 TW (GenSen Rounded 2 TW, ButTaiwan/gensen-font). 대만 교육부 표준 자형이라
   일본 자형인 M PLUS 를 쓰지 않는다
 - 간체 중국어: 自由圆体 CN (Resource Han Rounded CN, CyanoHao/Resource-Han-Rounded). 본토 표준 자형이고
   번체의 GenSen 처럼 Source Han Sans 를 둥글린 글꼴이다. 가변 글꼴만 배포돼서 700·900 으로 고정해 쓴다
+- 태국어: Mitr (google/fonts). 획 끝이 둥근 고리 없는 태국 문자 글꼴이라 Nunito 와 어울린다.
+  Mitr 는 700 까지라 페이지 굵기 700·800·900 을 Mitr 500·600·700 으로 그린다
 
 CJK 글꼴은 한 굵기가 3~16MB 이고, Google Fonts 로 받으면 조각 수십 개(일본어 랜딩에서 약 650KB)를 받는다.
 페이지에 실제로 쓰인 글자만 잘라 직접 올리면 굵기당 40~110KB 다.
@@ -23,6 +25,7 @@ import io
 import json
 import re
 import sys
+import unicodedata
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -40,6 +43,14 @@ FONTS = {
         "source": MPLUS_COMMIT,
         "url": f"https://raw.githubusercontent.com/google/fonts/{MPLUS_COMMIT}/ofl/mplusrounded1c/MPLUSRounded1c-{{style}}.ttf",
         "weights": {700: "Bold", 800: "ExtraBold", 900: "Black"},
+    },
+    "mitr": {
+        "source": MPLUS_COMMIT,
+        "url": f"https://raw.githubusercontent.com/google/fonts/{MPLUS_COMMIT}/ofl/mitr/Mitr-{{style}}.ttf",
+        "weights": {500: "Medium", 600: "SemiBold", 700: "Bold"},
+        # 페이지 글자가 아니라 태국 문자 블록 전체를 담는다(굵기당 10KB 안팎). 브라우저는 ำ 를 ํ + า 로
+        # 나눠 그리므로 페이지에 없는 글자도 필요하다. 쿠키 배너의 일본어·중국어 문구는 이 글꼴과 상관없다
+        "only": ("\u0e00", "\u0e7f"),
     },
     # 굵기가 B(700)·H(900)로 벌어져 있어 페이지의 700·800 은 B 한 벌로 그린다(@font-face 의 font-weight:700 800)
     "gensen-rounded-tw": {
@@ -67,15 +78,19 @@ GROUPS = {
     "zh-tw-docs": ("gensen-rounded-tw", ["zh-tw/support/index.html", "zh-tw/privacy/index.html", "zh-tw/terms/index.html", "assets/js/consent.js"]),
     "zh-cn-landing": ("resource-han-rounded-cn", ["zh-cn/index.html", "assets/js/consent.js"]),
     "zh-cn-docs": ("resource-han-rounded-cn", ["zh-cn/support/index.html", "zh-cn/privacy/index.html", "zh-cn/terms/index.html", "assets/js/consent.js"]),
+    "th-landing": ("mitr", ["th/index.html", "assets/js/consent.js"]),
+    "th-docs": ("mitr", ["th/support/index.html", "th/privacy/index.html", "th/terms/index.html", "assets/js/consent.js"]),
 }
 
 
-def needed_chars(pages: list[str]) -> str:
+def needed_chars(pages: list[str], only: tuple[str, str] | None = None) -> str:
     chars: set[str] = set()
     for page in pages:
         text = (ROOT / page).read_text(encoding="utf-8")
         text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
         chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ"))
+    if only:
+        chars = {chr(i) for i in range(ord(only[0]), ord(only[1]) + 1) if unicodedata.category(chr(i)) != "Cn"}
     return "".join(sorted(chars))
 
 
@@ -135,7 +150,7 @@ def source(font: str, weight: int) -> Path:
                 for member in spec["weights"].values():
                     (CACHE / member).write_bytes(z.read(member))
         return path
-    path = CACHE / f"MPLUSRounded1c-{name}.ttf"
+    path = CACHE / spec["url"].format(style=name).rsplit("/", 1)[1]
     if not path.is_file():
         CACHE.mkdir(parents=True, exist_ok=True)
         print(f"원본 받는 중: {path.name}")
@@ -150,7 +165,7 @@ def build() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     lock = {"sources": {font: spec["source"] for font, spec in FONTS.items()}, "groups": {}}
     for group, (font, pages) in GROUPS.items():
-        chars = needed_chars(pages)
+        chars = needed_chars(pages, FONTS[font].get("only"))
         entry = {"font": font, "pages": pages, "chars": chars, "files": {}}
         missing: set[str] = set()
         for weight in FONTS[font]["weights"]:
@@ -193,7 +208,7 @@ def check() -> int:
             errors.append(f"{group}: 서브셋이 없다")
             continue
         covered = set(entry["chars"])
-        new = [c for c in needed_chars(pages) if c not in covered]
+        new = [c for c in needed_chars(pages, FONTS[font].get("only")) if c not in covered]
         if new:
             errors.append(f"{group}: 서브셋에 없는 새 글자 {''.join(new)!r}")
         for name, digest in entry["files"].items():

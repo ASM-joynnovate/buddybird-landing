@@ -5,13 +5,14 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 ## 구성
 
 ### 페이지
-- `index.html` — 루트 언어 라우터. 브라우저의 선호 언어 목록(`navigator.languages`)을 순서대로 보고 지원하는 첫 언어(`/ko/`·`/ja/`·`/ru/`·`/es/`·`/zh-tw/`·`/zh-cn/`·`/en/`)로 보낸다. 중국어는 번체(`zh-TW`·`zh-HK`·`zh-MO`·`zh-Hant`)면 `/zh-tw/`, 그 밖(`zh-CN`·`zh-SG`·`zh-Hans`·지역 없는 `zh`)은 `/zh-cn/`으로 보낸다. 맞는 언어가 없으면 영어. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다. 새 언어를 열면 라우터의 `LANGS`와 각 페이지의 언어 메뉴에 추가한다
+- `index.html` — 루트 언어 라우터. 브라우저의 선호 언어 목록(`navigator.languages`)을 순서대로 보고 지원하는 첫 언어(`/ko/`·`/ja/`·`/ru/`·`/es/`·`/zh-tw/`·`/zh-cn/`·`/th/`·`/en/`)로 보낸다. 중국어는 번체(`zh-TW`·`zh-HK`·`zh-MO`·`zh-Hant`)면 `/zh-tw/`, 그 밖(`zh-CN`·`zh-SG`·`zh-Hans`·지역 없는 `zh`)은 `/zh-cn/`으로 보낸다. 맞는 언어가 없으면 영어. 한 번 고른 언어는 `localStorage`의 `bb-lang`에 남는다. 새 언어를 열면 라우터의 `LANGS`와 각 페이지의 언어 메뉴에 추가한다
 - `ko/`, `en/` — 실제 랜딩 본문. 각 언어 아래에 `privacy/`, `terms/`, `support/`가 있다
 - `ja/` — 일본어 랜딩과 `privacy/`, `terms/`, `support/`. 개인정보 처리방침·이용약관은 한국어판을 번역한 것이다
 - `ru/` — 러시아어 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같다. 키릴 문자는 Nunito(Google Fonts)가 그리므로 글꼴 서브셋이 따로 없다
 - `es/` — 스페인어(스페인, 앱과 같은 es-ES·tú) 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같고, 글자는 Nunito가 그린다
 - `zh-tw/` — 번체 중국어(대만) 랜딩과 `privacy/`, `terms/`, `support/`. 구성은 `ja/`와 같다. 페이지 `lang`은 `zh-Hant-TW`, hreflang은 홍콩·마카오까지 묶는 `zh-Hant`다
 - `zh-cn/` — 간체 중국어 랜딩과 `privacy/`, `terms/`, `support/`. 번체 페이지를 바탕으로 본토 표현으로 옮겼다. 페이지 `lang`은 `zh-Hans-CN`, hreflang은 싱가포르까지 묶는 `zh-Hans`다
+- `th/` — 태국어 랜딩과 `privacy/`, `terms/`, `support/`. 랜딩은 `en/`, 문서는 `ja/`의 틀을 바탕으로 했다
 - 개인정보 처리방침·이용약관은 한국어판이 원본이다. 각 언어판의 마지막 조항(언어)에 "번역본과 다르면 한국어판이 우선한다"고 적어 두었으니, 한국어판을 고치면 다른 언어판도 함께 고친다
 - 언어 없는 `/privacy/`, `/terms/`, `/support/` — 파일은 없다. CloudFront 가 없는 경로에 루트 `index.html`을 돌려주므로, 라우터가 경로를 보고 방문자 언어의 같은 문서(`/ja/privacy/` 등)로 보낸다
 - `dl/` — 스토어 진입점. 아래 "스토어 링크와 QR" 참고
@@ -19,11 +20,11 @@ BuddyBird 랜딩페이지 (DotComponents 기반).
 ### 에셋
 - `assets/js/` — `support.js`(DotComponents 런타임), `analytics.js`(Firebase Analytics + Clarity), `consent.js`(쿠키 동의)
 - 쿠키 동의 — 페이지는 `analytics.js`를 직접 로드하지 않고 `consent.js`를 로드한다. 브라우저 시간대가 유럽(`Europe/*`, 카나리아·키프로스 등 포함)이면 동의 배너를 띄우고, 허용해야 `analytics.js`를 불러온다. 선택은 `localStorage`의 `bb-consent`에 남고 푸터의 "쿠키 설정"으로 바꿀 수 있다. 그 밖의 시간대는 바로 로드한다. 배너 일본어·중국어 문구도 글꼴 서브셋 대상이라 문구를 고치면 `subset-fonts.py`를 다시 돌린다
-- `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/`, `assets/images/es/`, `assets/images/zh-tw/`, `assets/images/zh-cn/` — 언어별 앱 스크린샷. `ja`·`ru`·`es`·`zh-tw`·`zh-cn`은 로컬 mock 데이터로 찍은 화면이다. `zh-tw`·`zh-cn`은 앱에 중국어가 아직 없어(BB-707) 임시 번역을 넣은 로컬 빌드로 찍었으니, 앱 중국어가 나오면 다시 찍는다
+- `assets/images/ko/`, `assets/images/en/`, `assets/images/ja/`, `assets/images/ru/`, `assets/images/es/`, `assets/images/zh-tw/`, `assets/images/zh-cn/`, `assets/images/th/` — 언어별 앱 스크린샷. `ja`·`ru`·`es`·`zh-tw`·`zh-cn`·`th`는 로컬 mock 데이터로 찍은 화면이다. `zh-tw`·`zh-cn`·`th`는 앱에 해당 언어가 아직 없어 임시 번역을 넣은 로컬 빌드로 찍었으니, 앱에 그 언어가 나오면 다시 찍는다
 - `assets/icons/` — `app-icon.png`(앵무새 원본 2048), `apple-touch-icon.png`(180), `favicon.png`(48)
-- `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png`, `og-image-es.png`, `og-image-zh-tw.png`, `og-image-zh-cn.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
-- `assets/fonts/` — 일본어(M PLUS Rounded 1c), 번체 중국어(源泉圓體 TW), 간체 중국어(自由圆体 CN) 글꼴 서브셋. 페이지에 쓰인 글자만 담아 굵기당 40~100KB다. 일본어·중국어 문구를 고치면 `pip install fonttools brotli py7zr` 후 `python3 scripts/subset-fonts.py`로 다시 만든다. CI가 `--check`로 빠진 글자를 잡는다
-- 글꼴: 영문·숫자는 Nunito, 일본어는 M PLUS Rounded 1c, 번체 중국어는 源泉圓體 TW(GenSen Rounded 2 TW, 대만 표준 자형), 간체 중국어는 自由圆体 CN(Resource Han Rounded CN, 본토 표준 자형), 한글은 Pretendard. 글꼴 목록은 Nunito → (언어 글꼴) → Pretendard 순서이고, 브라우저는 앞 글꼴에 없는 글자만 다음 글꼴로 그린다. 새 언어는 같은 둥근 계열을 목록에 더한다(힌디어 Baloo 2, 벵골어 Baloo Da 2)
+- `assets/og-image.png`, `og-image-en.png`, `og-image-ja.png`, `og-image-ru.png`, `og-image-es.png`, `og-image-zh-tw.png`, `og-image-zh-cn.png`, `og-image-th.png` — 언어별 링크 공유 미리보기(Open Graph) 이미지 (1200×630)
+- `assets/fonts/` — 일본어(M PLUS Rounded 1c), 번체 중국어(源泉圓體 TW), 간체 중국어(自由圆体 CN), 태국어(Mitr) 글꼴 서브셋. 페이지에 쓰인 글자만 담아 굵기당 40~100KB다(태국어는 10KB 안팎). 일본어·중국어·태국어 문구를 고치면 `pip install fonttools brotli py7zr` 후 `python3 scripts/subset-fonts.py`로 다시 만든다. CI가 `--check`로 빠진 글자를 잡는다
+- 글꼴: 영문·숫자는 Nunito, 일본어는 M PLUS Rounded 1c, 번체 중국어는 源泉圓體 TW(GenSen Rounded 2 TW, 대만 표준 자형), 간체 중국어는 自由圆体 CN(Resource Han Rounded CN, 본토 표준 자형), 태국어는 Mitr(획 끝이 둥근 고리 없는 글꼴, 700까지라 페이지 굵기 700·800·900을 500·600·700으로 그린다), 한글은 Pretendard. 글꼴 목록은 Nunito → (언어 글꼴) → Pretendard 순서이고, 브라우저는 앞 글꼴에 없는 글자만 다음 글꼴로 그린다. 새 언어는 같은 둥근 계열을 목록에 더한다(힌디어 Baloo 2, 벵골어 Baloo Da 2)
 - `assets/qr/` — `/dl/`로 가는 QR 코드
 - `scripts/og-card.html` — OG 이미지 생성용 소스 (헤드리스 Chrome로 렌더). 서빙 대상이 아니라 HTML 검사에서 뺀다
 - `DESIGN.md` — 디자인 가이드
@@ -52,7 +53,7 @@ https://apps.apple.com/app/id6783652711
 
 `/kr/`이나 `/us/`를 끼우면 그 지역 스토어로 고정되어, 다른 지역 계정 사용자는 설치할 수 없는 페이지를 보게 된다. 지역 코드를 빼면 Apple이 방문자 계정 지역의 스토어로 라우팅한다.
 
-Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`, `/ja/`, `/ru/`, `/es/`, `/zh-tw/`, `/zh-cn/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
+Google Play는 `hl` 파라미터가 페이지 언어를 정한다. 언어가 분명한 랜딩(`/ko/`, `/en/`, `/ja/`, `/ru/`, `/es/`, `/zh-tw/`, `/zh-cn/`, `/th/`)에서는 해당 언어를 붙이고, 언어를 알 수 없는 `/dl/`에서는 붙이지 않아 기기 언어를 따르게 한다.
 
 링크가 들어 있는 곳은 언어별 랜딩의 하단 CTA와 `<head>`의 JSON-LD `downloadUrl`, 그리고 `dl/index.html`이다. 앱 ID가 바뀌면 세 곳을 함께 고쳐야 한다.
 

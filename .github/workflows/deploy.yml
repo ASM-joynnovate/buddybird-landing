@@ -60,6 +60,7 @@ jobs:
             --include "es/*" \
             --include "zh-tw/*" \
             --include "zh-cn/*" \
+            --include "th/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
