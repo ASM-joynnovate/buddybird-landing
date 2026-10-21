@@ -58,6 +58,10 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - [Traditional Chinese support](https://buddybird.xyz/zh-tw/support/)
 - [Traditional Chinese privacy policy](https://buddybird.xyz/zh-tw/privacy/)
 - [Traditional Chinese terms of service](https://buddybird.xyz/zh-tw/terms/)
+- [Simplified Chinese landing page](https://buddybird.xyz/zh-cn/): 产品介绍、功能、常见问题（简体中文）
+- [Simplified Chinese support](https://buddybird.xyz/zh-cn/support/)
+- [Simplified Chinese privacy policy](https://buddybird.xyz/zh-cn/privacy/)
+- [Simplified Chinese terms of service](https://buddybird.xyz/zh-cn/terms/)
 
 ## Download
 

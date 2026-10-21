@@ -4,11 +4,13 @@
 - 일본어: M PLUS Rounded 1c (google/fonts)
 - 번체 중국어: 源泉圓體 TW (GenSen Rounded 2 TW, ButTaiwan/gensen-font). 대만 교육부 표준 자형이라
   일본 자형인 M PLUS 를 쓰지 않는다
+- 간체 중국어: 自由圆体 CN (Resource Han Rounded CN, CyanoHao/Resource-Han-Rounded). 본토 표준 자형이고
+  번체의 GenSen 처럼 Source Han Sans 를 둥글린 글꼴이다. 가변 글꼴만 배포돼서 700·900 으로 고정해 쓴다
 
 CJK 글꼴은 한 굵기가 3~16MB 이고, Google Fonts 로 받으면 조각 수십 개(일본어 랜딩에서 약 650KB)를 받는다.
 페이지에 실제로 쓰인 글자만 잘라 직접 올리면 굵기당 40~110KB 다.
 
-- 만들기: `python3 scripts/subset-fonts.py` (fonttools·brotli 필요: `pip install fonttools brotli`)
+- 만들기: `python3 scripts/subset-fonts.py` (fonttools·brotli·py7zr 필요: `pip install fonttools brotli py7zr`)
   원본은 아래 커밋·릴리스로 고정해 받아 .cache/fonts/ 에 둔다(레포에 넣지 않는다).
 - 검사: `python3 scripts/subset-fonts.py --check` (표준 라이브러리만 쓴다, CI 에서 실행)
   CJK 문구에 새 글자가 생겼는데 서브셋을 다시 만들지 않았으면 실패한다.
@@ -32,6 +34,7 @@ CACHE = ROOT / ".cache" / "fonts"
 
 MPLUS_COMMIT = "84efd8ad78c3710ad14bd909e3bc407151885628"  # google/fonts, 2026-05-01
 GENSEN_RELEASE = "v2.100"  # ButTaiwan/gensen-font, 2024-08-22
+RHR_RELEASE = "v1.910"  # CyanoHao/Resource-Han-Rounded, 2022-04-23
 FONTS = {
     "mplus-rounded-1c": {
         "source": MPLUS_COMMIT,
@@ -45,6 +48,14 @@ FONTS = {
         "zip_sha256": "c5a18c0661c0b26effe5503431f2fee176137f6451be3ae37b9787c6179cf325",
         "weights": {700: "GenSenRounded2TW-B.otf", 900: "GenSenRounded2TW-H.otf"},
     },
+    # 가변 글꼴(wght 200~900, ROND 0~100)을 잘라낸 뒤 굵기를 고정한다. 굵기 축 사이 단계는 쓰지 않는다
+    "resource-han-rounded-cn": {
+        "source": RHR_RELEASE,
+        "archive": f"https://github.com/CyanoHao/Resource-Han-Rounded/releases/download/{RHR_RELEASE}/RHR-CFF2-CN-1.910.7z",
+        "archive_sha256": "4ad7b141535a1f11831287b0a6f71ddcec8daa92dc1d82c59892068f8ae5df09",
+        "variable": "ResourceHanRoundedCN-VF.otf",
+        "weights": {700: 700, 900: 900},
+    },
 }
 
 # 랜딩과 문서 페이지는 글자 수 차이가 커서 따로 자른다.
@@ -54,6 +65,8 @@ GROUPS = {
     "ja-docs": ("mplus-rounded-1c", ["ja/support/index.html", "ja/privacy/index.html", "ja/terms/index.html", "assets/js/consent.js"]),
     "zh-tw-landing": ("gensen-rounded-tw", ["zh-tw/index.html", "assets/js/consent.js"]),
     "zh-tw-docs": ("gensen-rounded-tw", ["zh-tw/support/index.html", "zh-tw/privacy/index.html", "zh-tw/terms/index.html", "assets/js/consent.js"]),
+    "zh-cn-landing": ("resource-han-rounded-cn", ["zh-cn/index.html", "assets/js/consent.js"]),
+    "zh-cn-docs": ("resource-han-rounded-cn", ["zh-cn/support/index.html", "zh-cn/privacy/index.html", "zh-cn/terms/index.html", "assets/js/consent.js"]),
 }
 
 
@@ -68,6 +81,43 @@ def needed_chars(pages: list[str]) -> str:
 
 def font_path(font: str, group: str, weight: int) -> Path:
     return OUT / f"{font}-{group}-{weight}.woff2"
+
+
+def variable_source(font: str) -> Path:
+    import py7zr
+
+    spec = FONTS[font]
+    path = CACHE / spec["variable"]
+    if not path.is_file():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        print(f"원본 받는 중: {spec['archive'].rsplit('/', 1)[1]}")
+        data = urllib.request.urlopen(spec["archive"]).read()
+        if hashlib.sha256(data).hexdigest() != spec["archive_sha256"]:
+            sys.exit(f"{font}: 받은 7z 의 sha256 이 고정값과 다르다")
+        with py7zr.SevenZipFile(io.BytesIO(data)) as z:
+            z.extract(path=CACHE, targets=[spec["variable"]])
+    return path
+
+
+def subset_variable(font: str, weight: int, chars: str, out: Path) -> None:
+    from fontTools import subset
+    from fontTools.cffLib.CFF2ToCFF import convertCFF2ToCFF
+    from fontTools.varLib import instancer
+
+    opts = subset.Options()
+    opts.layout_features = ["*"]
+    opts.name_IDs = ["*"]
+    # 이 글꼴의 GPOS 는 굵기 고정 때 병합되지 않는다(InconsistentGlyphOrder).
+    # 라틴 커닝·세로쓰기 조정뿐이라 뺀다: 라틴은 Nunito 가 그리고 페이지는 가로쓰기다
+    opts.drop_tables += ["GPOS"]
+    loaded = subset.load_font(str(variable_source(font)), opts)
+    sub = subset.Subsetter(opts)
+    sub.populate(text=chars)
+    sub.subset(loaded)
+    fixed = instancer.instantiateVariableFont(loaded, {"wght": FONTS[font]["weights"][weight], "ROND": 100})
+    convertCFF2ToCFF(fixed)
+    fixed.flavor = "woff2"
+    fixed.save(str(out))
 
 
 def source(font: str, weight: int) -> Path:
@@ -104,6 +154,14 @@ def build() -> int:
         entry = {"font": font, "pages": pages, "chars": chars, "files": {}}
         missing: set[str] = set()
         for weight in FONTS[font]["weights"]:
+            out = font_path(font, group, weight)
+            if "variable" in FONTS[font]:
+                cmap = TTFont(variable_source(font))["cmap"].getBestCmap()
+                missing.update(c for c in chars if ord(c) not in cmap)
+                subset_variable(font, weight, chars, out)
+                entry["files"][out.name] = hashlib.md5(out.read_bytes()).hexdigest()
+                print(f"{out.relative_to(ROOT)}  {len(chars)}자  {out.stat().st_size // 1024}KB")
+                continue
             src = source(font, weight)
             cmap = TTFont(src)["cmap"].getBestCmap()
             missing.update(c for c in chars if ord(c) not in cmap)
@@ -115,7 +173,6 @@ def build() -> int:
             sub = subset.Subsetter(opts)
             sub.populate(text=chars)
             sub.subset(loaded)
-            out = font_path(font, group, weight)
             subset.save_font(loaded, str(out), opts)
             entry["files"][out.name] = hashlib.md5(out.read_bytes()).hexdigest()
             print(f"{out.relative_to(ROOT)}  {len(chars)}자  {out.stat().st_size // 1024}KB")
