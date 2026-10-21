@@ -51,11 +51,13 @@
     es: { text: '¿Podemos usar cookies de Google Analytics y Microsoft Clarity para saber cómo se usa esta web? Si las rechazas, la web funciona igual.',
           accept: 'Aceptar', reject: 'Rechazar', settings: 'Configurar cookies', policy: 'Política de privacidad', label: 'Consentimiento de cookies' },
     'zh-tw': { text: '可以使用 Google Analytics 和 Microsoft Clarity 的 Cookie 來了解網站的使用情況嗎？拒絕也不影響網站的使用。',
-          accept: '允許', reject: '拒絕', settings: 'Cookie 設定', policy: '隱私權政策', label: 'Cookie 使用同意' }
+          accept: '允許', reject: '拒絕', settings: 'Cookie 設定', policy: '隱私權政策', label: 'Cookie 使用同意' },
+    'zh-cn': { text: '可以使用 Google Analytics 和 Microsoft Clarity 的 Cookie 来了解网站的使用情况吗？拒绝也不影响网站的使用。',
+          accept: '允许', reject: '拒绝', settings: 'Cookie 设置', policy: '隐私政策', label: 'Cookie 使用同意' }
   };
-  // 키는 언어 경로와 같다. 번체 중국어 페이지(lang="zh-Hant-TW")는 앞 두 글자가 아니라 경로 zh-tw 로 찾는다
+  // 키는 언어 경로와 같다. 중국어 페이지(lang="zh-Hant-TW"·"zh-Hans-CN")는 앞 두 글자가 아니라 경로 zh-tw·zh-cn 으로 찾는다
   var htmlLang = (document.documentElement.lang || 'en').toLowerCase();
-  var lang = htmlLang.indexOf('zh-hant') === 0 ? 'zh-tw' : htmlLang.slice(0, 2);
+  var lang = htmlLang.indexOf('zh-hant') === 0 ? 'zh-tw' : htmlLang.indexOf('zh-hans') === 0 ? 'zh-cn' : htmlLang.slice(0, 2);
   var t = T[lang] || T.en;
   var base = T[lang] ? '/' + lang : '/en';
 

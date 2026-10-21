@@ -59,6 +59,7 @@ jobs:
             --include "ru/*" \
             --include "es/*" \
             --include "zh-tw/*" \
+            --include "zh-cn/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
