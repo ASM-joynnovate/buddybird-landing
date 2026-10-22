@@ -13,6 +13,7 @@
 <link rel="alternate" hreflang="es" href="https://buddybird.xyz/es/">
 <link rel="alternate" hreflang="zh-Hant" href="https://buddybird.xyz/zh-tw/">
 <link rel="alternate" hreflang="zh-Hans" href="https://buddybird.xyz/zh-cn/">
+<link rel="alternate" hreflang="th" href="https://buddybird.xyz/th/">
 <link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#FF9600">
@@ -29,6 +30,7 @@
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="zh_TW">
 <meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="th_TH">
 <meta property="og:url" content="https://buddybird.xyz/zh-tw/">
 <meta property="og:title" content="BuddyBird：你不在家時，鸚鵡也在學說話">
 <meta property="og:description" content="用飼主的聲音播放詞語，在報告中重聽鸚鵡模仿的聲音。App Store、Google Play 免費下載。">
@@ -248,7 +250,6 @@ img{display:block;max-width:100%}
 .bubble .say{background:#fff;border:2px solid var(--border-dark);border-radius:18px;padding:12px 18px;font-weight:900;font-size:18px;position:relative;box-shadow:0 2px 0 var(--border-dark)}
 .bubble .say::after{content:"";position:absolute;right:-7px;top:50%;margin-top:-6px;width:12px;height:12px;background:#fff;border-right:2px solid var(--border-dark);border-bottom:2px solid var(--border-dark);transform:rotate(-45deg)}
 
-/* mascot Buddy — the app's own artwork */
 .buddy{display:block;width:78px;height:auto;animation:float 3.2s ease-in-out infinite;filter:drop-shadow(0 4px 0 rgba(0,0,0,.08))}
 @keyframes float{50%{transform:translateY(-6px)}}
 
@@ -279,7 +280,6 @@ img{display:block;max-width:100%}
 .moment p{margin:0;font-size:19px;line-height:1.6;color:var(--muted);max-width:32em}
 .moment .inline-phone{display:none}
 
-/* loop diagram inside 13:00 */
 
 
 /* session detail: the app's (v2.10.0) session detail screen. --u is one app point, so the same markup fills the card and the phone */
@@ -342,7 +342,6 @@ img{display:block;max-width:100%}
 .shot .stats{margin-top:calc(8*var(--u))}
 .phone .screen .strip .shot img{position:static;width:calc(36*var(--u));height:calc(36*var(--u));aspect-ratio:auto;opacity:1;transform:none;transition:none}
 
-/* sticky phone */
 .stage{position:relative}
 .stage-inner{position:sticky;top:88px;height:calc(100vh - 104px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 /* the screen carries the capture's exact ratio (1206×2622) so nothing is cropped */
@@ -473,7 +472,6 @@ footer a:hover{text-decoration:underline}
 /* one continuous strip: next screen rises from below, following the rail and the scroll exactly */
 .phone .screen .strip{position:absolute;left:0;top:0;width:100%;will-change:transform}
 .phone .screen .strip img{position:static;display:block;width:100%;height:auto;aspect-ratio:1206/2622;opacity:1;transform:none;transition:none}
-/* phase tag sits above the clock */
 .moment .tag{order:-1;margin:0 0 10px}
 .moment .t{margin-bottom:22px}
 /* rail: smaller thumb, tick labels clear of it */
@@ -589,7 +587,7 @@ body{word-break:normal;line-break:strict}
     <a class="hide-m" href="#faq">常見問題</a>
     <details class="lang">
       <summary><svg aria-hidden="true"><use href="#i-globe"/></svg><span class="sr-only">語言：</span>繁體中文<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-      <ul aria-label="語言"><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="/en/" hreflang="en" lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/zh-tw/" aria-current="page" lang="zh-Hant-TW">繁體中文</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">简体中文</a></li></ul>
+      <ul aria-label="語言"><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="/en/" hreflang="en" lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/zh-tw/" aria-current="page" lang="zh-Hant-TW">繁體中文</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">简体中文</a></li><li><a href="/th/" hreflang="th" lang="th">ไทย</a></li></ul>
     </details>
     <a class="btn" style="min-height:42px;padding:0 16px;font-size:14px;box-shadow:0 4px 0 var(--primary-shadow)" href="#top">免費開始</a>
   </nav>
@@ -771,7 +769,6 @@ body{word-break:normal;line-break:strict}
 <script>
 (() => {
   try { localStorage.setItem('bb-lang', 'zh-tw'); } catch (e) {}
-  // language menu: close on an outside click or Escape
   const langMenu = document.querySelector('.lang');
   document.addEventListener('click', e => { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
   langMenu.addEventListener('keydown', e => { if (e.key === 'Escape' && langMenu.open) { langMenu.open = false; langMenu.querySelector('summary').focus(); } });
