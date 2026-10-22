@@ -92,33 +92,19 @@
       },
       "missing": "กขคงชซฏณดตธนบปผพมยรลวสหอะัาิีืุูเแโใไ็่้์"
     },
-    "th-landing": {
+    "th": {
       "font": "mitr",
       "pages": [
         "th/index.html",
-        "assets/js/consent.js"
-      ],
-      "chars": "กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุู฿เแโใไๅๆ็่้๊๋์ํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛",
-      "files": {
-        "mitr-th-landing-500.woff2": "56a80109b2bd9613273f296d3d064e09",
-        "mitr-th-landing-600.woff2": "0c93edc58dfe94a0f53be107a827e3dc",
-        "mitr-th-landing-700.woff2": "e899d7ab5167250dbd069eb990645a93"
-      },
-      "missing": ""
-    },
-    "th-docs": {
-      "font": "mitr",
-      "pages": [
         "th/support/index.html",
         "th/privacy/index.html",
-        "th/terms/index.html",
-        "assets/js/consent.js"
+        "th/terms/index.html"
       ],
       "chars": "กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุู฿เแโใไๅๆ็่้๊๋์ํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛",
       "files": {
-        "mitr-th-docs-500.woff2": "56a80109b2bd9613273f296d3d064e09",
-        "mitr-th-docs-600.woff2": "0c93edc58dfe94a0f53be107a827e3dc",
-        "mitr-th-docs-700.woff2": "e899d7ab5167250dbd069eb990645a93"
+        "mitr-th-500.woff2": "56a80109b2bd9613273f296d3d064e09",
+        "mitr-th-600.woff2": "0c93edc58dfe94a0f53be107a827e3dc",
+        "mitr-th-700.woff2": "e899d7ab5167250dbd069eb990645a93"
       },
       "missing": ""
     }

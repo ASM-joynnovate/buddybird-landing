@@ -78,8 +78,8 @@ GROUPS = {
     "zh-tw-docs": ("gensen-rounded-tw", ["zh-tw/support/index.html", "zh-tw/privacy/index.html", "zh-tw/terms/index.html", "assets/js/consent.js"]),
     "zh-cn-landing": ("resource-han-rounded-cn", ["zh-cn/index.html", "assets/js/consent.js"]),
     "zh-cn-docs": ("resource-han-rounded-cn", ["zh-cn/support/index.html", "zh-cn/privacy/index.html", "zh-cn/terms/index.html", "assets/js/consent.js"]),
-    "th-landing": ("mitr", ["th/index.html", "assets/js/consent.js"]),
-    "th-docs": ("mitr", ["th/support/index.html", "th/privacy/index.html", "th/terms/index.html", "assets/js/consent.js"]),
+    # 태국어는 블록 전체를 담아 랜딩·문서 서브셋이 같아지므로 한 벌만 만든다
+    "th": ("mitr", ["th/index.html", "th/support/index.html", "th/privacy/index.html", "th/terms/index.html"]),
 }
 
 
