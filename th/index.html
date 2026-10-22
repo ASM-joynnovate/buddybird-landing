@@ -135,7 +135,15 @@
           "name": "ใช้ตอนไม่อยู่บ้านได้ไหม",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ได้ แอปจะเปิดคำศัพท์ซ้ำ ๆ โดยสลับฝึกกับพักตลอดเวลาที่ตั้งไว้ ระหว่างนั้นจะบันทึกเสียงนกแก้วผ่านไมโครโฟนแล้วสรุปไว้ในรายงาน ถ้าวางโทรศัพท์เครื่องที่ไม่ได้ใช้ไว้ข้างกรงก่อนออกจากบ้าน ก็ดูรายงานแบบเรียลไทม์ได้จากโทรศัพท์อีกเครื่องที่ล็อกอินบัญชีเดียวกัน"
+            "text": "ได้ แอปจะเปิดคำศัพท์ซ้ำ ๆ โดยสลับฝึกกับพักตลอดเวลาที่ตั้งไว้ ระหว่างนั้นจะบันทึกเสียงนกแก้วผ่านไมโครโฟนแล้วสรุปไว้ในรายงาน"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ดูความคืบหน้าตอนอยู่นอกบ้านได้ไหม",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ได้ ถ้าวางโทรศัพท์เครื่องที่ไม่ได้ใช้ไว้ข้างกรงก่อนออกจากบ้าน ก็ดูรายงานแบบเรียลไทม์ได้จากโทรศัพท์อีกเครื่องที่ล็อกอินบัญชีเดียวกัน"
           }
         },
         {
@@ -151,7 +159,7 @@
           "name": "พูดคุยกับเจ้าของนกแก้วคนอื่นได้ไหม",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "เรามีแผนจะเปิดตัวตารางอันดับ เมื่อเปิดแล้วจะดูได้ว่านกแก้วของเจ้าของคนอื่นฝึกไปถึงไหน และแบ่งปันความคืบหน้ากันได้"
+            "text": "เรามีแผนจะเปิดตัวตารางอันดับและฟีด เมื่อเปิดแล้วจะดูได้ว่านกแก้วของเจ้าของคนอื่นฝึกไปถึงไหน และแบ่งปันความคืบหน้ากันได้"
           }
         }
       ]
@@ -188,7 +196,6 @@
   --sky:#FFF4E3; /* time-of-day tint, driven by JS */
   --font:Nunito,"Mitr TH","Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
   --spring:cubic-bezier(.34,1.56,.64,1);
-  transition:--sky .9s ease;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-color:var(--primary) var(--s1)}
@@ -196,13 +203,13 @@ html{scroll-behavior:smooth;scrollbar-color:var(--primary) var(--s1)}
 ::-webkit-scrollbar-track{background:var(--s1)}
 ::-webkit-scrollbar-thumb{background:var(--primary);border-radius:99px;border:3px solid var(--s1)}
 ::selection{background:var(--yellow);color:var(--ink)}
-body{margin:0;font-family:var(--font);font-weight:700;color:var(--ink);background:var(--sky);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+body{margin:0;font-family:var(--font);font-weight:700;color:var(--ink);background:var(--sky);transition:background-color .9s ease;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
 a{color:inherit;text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:12px}
 img{display:block;max-width:100%}
 
 /* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,40px);background:color-mix(in srgb,var(--sky) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:2px solid transparent;transition:border-color .3s}
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,40px);background:color-mix(in srgb,var(--sky) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:2px solid transparent;transition:border-color .3s,background-color .9s ease} /* only the two surfaces that use --sky fade; fading --sky itself restyled the whole page every frame */
 .nav.scrolled{border-bottom-color:transparent}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:20px}
 .brand img{width:36px;height:36px;border-radius:10px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
@@ -211,7 +218,8 @@ img{display:block;max-width:100%}
 .nav-links a:not(.btn):hover{background:#FFE9CC;color:#7A4300}
 /* language menu: a native <details> dropdown, so it scales to many languages and works without JS */
 .lang{position:relative;margin:0 4px}
-.lang summary{list-style:none;display:flex;align-items:center;gap:6px;min-height:38px;padding:0 10px;border:2px solid var(--border);border-radius:12px;background:#fff;font-weight:800;font-size:13px;white-space:nowrap;cursor:pointer}
+.lang summary{list-style:none;display:flex;align-items:center;gap:6px;min-height:42px;padding:0 10px;border:2px solid var(--border-dark);border-radius:12px;background:#fff;box-shadow:0 4px 0 var(--border-dark);font-weight:800;font-size:13px;white-space:nowrap;cursor:pointer;user-select:none;-webkit-user-select:none}
+.lang summary:active{transform:translateY(3px);box-shadow:0 1px 0 var(--border-dark)} /* pressed like the CTA beside it */
 .lang summary::-webkit-details-marker{display:none}
 .lang summary svg{width:16px;height:16px;flex:none}
 .lang summary .chev{width:12px;height:12px;color:var(--muted);transition:transform .2s}
@@ -274,6 +282,7 @@ img{display:block;max-width:100%}
 .dg .col{display:flex;flex-direction:column;will-change:transform}
 .dg .col span{display:block;height:1.3em;line-height:1.3}
 @keyframes blink{50%{opacity:.25}}
+.moment:not(.on) .t .colon{animation:none} /* hidden clocks don't tick */
 .moment .tag{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:22px 0 14px;padding:8px 14px;border-radius:999px;font-weight:900;font-size:14px;color:#fff;background:var(--ink)}
 .moment .tag svg{width:16px;height:16px}
 .moment .tag.learn{background:var(--primary);box-shadow:0 3px 0 var(--primary-shadow);color:var(--on-color)}
@@ -281,7 +290,7 @@ img{display:block;max-width:100%}
 .moment .tag.home{background:var(--yellow);box-shadow:0 3px 0 var(--yellow-shadow);color:var(--ink)}
 .moment .tag.out{background:#fff;color:var(--ink);border:2px solid var(--border-dark)}
 .moment h3{font-size:clamp(24px,2.6vw,34px);line-height:1.25;font-weight:900;margin:0 0 12px;max-width:18em;text-wrap:balance}
-.moment p{margin:0;font-size:19px;line-height:1.6;color:var(--muted);max-width:32em}
+.moment p{margin:0;font-size:17px;line-height:1.65;color:var(--muted);max-width:32em}
 .moment .inline-phone{display:none}
 
 
@@ -350,7 +359,7 @@ img{display:block;max-width:100%}
 .stage-inner{position:sticky;top:88px;height:calc(100vh - 104px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 /* the screen carries the capture's exact ratio (1206×2622) so nothing is cropped */
 .phone{position:relative;width:100%;background:#1E1E1E;border-radius:50px;padding:9px;box-shadow:0 40px 80px rgba(0,0,0,.20),0 0 0 1px rgba(0,0,0,.10)}
-.phone .screen{position:relative;width:100%;aspect-ratio:1206/2622;border-radius:42px;overflow:hidden;background:#fff}
+.phone .screen{position:relative;width:100%;aspect-ratio:1206/2622;border-radius:42px;overflow:hidden;background:#1E1E1E} /* bezel colour, so a sub-pixel seam at the screen edge never shows white */
 .phone .screen{view-transition-name:bb-screen}
 .phone .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transform:translateY(-6%);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
 html.vt .phone .screen img{transition:none}
@@ -454,7 +463,7 @@ footer a:hover{text-decoration:underline}
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
-  .hero{grid-template-columns:1fr}
+  .hero{grid-template-columns:minmax(0,1fr)} /* a line that cannot break must not widen the page */
   .depart{margin-top:24px}
   .day-grid{grid-template-columns:1fr}
   .stage{display:none}
@@ -508,7 +517,9 @@ footer a:hover{text-decoration:underline}
       .record{padding:48px 16px}
   .record-card{padding:22px 18px;border-radius:24px;gap:28px}
   .record h2{font-size:26px}
-  .record p{font-size:16px}
+  .record p{font-size:16px;margin-bottom:0}
+  .record .shots{padding-bottom:24px} /* room for the lowered second phone, which the card would otherwise clip */
+  .mini:nth-child(2){transform:translateY(24px)}
   .recorder{padding:12px;gap:10px}
   .mic{width:58px;height:58px}.pbtn{width:48px;height:48px}
   .mini{width:min(160px,44%);border-radius:26px;padding:6px}
@@ -536,7 +547,7 @@ footer a:hover{text-decoration:underline}
   .pin .moment.on{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
   .spacer{display:block;height:60vh}
   .detail .stats,.detail .lt,.detail .db{display:none}
-  .detail{--u:1.15px;max-width:520px}
+  .detail{--u:1.15px;max-width:520px;zoom:.75} /* the whole card at three quarters, proportions kept */
   .detail .qr{display:none}
   .detail .pl{width:46px;height:46px}
   .detail .ex{font-size:14px}
@@ -549,10 +560,52 @@ footer .social a:hover{background:#FFE9CC;color:#7A4300;text-decoration:none}
 footer .social svg{width:22px;height:22px}
 .close .stores .free{color:#fff}
 .moment .tag{border:2px solid transparent;line-height:1.2}
+/* glyphs sit high in their line box: move the row down 1px and the icon back up 1px, so both meet the pill centre */
+.moment .tag{padding-top:9px;padding-bottom:7px}
+.moment .tag svg{position:relative;top:-1px}
+@media (max-width:640px){.moment .tag{padding-top:8px;padding-bottom:6px}}
 .moment .tag.out{border-color:var(--border-dark)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-/* narrow phones: hide the wordmark so the language menu and CTA fit */
-@media (max-width:440px){.brand{font-size:0;gap:0}}
+/* Thai has no spaces between words: keep-all (meant for Korean) stops Safari breaking it at all, so use the dictionary breaks */
+body{word-break:normal}
+/* narrow phones: the language menu shows only its globe so the wordmark and CTA fit */
+@media (max-width:440px){.brand{font-size:17px;gap:8px}.lang{margin:0 2px}.lang summary{font-size:0;gap:4px;padding:0 8px}.nav-links .btn{padding:0 12px!important}.brand{flex:none}.nav-links{min-width:0}.nav-links .btn{white-space:normal;line-height:1.15;text-align:center}} /* a long CTA wraps to two lines instead of cutting the wordmark */
+/* ---------- the day below 961px: the same pinned scene, text on top and the phone under it ---------- */
+@media (max-width:960px){
+  .day{--top:64px;--h:calc(100svh - var(--top));--txt:calc(var(--h) * .44)} /* replaced by the longest moment's height once measured */
+  .day-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"day";gap:0}
+  .moments,.stage{grid-area:day;min-width:0}
+  .moments{position:relative;padding-bottom:0}
+  .moments::after{content:"";display:block;height:48vh}
+  /* both pins share one bottom edge so they let go together */
+  .pin{position:sticky;top:var(--top);height:var(--h);z-index:1;pointer-events:none}
+  .pin .moment{position:absolute;left:0;right:0;top:0;min-height:0;padding:14px 0 12px;border-top:0;flex-flow:row wrap;justify-content:flex-start;align-items:center;align-content:flex-start;column-gap:14px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s .25s}
+  .pin .moment.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .25s ease,visibility 0s}
+  .pin .moment .inline-phone,.pin .moment .detail{display:none} /* the phone below shows these screens */
+  /* tag and clock share the first row so the phone keeps more of the screen */
+  .pin .moment .tag{margin:0}
+  .pin .moment .t{font-size:clamp(40px,11vw,56px);margin:0 0 0 auto} /* tag at the left edge, clock at the right */
+  .pin .moment h3,.pin .moment p:not(.t){flex:1 0 100%}
+  .pin .moment h3{font-size:clamp(19px,5vw,22px);margin:8px 0}
+  .pin .moment p{font-size:15px;line-height:1.55}
+  .spacer{display:block;height:60vh}
+  .stage{display:block}
+  .stage-inner{top:calc(var(--top) + var(--txt));margin-top:var(--txt);height:calc(var(--h) - var(--txt));padding-bottom:12px} /* starts under the text before it pins, too */
+  .rig{height:100%;justify-content:flex-start;gap:0}
+  /* rail at the left edge (its labels hang 26px left of it); the phone takes the rest, whole body on screen */
+  .tilt{width:min(412px,calc((var(--h) - var(--txt) - 24px) * .46),calc(100% - 94px));margin:0 auto}
+  .phone{border-radius:clamp(26px,8vw,40px);padding:6px}
+  .phone .screen{border-radius:clamp(21px,6.5vw,34px)}
+  .rail{margin:12px 0 12px 26px}
+}
+@media (max-width:960px) and (prefers-reduced-motion:reduce){.pin .moment{transition:none}}
+/* tap guide on the phone's play button, until the first tap */
+.phone .shot .pl{position:relative}
+.phone:not(.tried) .shot .it.open .pl{isolation:isolate}
+.phone:not(.tried) .shot .it.open .pl::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:50%;background:rgba(255,150,0,.5);animation:tap-ring 1.6s ease-out infinite}
+.phone:not(.tried) .shot .it.open .pl::after{content:"";position:absolute;left:calc(50% - 4*var(--u));top:calc(50% + 6*var(--u));width:calc(34*var(--u));height:calc(34*var(--u));background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff' stroke='%233C3C3C' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15V4a2 2 0 0 1 4 0v5a2 2 0 0 1 4 0v1a2 2 0 0 1 4 0z'/%3E%3Cpath d='M11 9v1M15 10v1' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;transform-origin:30% 10%;animation:tap-hand 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes tap-ring{from{transform:scale(1);opacity:.9}to{transform:scale(1.8);opacity:0}} /* transform and opacity only, so it runs off the main thread */
+@keyframes tap-hand{0%,100%{transform:none}35%{transform:translate(-6%,-10%) scale(.9)}}
 </style>
 <script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script>
 </head>
@@ -591,6 +644,19 @@ footer .social svg{width:22px;height:22px}
       <summary><svg aria-hidden="true"><use href="#i-globe"/></svg><span class="sr-only">ภาษา: </span>ไทย<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
       <ul aria-label="ภาษา"><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="/en/" hreflang="en" lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant-TW">繁體中文</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">简体中文</a></li><li><a href="/th/" aria-current="page" lang="th">ไทย</a></li><li><a href="/bn/" hreflang="bn" lang="bn">বাংলা</a></li><li><a href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li></ul>
     </details>
+    <script>
+    // the visitor's own language (first supported one in the browser's list) goes to the top of the menu
+    (() => {
+      const ul = document.currentScript.previousElementSibling.querySelector('ul');
+      for (const pref of navigator.languages || [navigator.language || '']) {
+        const tag = String(pref).toLowerCase(), base = tag.split('-')[0];
+        const code = base === 'zh' ? (/^zh-(hant|tw|hk|mo)(-|$)/.test(tag) ? 'zh-tw' : 'zh-cn') : base;
+        const li = ul.querySelector(`a[href="/${code}/"]`)?.parentElement;
+        if (li) { ul.prepend(li); return; }
+      }
+      ul.prepend(ul.querySelector('a[href="/en/"]').parentElement); // no supported language: English, as the root router does
+    })();
+    </script>
     <a class="btn" style="min-height:42px;padding:0 16px;font-size:14px;box-shadow:0 4px 0 var(--primary-shadow)" href="#top">ดาวน์โหลดฟรี</a>
   </nav>
 </header>
@@ -743,9 +809,10 @@ footer .social svg{width:22px;height:22px}
     <h2 id="faq-h">คำถามที่พบบ่อย</h2>
     <details><summary>รองรับนกแก้วสายพันธุ์ไหนบ้าง<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ไม่จำกัดสายพันธุ์ นกแก้วทุกตัวใช้ BuddyBird ได้</div></details>
     <details><summary>ใช้แค่โทรศัพท์เครื่องเดียวได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ได้ แค่มีโทรศัพท์ที่คุณใช้อยู่ก็พอ ติดตั้งแอปแล้ววางโทรศัพท์ไว้ใกล้กรง แอปจะฝึกคำศัพท์ไปพร้อมกับฟังเสียงนกแก้วผ่านไมโครโฟนของโทรศัพท์ ไม่ต้องใช้อุปกรณ์อื่นเพิ่ม</div></details>
-    <details><summary>ใช้ตอนไม่อยู่บ้านได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ได้ แอปจะเปิดคำศัพท์ซ้ำ ๆ โดยสลับฝึกกับพักตลอดเวลาที่ตั้งไว้ ระหว่างนั้นจะบันทึกเสียงนกแก้วผ่านไมโครโฟนแล้วสรุปไว้ในรายงาน ถ้าวางโทรศัพท์เครื่องที่ไม่ได้ใช้ไว้ข้างกรงก่อนออกจากบ้าน ก็ดูรายงานแบบเรียลไทม์ได้จากโทรศัพท์อีกเครื่องที่ล็อกอินบัญชีเดียวกัน</div></details>
+    <details><summary>ใช้ตอนไม่อยู่บ้านได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ได้ แอปจะเปิดคำศัพท์ซ้ำ ๆ โดยสลับฝึกกับพักตลอดเวลาที่ตั้งไว้ ระหว่างนั้นจะบันทึกเสียงนกแก้วผ่านไมโครโฟนแล้วสรุปไว้ในรายงาน</div></details>
+    <details><summary>ดูความคืบหน้าตอนอยู่นอกบ้านได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ได้ ถ้าวางโทรศัพท์เครื่องที่ไม่ได้ใช้ไว้ข้างกรงก่อนออกจากบ้าน ก็ดูรายงานแบบเรียลไทม์ได้จากโทรศัพท์อีกเครื่องที่ล็อกอินบัญชีเดียวกัน</div></details>
     <details><summary>ต้องเสียเงินไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">ตอนนี้ใช้ได้ฟรี หากเปลี่ยนเป็นแบบเสียเงินในภายหลัง เราจะแจ้งรายละเอียดการสมัครสมาชิกรายเดือนให้ทราบ</div></details>
-    <details><summary>พูดคุยกับเจ้าของนกแก้วคนอื่นได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">เรามีแผนจะเปิดตัวตารางอันดับ เมื่อเปิดแล้วจะดูได้ว่านกแก้วของเจ้าของคนอื่นฝึกไปถึงไหน และแบ่งปันความคืบหน้ากันได้</div></details>
+    <details><summary>พูดคุยกับเจ้าของนกแก้วคนอื่นได้ไหม<span class="pm"><svg><use href="#i-plus"/></svg></span></summary><div class="a">เรามีแผนจะเปิดตัวตารางอันดับและฟีด เมื่อเปิดแล้วจะดูได้ว่านกแก้วของเจ้าของคนอื่นฝึกไปถึงไหน และแบ่งปันความคืบหน้ากันได้</div></details>
   </section>
 
   <section class="close" aria-labelledby="close-h">
@@ -803,7 +870,6 @@ footer .social svg{width:22px;height:22px}
   };
   const labels = T.labels;
   const rm = matchMedia('(prefers-reduced-motion: reduce)');
-  const desk = matchMedia('(min-width: 961px)');
   const root = document.documentElement;
   const toMin = s => { const [h,m] = s.split(':').map(Number); return h*60 + m; };
   const fmt = m => { m = Math.round(m); return String(Math.floor(m/60)).padStart(2,'0') + ':' + String(m%60).padStart(2,'0'); };
@@ -856,11 +922,18 @@ footer .social svg{width:22px;height:22px}
     pillText && (pillText.textContent = labels[ph]);
     root.style.setProperty('--sky', m.dataset.sky);
   }
+  // below 961px the text sits above the phone; give it the room its longest moment needs
+  const day = document.getElementById('day'), stacked = matchMedia('(max-width: 960px)');
+  function fitText(){
+    if (!stacked.matches) { day.style.removeProperty('--txt'); return; }
+    day.style.setProperty('--txt', Math.max(...moments.map(m => m.offsetHeight)) + 'px');
+  }
   /* ---- scroll <-> time map (piecewise between moment centres) ---- */
   let anchors = [];
   const spacers = [...document.querySelectorAll('.spacer')];
   function measure(){
-    const marks = desk.matches && spacers.length === moments.length ? spacers : moments;
+    fitText();
+    const marks = spacers.length === moments.length ? spacers : moments;
     anchors = marks.map((m, i) => {
       const r = m.getBoundingClientRect();
       return { y: r.top + scrollY + r.height/2 - innerHeight/2, t: toMin(moments[i].dataset.time) };
@@ -981,15 +1054,19 @@ footer .social svg{width:22px;height:22px}
 
   /* ---- phone drag drives the page, with momentum ---- */
   const phone = document.getElementById('phone');
-  let pDrag = false, lastPY = 0, lastPT = 0, vel = 0, coast = 0;
+  let pDrag = false, lastPY = 0, lastPT = 0, vel = 0, coast = 0, downY = 0, held = false;
   const gain = () => { const span = anchors.length ? anchors[anchors.length-1].y - anchors[0].y : 3000; return Math.max(1, span / ((SN - 1) * screenEl.clientHeight)); };
   phone.addEventListener('pointerdown', e => {
-    pDrag = true; cancelAnimationFrame(coast); vel = 0;
-    lastPY = e.clientY; lastPT = performance.now();
-    phone.setPointerCapture(e.pointerId); phone.classList.add('drag');
+    // the pointer is captured only once it moves, so a tap stays a plain tap and its click reaches the row underneath
+    pDrag = true; held = false; cancelAnimationFrame(coast); vel = 0;
+    lastPY = downY = e.clientY; lastPT = performance.now();
   });
   phone.addEventListener('pointermove', e => {
     if (!pDrag) return;
+    if (!held) {
+      if (Math.abs(e.clientY - downY) <= 6) return;
+      held = true; lastPY = e.clientY; phone.setPointerCapture(e.pointerId); phone.classList.add('drag');
+    }
     const dy = lastPY - e.clientY, t = performance.now(), g = gain();
     jump(scrollY + dy * g);
     vel = 0.7 * vel + 0.3 * (dy * g / Math.max(1, t - lastPT));
@@ -998,6 +1075,7 @@ footer .social svg{width:22px;height:22px}
   function release(){
     if (!pDrag) return;
     pDrag = false; phone.classList.remove('drag');
+    if (!held) return; // a tap: its click plays the row
     if (rm.matches) return;
     let v = vel, t0 = performance.now();
     const step = t => {
@@ -1010,7 +1088,59 @@ footer .social svg{width:22px;height:22px}
     coast = requestAnimationFrame(step);
   }
   phone.addEventListener('pointerup', release);
+  phone.addEventListener('click', e => tapRow(e.target)); // a real click, so iOS lets the audio start
   phone.addEventListener('pointercancel', release);
+
+  /* ---- a stopped scroll settles on the nearest screen: past halfway it moves on, short of it it goes back ---- */
+  let settle = 0, fingers = 0, tries = 0, glideRaf = 0;
+  // a mouse wheel arrives in separate notches, so the desktop waits longer before calling the scroll stopped
+  const settleSoon = () => { clearTimeout(settle); settle = setTimeout(snap, stacked.matches ? 90 : 220); };
+  // a short ease-out of our own; the browser's smooth scroll takes about half a second on iOS
+  function glide(to){
+    cancelAnimationFrame(glideRaf);
+    if (rm.matches) { jump(to); return; }
+    const from = scrollY, t0 = performance.now();
+    const step = t => {
+      const k = Math.min(1, (t - t0) / 220);
+      jump(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) glideRaf = requestAnimationFrame(step);
+    };
+    glideRaf = requestAnimationFrame(step);
+  }
+  function snap(){
+    if (fingers || pDrag || railDrag || !anchors.length) return;
+    const y = scrollY;
+    if (y <= anchors[0].y || y >= anchors[anchors.length-1].y) return;
+    const to = anchors.reduce((b, a) => Math.abs(a.y - y) < Math.abs(b - y) ? a.y : b, anchors[0].y);
+    if (Math.abs(to - y) <= 2) { tries = 0; return; }
+    glide(to);
+    // iOS can drop a scroll asked for while its own fling is still gliding; look again and retry a few times
+    if (tries++ < 3) settle = setTimeout(snap, 400);
+  }
+  addEventListener('touchstart', e => { fingers = e.touches.length; tries = 0; clearTimeout(settle); cancelAnimationFrame(glideRaf); }, {passive:true});
+  addEventListener('touchend', e => { fingers = e.touches.length; settleSoon(); }, {passive:true});
+  addEventListener('touchcancel', e => { fingers = e.touches.length; settleSoon(); }, {passive:true});
+  addEventListener('scroll', settleSoon, {passive:true});
+
+  /* ---- the phone's detail screen plays through the card's rows (the card is hidden below 961px) ---- */
+  const cardRows = [...document.querySelectorAll('.detail .it')], phoneRows = [...phone.querySelectorAll('.shot .it')];
+  function tapRow(el){
+    const i = phoneRows.findIndex(r => r.contains(el)), row = cardRows[i];
+    if (!row) return;
+    phone.classList.add('tried');
+    if (el.closest('.pl')) { row.querySelector('[data-src]').click(); return; }
+    if (!el.closest('.ih')) return;
+    const opening = !row.classList.contains('open');
+    row.querySelector('.ih').click();
+    if (opening) row.querySelector('[data-src]').click(); // a closed row opens and plays at once
+  }
+  const mirror = () => cardRows.forEach((row, i) => {
+    const r = phoneRows[i]; if (!r) return;
+    r.classList.toggle('open', row.classList.contains('open'));
+    r.style.setProperty('--p', row.style.getPropertyValue('--p') || 0);
+    r.querySelector('.pl')?.setAttribute('aria-pressed', row.querySelector('[data-src]').getAttribute('aria-pressed'));
+  });
+  new MutationObserver(mirror).observe(document.querySelector('.detail'), {subtree:true, attributes:true, attributeFilter:['class','style','aria-pressed']});
 
   /* ---- velocity tilt (spring), only while the day is on screen ---- */
   const tilt = document.getElementById('tilt');
