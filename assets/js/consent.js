@@ -1,10 +1,6 @@
-// consent.js — 분석(analytics.js) 로드 전에 쿠키 동의를 확인한다.
-// 페이지에서 <script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script> 로 로드한다.
-// analytics.js 경로를 data 속성으로 받는 이유: 배포 때 stamp-assets.py 가 HTML 안의 /assets/ 참조에만
+// consent.js — 유럽 시간대 방문자에게만 쿠키 동의를 받고 analytics.js 를 로드한다(README "에셋").
+// analytics.js 경로를 data 속성으로 받는 이유: stamp-assets.py 가 HTML 안의 /assets/ 참조에만
 // 버전 쿼리(?v=)를 붙이므로, JS 안에 경로를 적으면 1년 캐시된 옛 파일을 계속 받는다.
-//
-// EU 등 사전 동의가 필요한 지역(브라우저 시간대로 판별)에서만 배너를 띄운다.
-// 그 밖의 방문자는 지금까지처럼 바로 분석을 로드한다.
 
 (function () {
   var ANALYTICS = document.currentScript && document.currentScript.dataset.analytics;
@@ -53,9 +49,21 @@
     ru: { text: 'Можно использовать файлы cookie Google Analytics и Microsoft Clarity, чтобы понимать, как посетители пользуются сайтом? Если откажетесь, сайт будет работать как обычно.',
           accept: 'Принять', reject: 'Отклонить', settings: 'Настройки cookie', policy: 'Политика конфиденциальности', label: 'Согласие на cookie' },
     es: { text: '¿Podemos usar cookies de Google Analytics y Microsoft Clarity para saber cómo se usa esta web? Si las rechazas, la web funciona igual.',
-          accept: 'Aceptar', reject: 'Rechazar', settings: 'Configurar cookies', policy: 'Política de privacidad', label: 'Consentimiento de cookies' }
+          accept: 'Aceptar', reject: 'Rechazar', settings: 'Configurar cookies', policy: 'Política de privacidad', label: 'Consentimiento de cookies' },
+    'zh-tw': { text: '可以使用 Google Analytics 和 Microsoft Clarity 的 Cookie 來了解網站的使用情況嗎？拒絕也不影響網站的使用。',
+          accept: '允許', reject: '拒絕', settings: 'Cookie 設定', policy: '隱私權政策', label: 'Cookie 使用同意' },
+    'zh-cn': { text: '可以使用 Google Analytics 和 Microsoft Clarity 的 Cookie 来了解网站的使用情况吗？拒绝也不影响网站的使用。',
+          accept: '允许', reject: '拒绝', settings: 'Cookie 设置', policy: '隐私政策', label: '同意使用 Cookie' },
+    th: { text: 'เราขอใช้คุกกี้ของ Google Analytics และ Microsoft Clarity เพื่อดูว่าผู้เข้าชมใช้งานเว็บไซต์อย่างไร ได้ไหม หากปฏิเสธ คุณก็ยังใช้เว็บไซต์ได้ตามปกติ',
+          accept: 'ยอมรับ', reject: 'ปฏิเสธ', settings: 'ตั้งค่าคุกกี้', policy: 'นโยบายความเป็นส่วนตัว', label: 'ความยินยอมในการใช้คุกกี้' },
+    bn: { text: 'দর্শনার্থীরা সাইটটি কীভাবে ব্যবহার করেন তা বুঝতে আমরা কি Google Analytics ও Microsoft Clarity-র কুকি ব্যবহার করতে পারি? প্রত্যাখ্যান করলেও সাইটটি একইভাবে ব্যবহার করতে পারবেন।',
+          accept: 'গ্রহণ করুন', reject: 'প্রত্যাখ্যান করুন', settings: 'কুকি সেটিংস', policy: 'গোপনীয়তা নীতি', label: 'কুকি ব্যবহারে সম্মতি' },
+    hi: { text: 'क्या हम यह समझने के लिए Google Analytics और Microsoft Clarity की कुकीज़ इस्तेमाल कर सकते हैं कि लोग साइट कैसे इस्तेमाल करते हैं? मना करने पर भी साइट पहले की तरह चलेगी।',
+          accept: 'अनुमति दें', reject: 'मना करें', settings: 'कुकी सेटिंग', policy: 'गोपनीयता नीति', label: 'कुकी के लिए सहमति' }
   };
-  var lang = (document.documentElement.lang || 'en').slice(0, 2);
+  // 키는 언어 경로와 같다. 중국어 페이지(lang="zh-Hant-TW"·"zh-Hans-CN")는 앞 두 글자가 아니라 경로 zh-tw·zh-cn 으로 찾는다
+  var htmlLang = (document.documentElement.lang || 'en').toLowerCase();
+  var lang = htmlLang.indexOf('zh-hant') === 0 ? 'zh-tw' : htmlLang.indexOf('zh-hans') === 0 ? 'zh-cn' : htmlLang.slice(0, 2);
   var t = T[lang] || T.en;
   var base = T[lang] ? '/' + lang : '/en';
 

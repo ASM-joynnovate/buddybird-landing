@@ -1,0 +1,30 @@
+name: Release
+
+# release-please 를 main 이 아니라 dev 에서 돌린다. merge commit 으로 main 에 들어온 커밋은
+# 직전 릴리스 커밋보다 날짜가 이를 수 있어 릴리스에서 빠진다(googleapis/release-please#2883).
+# 흐름과 규칙은 README "버전과 릴리스".
+on:
+  push:
+    branches: [dev]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    name: 릴리스 PR·태그
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write # autorelease 라벨
+      pull-requests: write
+    steps:
+      - uses: googleapis/release-please-action@v5
+        with:
+          target-branch: dev
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json

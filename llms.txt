@@ -9,7 +9,7 @@
 >
 > BuddyBird 는 보호자가 집을 비운 사이에도 앵무새에게 말을 가르치는 모바일 앱이다.
 > 새장 옆 휴대폰이 보호자 목소리로 녹음한 단어를 학습과 휴식을 번갈아 가며 들려주고,
-> 마이크로 앵무새의 소리를 듣는다. 버디버드에서 개발한 AI 모델이 앵무새가 낸 소리를
+> 마이크로 앵무새의 소리를 듣는다. AI 모델이 앵무새가 낸 소리를
 > 구분해 리포트로 보여주고, 보호자는 그 소리를 다시 들을 수 있다. 스마트폰 외의
 > 장비는 필요 없고, iOS·Android 무료.
 
@@ -29,7 +29,7 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - Category: pet care / parrot training, mobile app (iOS and Android)
 - Price: free (a monthly subscription may be introduced later)
 - Equipment needed: a smartphone only — no additional hardware
-- Languages: Korean, English, Japanese, Russian, Spanish
+- Languages: Korean, English, Japanese, Russian, Spanish, Traditional Chinese, Simplified Chinese, Thai, Bengali, Hindi
 - Maker: joynnovate
 - Species support: no species restrictions, any parrot can use it
 
@@ -54,6 +54,26 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - [Spanish support](https://buddybird.xyz/es/support/)
 - [Spanish privacy policy](https://buddybird.xyz/es/privacy/)
 - [Spanish terms of service](https://buddybird.xyz/es/terms/)
+- [Traditional Chinese landing page](https://buddybird.xyz/zh-tw/): 產品介紹、功能、常見問題（繁體中文）
+- [Traditional Chinese support](https://buddybird.xyz/zh-tw/support/)
+- [Traditional Chinese privacy policy](https://buddybird.xyz/zh-tw/privacy/)
+- [Traditional Chinese terms of service](https://buddybird.xyz/zh-tw/terms/)
+- [Simplified Chinese landing page](https://buddybird.xyz/zh-cn/): 产品介绍、功能、常见问题（简体中文）
+- [Simplified Chinese support](https://buddybird.xyz/zh-cn/support/)
+- [Simplified Chinese privacy policy](https://buddybird.xyz/zh-cn/privacy/)
+- [Simplified Chinese terms of service](https://buddybird.xyz/zh-cn/terms/)
+- [Thai landing page](https://buddybird.xyz/th/): แนะนำแอป ฟังก์ชัน และคำถามที่พบบ่อย (ภาษาไทย)
+- [Thai support](https://buddybird.xyz/th/support/)
+- [Thai privacy policy](https://buddybird.xyz/th/privacy/)
+- [Thai terms of service](https://buddybird.xyz/th/terms/)
+- [Bengali landing page](https://buddybird.xyz/bn/): অ্যাপের পরিচিতি, ফিচার ও সাধারণ জিজ্ঞাসা (বাংলা)
+- [Bengali support](https://buddybird.xyz/bn/support/)
+- [Bengali privacy policy](https://buddybird.xyz/bn/privacy/)
+- [Bengali terms of service](https://buddybird.xyz/bn/terms/)
+- [Hindi landing page](https://buddybird.xyz/hi/): ऐप की जानकारी, सुविधाएँ और सवाल-जवाब (हिन्दी)
+- [Hindi support](https://buddybird.xyz/hi/support/)
+- [Hindi privacy policy](https://buddybird.xyz/hi/privacy/)
+- [Hindi terms of service](https://buddybird.xyz/hi/terms/)
 
 ## Download
 
