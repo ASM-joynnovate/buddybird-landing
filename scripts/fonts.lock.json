@@ -3,6 +3,7 @@
     "mplus-rounded-1c": "84efd8ad78c3710ad14bd909e3bc407151885628",
     "mitr": "84efd8ad78c3710ad14bd909e3bc407151885628",
     "baloo-da-2": "84efd8ad78c3710ad14bd909e3bc407151885628",
+    "baloo-2": "84efd8ad78c3710ad14bd909e3bc407151885628",
     "gensen-rounded-tw": "v2.100",
     "resource-han-rounded-cn": "v1.910"
   },
@@ -108,6 +109,22 @@
         "baloo-da-2-bn-800.woff2": "c620056ec836dae80cda91460bcab284"
       },
       "missing": "ঀ৴৵৶৻ৼ৽৾"
+    },
+    "hi": {
+      "font": "baloo-2",
+      "pages": [
+        "hi/index.html",
+        "hi/support/index.html",
+        "hi/privacy/index.html",
+        "hi/terms/index.html"
+      ],
+      "chars": "ऀँंःऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसहऺऻ़ऽािीुूृॄॅॆेैॉॊोौ्ॎॏॐ॒॑॓॔ॕॖॗक़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰ॱॲॳॴॵॶॷॸॹॺॻॼॽॾॿ‌‍◌",
+      "files": {
+        "baloo-2-hi-600.woff2": "7e6a39c0db23f6772b0a5ef04cfab674",
+        "baloo-2-hi-700.woff2": "7489eed889e7668f02a35716ee095d72",
+        "baloo-2-hi-800.woff2": "45cd3d3bd304d656373402f6630ebbb3"
+      },
+      "missing": ""
     },
     "th": {
       "font": "mitr",
