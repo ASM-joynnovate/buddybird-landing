@@ -277,7 +277,6 @@ img{display:block;max-width:100%}
 .moment p{margin:0;font-size:19px;line-height:1.6;color:var(--muted);max-width:32em}
 .moment .inline-phone{display:none}
 
-/* loop diagram inside 13:00 */
 
 
 /* session detail: the app's (v2.10.0) session detail screen. --u is one app point, so the same markup fills the card and the phone */
@@ -340,7 +339,6 @@ img{display:block;max-width:100%}
 .shot .stats{margin-top:calc(8*var(--u))}
 .phone .screen .strip .shot img{position:static;width:calc(36*var(--u));height:calc(36*var(--u));aspect-ratio:auto;opacity:1;transform:none;transition:none}
 
-/* sticky phone */
 .stage{position:relative}
 .stage-inner{position:sticky;top:88px;height:calc(100vh - 104px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 /* the screen carries the capture's exact ratio (1206×2622) so nothing is cropped */
@@ -471,7 +469,6 @@ footer a:hover{text-decoration:underline}
 /* one continuous strip: next screen rises from below, following the rail and the scroll exactly */
 .phone .screen .strip{position:absolute;left:0;top:0;width:100%;will-change:transform}
 .phone .screen .strip img{position:static;display:block;width:100%;height:auto;aspect-ratio:1206/2622;opacity:1;transform:none;transition:none}
-/* phase tag sits above the clock */
 .moment .tag{order:-1;margin:0 0 10px}
 .moment .t{margin-bottom:22px}
 /* rail: smaller thumb, tick labels clear of it */
@@ -767,7 +764,6 @@ footer .social svg{width:22px;height:22px}
 <script>
 (() => {
   try { localStorage.setItem('bb-lang', 'ko'); } catch (e) {}
-  // language menu: close on an outside click or Escape
   const langMenu = document.querySelector('.lang');
   document.addEventListener('click', e => { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
   langMenu.addEventListener('keydown', e => { if (e.key === 'Escape' && langMenu.open) { langMenu.open = false; langMenu.querySelector('summary').focus(); } });
