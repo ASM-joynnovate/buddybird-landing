@@ -66,6 +66,10 @@ joynnovate. 새 모이통 하드웨어 Bird Buddy 와는 무관한 별개의 서
 - [Thai support](https://buddybird.xyz/th/support/)
 - [Thai privacy policy](https://buddybird.xyz/th/privacy/)
 - [Thai terms of service](https://buddybird.xyz/th/terms/)
+- [Bengali landing page](https://buddybird.xyz/bn/): অ্যাপের পরিচিতি, ফিচার ও সাধারণ জিজ্ঞাসা (বাংলা)
+- [Bengali support](https://buddybird.xyz/bn/support/)
+- [Bengali privacy policy](https://buddybird.xyz/bn/privacy/)
+- [Bengali terms of service](https://buddybird.xyz/bn/terms/)
 
 ## Download
 

@@ -55,7 +55,9 @@
     'zh-cn': { text: '可以使用 Google Analytics 和 Microsoft Clarity 的 Cookie 来了解网站的使用情况吗？拒绝也不影响网站的使用。',
           accept: '允许', reject: '拒绝', settings: 'Cookie 设置', policy: '隐私政策', label: '同意使用 Cookie' },
     th: { text: 'เราขอใช้คุกกี้ของ Google Analytics และ Microsoft Clarity เพื่อดูว่าผู้เข้าชมใช้งานเว็บไซต์อย่างไร ได้ไหม หากปฏิเสธ คุณก็ยังใช้เว็บไซต์ได้ตามปกติ',
-          accept: 'ยอมรับ', reject: 'ปฏิเสธ', settings: 'ตั้งค่าคุกกี้', policy: 'นโยบายความเป็นส่วนตัว', label: 'ความยินยอมในการใช้คุกกี้' }
+          accept: 'ยอมรับ', reject: 'ปฏิเสธ', settings: 'ตั้งค่าคุกกี้', policy: 'นโยบายความเป็นส่วนตัว', label: 'ความยินยอมในการใช้คุกกี้' },
+    bn: { text: 'দর্শনার্থীরা সাইটটি কীভাবে ব্যবহার করেন তা বুঝতে আমরা কি Google Analytics ও Microsoft Clarity-র কুকি ব্যবহার করতে পারি? প্রত্যাখ্যান করলেও সাইট ব্যবহারে কোনো পার্থক্য হবে না।',
+          accept: 'গ্রহণ করুন', reject: 'প্রত্যাখ্যান করুন', settings: 'কুকি সেটিংস', policy: 'গোপনীয়তা নীতি', label: 'কুকি ব্যবহারে সম্মতি' }
   };
   // 키는 언어 경로와 같다. 중국어 페이지(lang="zh-Hant-TW"·"zh-Hans-CN")는 앞 두 글자가 아니라 경로 zh-tw·zh-cn 으로 찾는다
   var htmlLang = (document.documentElement.lang || 'en').toLowerCase();
