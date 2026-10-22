@@ -1083,9 +1083,10 @@ footer .social svg{width:22px;height:22px}
   phone.addEventListener('click', e => tapRow(e.target)); // a real click, so iOS lets the audio start
   phone.addEventListener('pointercancel', release);
 
-  /* ---- below 961px a stopped scroll settles on the nearest screen: past halfway it moves on, short of it it goes back ---- */
+  /* ---- a stopped scroll settles on the nearest screen: past halfway it moves on, short of it it goes back ---- */
   let settle = 0, fingers = 0, tries = 0, glideRaf = 0;
-  const settleSoon = () => { clearTimeout(settle); settle = setTimeout(snap, 90); };
+  // a mouse wheel arrives in separate notches, so the desktop waits longer before calling the scroll stopped
+  const settleSoon = () => { clearTimeout(settle); settle = setTimeout(snap, stacked.matches ? 90 : 220); };
   // a short ease-out of our own; the browser's smooth scroll takes about half a second on iOS
   function glide(to){
     cancelAnimationFrame(glideRaf);
@@ -1099,7 +1100,7 @@ footer .social svg{width:22px;height:22px}
     glideRaf = requestAnimationFrame(step);
   }
   function snap(){
-    if (!stacked.matches || fingers || pDrag || !anchors.length) return;
+    if (fingers || pDrag || railDrag || !anchors.length) return;
     const y = scrollY;
     if (y <= anchors[0].y || y >= anchors[anchors.length-1].y) return;
     const to = anchors.reduce((b, a) => Math.abs(a.y - y) < Math.abs(b - y) ? a.y : b, anchors[0].y);
