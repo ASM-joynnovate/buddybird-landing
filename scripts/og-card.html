@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-  og-card.html — buddybird.xyz 링크 공유 미리보기(og-image.png / og-image-en.png / og-image-ja.png / og-image-ru.png / og-image-es.png / og-image-zh-tw.png / og-image-zh-cn.png / og-image-th.png / og-image-bn.png) 생성용 소스.
-  헤드리스 Chrome로 1200×630 렌더 → 한국어는 그대로, 영어는 ?lang=en, 일본어는 ?lang=ja, 러시아어는 ?lang=ru, 스페인어는 ?lang=es, 번체 중국어는 ?lang=zh-tw, 간체 중국어는 ?lang=zh-cn, 태국어는 ?lang=th, 벵골어는 ?lang=bn 으로 렌더.
+  og-card.html — buddybird.xyz 링크 공유 미리보기(og-image.png / og-image-en.png / og-image-ja.png / og-image-ru.png / og-image-es.png / og-image-zh-tw.png / og-image-zh-cn.png / og-image-th.png / og-image-bn.png / og-image-hi.png) 생성용 소스.
+  헤드리스 Chrome로 1200×630 렌더 → 한국어는 그대로, 영어는 ?lang=en, 일본어는 ?lang=ja, 러시아어는 ?lang=ru, 스페인어는 ?lang=es, 번체 중국어는 ?lang=zh-tw, 간체 중국어는 ?lang=zh-cn, 태국어는 ?lang=th, 벵골어는 ?lang=bn, 힌디어는 ?lang=hi 로 렌더.
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
       --screenshot=assets/og-image.png    "http://localhost:8910/scripts/og-card.html"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
@@ -20,6 +20,8 @@
       --screenshot=assets/og-image-th.png "http://localhost:8910/scripts/og-card.html?lang=th"
     chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
       --screenshot=assets/og-image-bn.png "http://localhost:8910/scripts/og-card.html?lang=bn"
+    chrome --headless=new --window-size=1200,630 --virtual-time-budget=5000 \
+      --screenshot=assets/og-image-hi.png "http://localhost:8910/scripts/og-card.html?lang=hi"
   (사이트 본문이 아니라 OG 이미지 빌드용 파일입니다.)
 -->
 <html lang="ko">
@@ -39,11 +41,15 @@
   @font-face{font-family:"Baloo Da 2 BN";font-weight:700;src:url(../assets/fonts/baloo-da-2-bn-600.woff2) format("woff2")}
   @font-face{font-family:"Baloo Da 2 BN";font-weight:800;src:url(../assets/fonts/baloo-da-2-bn-700.woff2) format("woff2")}
   @font-face{font-family:"Baloo Da 2 BN";font-weight:900;src:url(../assets/fonts/baloo-da-2-bn-800.woff2) format("woff2")}
+  /* 힌디어 카드: 페이지와 같은 Baloo 2 서브셋. 페이지 굵기 700·800·900 을 Baloo 2 600·700·800 으로 그린다 */
+  @font-face{font-family:"Baloo 2 HI";font-weight:700;src:url(../assets/fonts/baloo-2-hi-600.woff2) format("woff2")}
+  @font-face{font-family:"Baloo 2 HI";font-weight:800;src:url(../assets/fonts/baloo-2-hi-700.woff2) format("woff2")}
+  @font-face{font-family:"Baloo 2 HI";font-weight:900;src:url(../assets/fonts/baloo-2-hi-800.woff2) format("woff2")}
   html, body { margin: 0; padding: 0; }
   body {
     width: 1200px; height: 630px; overflow: hidden; position: relative;
     background: #FFF4E3;
-    font-family: 'Nunito', 'Mitr TH', 'Baloo Da 2 BN', 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+    font-family: 'Nunito', 'Mitr TH', 'Baloo Da 2 BN', 'Baloo 2 HI', 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
     color: #3C3C3C; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     word-break: keep-all;
   }
@@ -60,6 +66,7 @@
   html[lang="zh-Hant-TW"] h1, html[lang="zh-Hans-CN"] h1 { font-size: 52px; }
   html[lang="th"] h1 { font-size: 46px; line-height: 1.3; }
   html[lang="bn"] h1 { font-size: 50px; line-height: 1.3; }
+  html[lang="hi"] h1 { font-size: 48px; line-height: 1.3; }
   .free { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 21px; color: #6B5A45; }
   .free b { color: #3C3C3C; }
 
@@ -95,7 +102,7 @@
   <div class="note n2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.8v14.4c0 .9 1 1.4 1.7.9l10.6-7.2c.6-.4.6-1.4 0-1.8L8.7 3.9C8 3.4 7 3.9 7 4.8z"/></svg></span><span id="t2">따라 한 소리 다시 듣기</span></div>
 
 <script>
-  // ?lang=en / ?lang=ja / ?lang=ru / ?lang=es / ?lang=zh-tw / ?lang=zh-cn / ?lang=th / ?lang=bn render the English / Japanese / Russian / Spanish / Traditional / Simplified Chinese / Thai / Bengali card from the same layout
+  // ?lang=en / ?lang=ja / ?lang=ru / ?lang=es / ?lang=zh-tw / ?lang=zh-cn / ?lang=th / ?lang=bn / ?lang=hi render the English / Japanese / Russian / Spanish / Traditional / Simplified Chinese / Thai / Bengali / Hindi card from the same layout
   var lang = new URLSearchParams(location.search).get('lang');
   if (lang === 'en') {
     document.documentElement.lang = 'en';
@@ -152,6 +159,13 @@
     document.getElementById('t1').textContent = 'আপনার নিজের কণ্ঠে রেকর্ড';
     document.getElementById('t2').textContent = 'অনুকরণ করা আওয়াজ আবার শুনুন';
     document.getElementById('shot').src = '../assets/images/bn/screen-summary.webp';
+  } else if (lang === 'hi') {
+    document.documentElement.lang = 'hi';
+    document.getElementById('h').innerHTML = 'आप बाहर हैं,<br><span class="hl">तोता बोलना सीख रहा है</span>';
+    document.getElementById('f').innerHTML = '<b>App Store और Google Play</b> पर मुफ़्त';
+    document.getElementById('t1').textContent = 'अपनी आवाज़ में रिकॉर्ड करें';
+    document.getElementById('t2').textContent = 'नकल की गई आवाज़ दोबारा सुनें';
+    document.getElementById('shot').src = '../assets/images/hi/screen-summary.webp';
   }
 </script>
 </body>
