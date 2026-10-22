@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CJK·태국어·벵골어 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
+"""CJK·태국어·벵골어·힌디어 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
 
 - 일본어: M PLUS Rounded 1c (google/fonts)
 - 번체 중국어: 源泉圓體 TW (GenSen Rounded 2 TW, ButTaiwan/gensen-font). 대만 교육부 표준 자형이라
@@ -8,6 +8,7 @@
   번체의 GenSen 처럼 Source Han Sans 를 둥글린 글꼴이다. 가변 글꼴만 배포돼서 700·900 으로 고정해 쓴다
 - 벵골어: Baloo Da 2 (google/fonts). Nunito 처럼 획 끝이 둥근 Baloo 계열의 벵골 문자판이다.
   가변 글꼴(wght 400~800)이라 페이지 굵기 700·800·900 을 600·700·800 으로 고정해 쓴다
+- 힌디어: Baloo 2 (google/fonts). 같은 Baloo 계열의 데바나가리판이다. 굵기는 벵골어와 같이 고정한다
 - 태국어: Mitr (google/fonts). 획 끝이 둥근 고리 없는 태국 문자 글꼴이라 Nunito 와 어울린다.
   Mitr 는 700 까지라 페이지 굵기 700·800·900 을 Mitr 500·600·700 으로 그린다
 
@@ -64,6 +65,15 @@ FONTS = {
         "only": ("\u0980", "\u09ff"),
         "extra": "\u0964\u0965\u200c\u200d\u25cc",
     },
+    "baloo-2": {
+        "source": MPLUS_COMMIT,
+        "url": f"https://raw.githubusercontent.com/google/fonts/{MPLUS_COMMIT}/ofl/baloo2/Baloo2%5Bwght%5D.ttf",
+        "variable": "Baloo2[wght].ttf",
+        "weights": {600: 600, 700: 700, 800: 800},
+        # 데바나가리도 자음이 겹쳐 합자가 되므로 블록 전체를 담는다(단다 । ॥ 도 이 블록에 있다)
+        "only": ("\u0900", "\u097f"),
+        "extra": "\u200c\u200d\u25cc",
+    },
     # 굵기가 B(700)·H(900)로 벌어져 있어 페이지의 700·800 은 B 한 벌로 그린다(@font-face 의 font-weight:700 800)
     "gensen-rounded-tw": {
         "source": GENSEN_RELEASE,
@@ -91,6 +101,7 @@ GROUPS = {
     "zh-cn-landing": ("resource-han-rounded-cn", ["zh-cn/index.html", "assets/js/consent.js"]),
     "zh-cn-docs": ("resource-han-rounded-cn", ["zh-cn/support/index.html", "zh-cn/privacy/index.html", "zh-cn/terms/index.html", "assets/js/consent.js"]),
     "bn": ("baloo-da-2", ["bn/index.html", "bn/support/index.html", "bn/privacy/index.html", "bn/terms/index.html"]),
+    "hi": ("baloo-2", ["hi/index.html", "hi/support/index.html", "hi/privacy/index.html", "hi/terms/index.html"]),
     # 태국어는 블록 전체를 담아 랜딩·문서 서브셋이 같아지므로 한 벌만 만든다
     "th": ("mitr", ["th/index.html", "th/support/index.html", "th/privacy/index.html", "th/terms/index.html"]),
 }
@@ -101,8 +112,8 @@ def needed_chars(pages: list[str], only: tuple[str, str] | None = None, extra: s
     for page in pages:
         text = (ROOT / page).read_text(encoding="utf-8")
         text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
-        # 한글·라틴·키릴은 다른 글꼴이 그리고, 쿠키 배너의 태국어·벵골어 문구는 블록 전체를 담은 각 언어 서브셋이 맡는다
-        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ") and not ("\u0964" <= c <= "\u09ff") and not ("\u0e00" <= c <= "\u0e7f"))
+        # 한글·라틴·키릴은 다른 글꼴이 그리고, 쿠키 배너의 태국어·벵골어·힌디어 문구는 블록 전체를 담은 각 언어 서브셋이 맡는다
+        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ") and not ("\u0900" <= c <= "\u09ff") and not ("\u0e00" <= c <= "\u0e7f"))
     if only:
         chars = {chr(i) for i in range(ord(only[0]), ord(only[1]) + 1) if unicodedata.category(chr(i)) != "Cn"}
         chars.update(extra)
@@ -139,7 +150,7 @@ def subset_variable(font: str, weight: int, chars: str, out: Path) -> None:
     from fontTools.varLib import instancer
 
     if "url" in FONTS[font]:
-        # TrueType 가변 글꼴은 굵기를 먼저 고정하고 자른다. 벵골 문자의 모음 부호 위치가 GPOS 에 있어 남긴다
+        # TrueType 가변 글꼴은 굵기를 먼저 고정하고 자른다. 벵골·데바나가리 문자의 모음 부호 위치가 GPOS 에 있어 남긴다
         fixed = instancer.instantiateVariableFont(subset.load_font(str(variable_source(font)), subset.Options()), {"wght": FONTS[font]["weights"][weight]})
         opts = subset.Options()
         opts.flavor = "woff2"

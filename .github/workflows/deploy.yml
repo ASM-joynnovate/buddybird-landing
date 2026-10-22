@@ -62,6 +62,7 @@ jobs:
             --include "zh-cn/*" \
             --include "th/*" \
             --include "bn/*" \
+            --include "hi/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
