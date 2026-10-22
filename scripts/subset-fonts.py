@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""CJK·태국어 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
+"""CJK·태국어·벵골어 페이지에 쓰인 글자만 담은 글꼴 서브셋(woff2)을 만든다.
 
 - 일본어: M PLUS Rounded 1c (google/fonts)
 - 번체 중국어: 源泉圓體 TW (GenSen Rounded 2 TW, ButTaiwan/gensen-font). 대만 교육부 표준 자형이라
   일본 자형인 M PLUS 를 쓰지 않는다
 - 간체 중국어: 自由圆体 CN (Resource Han Rounded CN, CyanoHao/Resource-Han-Rounded). 본토 표준 자형이고
   번체의 GenSen 처럼 Source Han Sans 를 둥글린 글꼴이다. 가변 글꼴만 배포돼서 700·900 으로 고정해 쓴다
+- 벵골어: Baloo Da 2 (google/fonts). Nunito 처럼 획 끝이 둥근 Baloo 계열의 벵골 문자판이다.
+  가변 글꼴(wght 400~800)이라 페이지 굵기 700·800·900 을 600·700·800 으로 고정해 쓴다
 - 태국어: Mitr (google/fonts). 획 끝이 둥근 고리 없는 태국 문자 글꼴이라 Nunito 와 어울린다.
   Mitr 는 700 까지라 페이지 굵기 700·800·900 을 Mitr 500·600·700 으로 그린다
 
@@ -52,6 +54,16 @@ FONTS = {
         # 나눠 그리므로 페이지에 없는 글자도 필요하다. 쿠키 배너의 일본어·중국어 문구는 이 글꼴과 상관없다
         "only": ("\u0e00", "\u0e7f"),
     },
+    "baloo-da-2": {
+        "source": MPLUS_COMMIT,
+        "url": f"https://raw.githubusercontent.com/google/fonts/{MPLUS_COMMIT}/ofl/balooda2/BalooDa2%5Bwght%5D.ttf",
+        "variable": "BalooDa2[wght].ttf",
+        "weights": {600: 600, 700: 700, 800: 800},
+        # 벵골 문자는 자음이 겹쳐 합자(যুক্তাক্ষর)가 되므로 페이지 글자가 아니라 블록 전체를 담는다.
+        # 단다(। ॥)는 데바나가리 블록에 있고, ZWNJ·ZWJ 는 합자를 끊거나 잇는 데 쓴다
+        "only": ("\u0980", "\u09ff"),
+        "extra": "\u0964\u0965\u200c\u200d\u25cc",
+    },
     # 굵기가 B(700)·H(900)로 벌어져 있어 페이지의 700·800 은 B 한 벌로 그린다(@font-face 의 font-weight:700 800)
     "gensen-rounded-tw": {
         "source": GENSEN_RELEASE,
@@ -78,19 +90,22 @@ GROUPS = {
     "zh-tw-docs": ("gensen-rounded-tw", ["zh-tw/support/index.html", "zh-tw/privacy/index.html", "zh-tw/terms/index.html", "assets/js/consent.js"]),
     "zh-cn-landing": ("resource-han-rounded-cn", ["zh-cn/index.html", "assets/js/consent.js"]),
     "zh-cn-docs": ("resource-han-rounded-cn", ["zh-cn/support/index.html", "zh-cn/privacy/index.html", "zh-cn/terms/index.html", "assets/js/consent.js"]),
+    "bn": ("baloo-da-2", ["bn/index.html", "bn/support/index.html", "bn/privacy/index.html", "bn/terms/index.html"]),
     # 태국어는 블록 전체를 담아 랜딩·문서 서브셋이 같아지므로 한 벌만 만든다
     "th": ("mitr", ["th/index.html", "th/support/index.html", "th/privacy/index.html", "th/terms/index.html"]),
 }
 
 
-def needed_chars(pages: list[str], only: tuple[str, str] | None = None) -> str:
+def needed_chars(pages: list[str], only: tuple[str, str] | None = None, extra: str = "") -> str:
     chars: set[str] = set()
     for page in pages:
         text = (ROOT / page).read_text(encoding="utf-8")
         text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
-        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ"))
+        # 한글·라틴·키릴은 다른 글꼴이 그리고, 쿠키 배너의 태국어·벵골어 문구는 블록 전체를 담은 각 언어 서브셋이 맡는다
+        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ") and not ("\u0964" <= c <= "\u09ff") and not ("\u0e00" <= c <= "\u0e7f"))
     if only:
         chars = {chr(i) for i in range(ord(only[0]), ord(only[1]) + 1) if unicodedata.category(chr(i)) != "Cn"}
+        chars.update(extra)
     return "".join(sorted(chars))
 
 
@@ -103,6 +118,10 @@ def variable_source(font: str) -> Path:
 
     spec = FONTS[font]
     path = CACHE / spec["variable"]
+    if not path.is_file() and "url" in spec:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        print(f"원본 받는 중: {path.name}")
+        urllib.request.urlretrieve(spec["url"], path)
     if not path.is_file():
         CACHE.mkdir(parents=True, exist_ok=True)
         print(f"원본 받는 중: {spec['archive'].rsplit('/', 1)[1]}")
@@ -119,6 +138,18 @@ def subset_variable(font: str, weight: int, chars: str, out: Path) -> None:
     from fontTools.cffLib.CFF2ToCFF import convertCFF2ToCFF
     from fontTools.varLib import instancer
 
+    if "url" in FONTS[font]:
+        # TrueType 가변 글꼴은 굵기를 먼저 고정하고 자른다. 벵골 문자의 모음 부호 위치가 GPOS 에 있어 남긴다
+        fixed = instancer.instantiateVariableFont(subset.load_font(str(variable_source(font)), subset.Options()), {"wght": FONTS[font]["weights"][weight]})
+        opts = subset.Options()
+        opts.flavor = "woff2"
+        opts.layout_features = ["*"]
+        opts.name_IDs = ["*"]
+        sub = subset.Subsetter(opts)
+        sub.populate(text=chars)
+        sub.subset(fixed)
+        subset.save_font(fixed, str(out), opts)
+        return
     opts = subset.Options()
     opts.layout_features = ["*"]
     opts.name_IDs = ["*"]
@@ -165,7 +196,7 @@ def build() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     lock = {"sources": {font: spec["source"] for font, spec in FONTS.items()}, "groups": {}}
     for group, (font, pages) in GROUPS.items():
-        chars = needed_chars(pages, FONTS[font].get("only"))
+        chars = needed_chars(pages, FONTS[font].get("only"), FONTS[font].get("extra", ""))
         entry = {"font": font, "pages": pages, "chars": chars, "files": {}}
         missing: set[str] = set()
         for weight in FONTS[font]["weights"]:
@@ -208,7 +239,7 @@ def check() -> int:
             errors.append(f"{group}: 서브셋이 없다")
             continue
         covered = set(entry["chars"])
-        new = [c for c in needed_chars(pages, FONTS[font].get("only")) if c not in covered]
+        new = [c for c in needed_chars(pages, FONTS[font].get("only"), FONTS[font].get("extra", "")) if c not in covered]
         if new:
             errors.append(f"{group}: 서브셋에 없는 새 글자 {''.join(new)!r}")
         for name, digest in entry["files"].items():
