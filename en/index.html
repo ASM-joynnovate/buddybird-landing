@@ -16,6 +16,7 @@
 <link rel="alternate" hreflang="th" href="https://buddybird.xyz/th/">
 <link rel="alternate" hreflang="bn" href="https://buddybird.xyz/bn/">
 <link rel="alternate" hreflang="hi" href="https://buddybird.xyz/hi/">
+<link rel="alternate" hreflang="vi" href="https://buddybird.xyz/vi/">
 <link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#FF9600">
@@ -34,6 +35,7 @@
 <meta property="og:locale:alternate" content="th_TH">
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="vi_VN">
 <meta property="og:url" content="https://buddybird.xyz/en/">
 <meta property="og:title" content="BuddyBird: While you’re out all day, your parrot learns to talk">
 <meta property="og:description" content="BuddyBird plays words in your own voice and lets you replay the sounds your parrot copied in the report. Free on the App Store and Google Play.">
@@ -210,11 +212,11 @@ img{display:block;max-width:100%}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:20px}
 .brand img{width:36px;height:36px;border-radius:10px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
 .nav-links{display:flex;gap:6px;align-items:center}
-.nav-links a{text-decoration:none;font-weight:800;font-size:14px;padding:8px 12px;border-radius:12px}
+.nav-links a{text-decoration:none;font-weight:800;font-size:14px;padding:11px 16px;border-radius:12px}
 .nav-links a:not(.btn):hover{background:#FFE9CC;color:#7A4300}
 /* language menu: a native <details> dropdown, so it scales to many languages and works without JS */
 .lang{position:relative;margin:0 4px}
-.lang summary{list-style:none;display:flex;align-items:center;gap:6px;min-height:42px;padding:0 10px;border:2px solid var(--border-dark);border-radius:12px;background:#fff;box-shadow:0 4px 0 var(--border-dark);font-weight:800;font-size:13px;white-space:nowrap;cursor:pointer;user-select:none;-webkit-user-select:none}
+.lang summary{list-style:none;display:flex;align-items:center;gap:6px;min-height:42px;padding:0 10px;border:2px solid #fff;border-radius:12px;background:#fff;box-shadow:0 4px 0 var(--border-dark);font-weight:800;font-size:13px;white-space:nowrap;cursor:pointer;user-select:none;-webkit-user-select:none}
 .lang summary:active{transform:translateY(3px);box-shadow:0 1px 0 var(--border-dark)} /* pressed like the CTA beside it */
 .lang summary::-webkit-details-marker{display:none}
 .lang summary svg{width:16px;height:16px;flex:none}
@@ -233,7 +235,7 @@ img{display:block;max-width:100%}
 .btn svg{width:22px;height:22px;flex:none}
 .btn small{display:block;font-size:11px;font-weight:800;opacity:.85;letter-spacing:.04em}
 .btn .two{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1.05}
-.btn.white{--c:#fff;--sh:var(--border-dark);--fg:var(--ink);border:2px solid var(--border-dark)}
+.btn.white{--c:#fff;--sh:var(--border-dark);--fg:var(--ink);border:2px solid #fff}
 .btn.ink{--c:#3C3C3C;--sh:#1E1E1E}
 .btn.blue{--c:var(--blue);--sh:var(--blue-shadow)}
 .stores{display:flex;flex-wrap:wrap;gap:12px}
@@ -449,7 +451,6 @@ html.up::view-transition-old(bb-screen){animation-name:vt-old-up}
 .close p{margin:0 auto 32px;max-width:32em;line-height:1.6;font-size:18px;color:var(--on-color)}
 .close .stores{justify-content:center}
 .close .buddy{margin:0 auto 18px;width:92px}
-.close .btn.white{border-color:#fff}
 
 footer{background:#fff;border-top:2px solid var(--border);padding:32px clamp(16px,4vw,40px);font-size:14px;color:var(--muted)}
 footer .in{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
@@ -636,7 +637,7 @@ footer .social svg{width:22px;height:22px}
     <a class="hide-m" href="#faq">FAQ</a>
     <details class="lang">
       <summary><svg aria-hidden="true"><use href="#i-globe"/></svg><span class="sr-only">Language: </span>English<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-      <ul aria-label="Language"><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="/en/" aria-current="page" lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant-TW">繁體中文</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">简体中文</a></li><li><a href="/th/" hreflang="th" lang="th">ไทย</a></li><li><a href="/bn/" hreflang="bn" lang="bn">বাংলা</a></li><li><a href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li></ul>
+      <ul aria-label="Language"><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="/en/" aria-current="page" lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant-TW">繁體中文</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">简体中文</a></li><li><a href="/th/" hreflang="th" lang="th">ไทย</a></li><li><a href="/bn/" hreflang="bn" lang="bn">বাংলা</a></li><li><a href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="/vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li></ul>
     </details>
     <script>
     // the visitor's own language (first supported one in the browser's list) goes to the top of the menu
