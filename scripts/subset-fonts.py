@@ -21,7 +21,7 @@ CJK 글꼴은 한 굵기가 3~16MB 이고, Google Fonts 로 받으면 조각 수
   CJK 문구에 새 글자가 생겼는데 서브셋을 다시 만들지 않았으면 실패한다.
   다시 만들지 않으면 그 글자만 다음 글꼴(Pretendard)로 보인다.
 
-영문·숫자·라틴 확장(언어 메뉴의 «Español»)·키릴 문자(«Русский»)는 앞선 Nunito 가 맡으므로 담지 않는다. 한글은 Pretendard 가 맡는다.
+영문·숫자·라틴 확장(언어 메뉴의 «Español»·«Tiếng Việt»)·키릴 문자(«Русский»)는 앞선 Nunito 가 맡으므로 담지 않는다. 한글은 Pretendard 가 맡는다.
 """
 import hashlib
 import io
@@ -112,8 +112,8 @@ def needed_chars(pages: list[str], only: tuple[str, str] | None = None, extra: s
     for page in pages:
         text = (ROOT / page).read_text(encoding="utf-8")
         text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
-        # 한글·라틴·키릴은 다른 글꼴이 그리고, 쿠키 배너의 태국어·벵골어·힌디어 문구는 블록 전체를 담은 각 언어 서브셋이 맡는다
-        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ") and not ("\u0900" <= c <= "\u09ff") and not ("\u0e00" <= c <= "\u0e7f"))
+        # 한글·라틴(베트남어 성조 부호가 있는 라틴 확장 추가 블록 포함)·키릴은 다른 글꼴이 그리고, 쿠키 배너의 태국어·벵골어·힌디어 문구는 블록 전체를 담은 각 언어 서브셋이 맡는다
+        chars.update(c for c in text if ord(c) > 0x7F and not ("가" <= c <= "힣") and not (" " <= c <= "ɏ") and not ("Ѐ" <= c <= "ӿ") and not ("\u1e00" <= c <= "\u1eff") and not ("\u0900" <= c <= "\u09ff") and not ("\u0e00" <= c <= "\u0e7f"))
     if only:
         chars = {chr(i) for i in range(ord(only[0]), ord(only[1]) + 1) if unicodedata.category(chr(i)) != "Cn"}
         chars.update(extra)
