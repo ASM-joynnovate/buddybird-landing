@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ASM-joynnovate/buddybird-landing/compare/v1.1.0...v1.2.0) (2026-10-23)
+
+
+### Features
+
+* **landing:** 베트남어 랜딩과 문서 페이지 추가 [BB-745] ([#60](https://github.com/ASM-joynnovate/buddybird-landing/issues/60)) ([06d8d1d](https://github.com/ASM-joynnovate/buddybird-landing/commit/06d8d1d38ea34a308d9c201862b5d06cbe449ed1))
+
 ## [1.1.0](https://github.com/ASM-joynnovate/buddybird-landing/compare/v1.0.0...v1.1.0) (2026-10-22)
 
 

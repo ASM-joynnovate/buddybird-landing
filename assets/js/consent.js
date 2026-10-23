@@ -59,7 +59,9 @@
     bn: { text: 'দর্শনার্থীরা সাইটটি কীভাবে ব্যবহার করেন তা বুঝতে আমরা কি Google Analytics ও Microsoft Clarity-র কুকি ব্যবহার করতে পারি? প্রত্যাখ্যান করলেও সাইটটি একইভাবে ব্যবহার করতে পারবেন।',
           accept: 'গ্রহণ করুন', reject: 'প্রত্যাখ্যান করুন', settings: 'কুকি সেটিংস', policy: 'গোপনীয়তা নীতি', label: 'কুকি ব্যবহারে সম্মতি' },
     hi: { text: 'क्या हम यह समझने के लिए Google Analytics और Microsoft Clarity की कुकीज़ इस्तेमाल कर सकते हैं कि लोग साइट कैसे इस्तेमाल करते हैं? मना करने पर भी साइट पहले की तरह चलेगी।',
-          accept: 'अनुमति दें', reject: 'मना करें', settings: 'कुकी सेटिंग', policy: 'गोपनीयता नीति', label: 'कुकी के लिए सहमति' }
+          accept: 'अनुमति दें', reject: 'मना करें', settings: 'कुकी सेटिंग', policy: 'गोपनीयता नीति', label: 'कुकी के लिए सहमति' },
+    vi: { text: 'Chúng tôi có thể dùng cookie của Google Analytics và Microsoft Clarity để biết khách truy cập dùng trang web như thế nào không? Nếu bạn từ chối, trang web vẫn hoạt động như bình thường.',
+          accept: 'Đồng ý', reject: 'Từ chối', settings: 'Cài đặt cookie', policy: 'Chính sách quyền riêng tư', label: 'Đồng ý dùng cookie' }
   };
   // 키는 언어 경로와 같다. 중국어 페이지(lang="zh-Hant-TW"·"zh-Hans-CN")는 앞 두 글자가 아니라 경로 zh-tw·zh-cn 으로 찾는다
   var htmlLang = (document.documentElement.lang || 'en').toLowerCase();

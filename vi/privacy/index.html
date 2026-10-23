@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chính sách quyền riêng tư · BuddyBird</title>
+<meta name="description" content="Chính sách quyền riêng tư của BuddyBird. Một số thông tin được thu thập qua công cụ phân tích để cải thiện chất lượng ứng dụng; trang này giải thích các loại thông tin được thu thập, mục đích, việc ủy thác xử lý cho bên thứ ba và việc chuyển thông tin ra nước ngoài.">
+<link rel="canonical" href="https://buddybird.xyz/vi/privacy/">
+<link rel="alternate" hreflang="ko" href="https://buddybird.xyz/ko/privacy/">
+<link rel="alternate" hreflang="en" href="https://buddybird.xyz/en/privacy/">
+<link rel="alternate" hreflang="ja" href="https://buddybird.xyz/ja/privacy/">
+<link rel="alternate" hreflang="ru" href="https://buddybird.xyz/ru/privacy/">
+<link rel="alternate" hreflang="es" href="https://buddybird.xyz/es/privacy/">
+<link rel="alternate" hreflang="zh-Hant" href="https://buddybird.xyz/zh-tw/privacy/">
+<link rel="alternate" hreflang="zh-Hans" href="https://buddybird.xyz/zh-cn/privacy/">
+<link rel="alternate" hreflang="th" href="https://buddybird.xyz/th/privacy/">
+<link rel="alternate" hreflang="bn" href="https://buddybird.xyz/bn/privacy/">
+<link rel="alternate" hreflang="hi" href="https://buddybird.xyz/hi/privacy/">
+<link rel="alternate" hreflang="vi" href="https://buddybird.xyz/vi/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://buddybird.xyz/en/privacy/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FF9600">
+
+<link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #ffffff;
+    font-family: 'Nunito','Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
+    color: #3C3C3C;
+    line-height: 1.5;
+    font-weight: 700;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+
+  .doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .doc h1 { margin: 0 0 10px; font-weight: 900; font-size: clamp(30px,4.5vw,42px); letter-spacing: -0.02em; }
+  .doc .dates { margin: 0 0 14px; font-weight: 800; font-size: 14px; color: #777777; }
+  .doc .dates span { color: #FF9600; }
+  .doc .lead { margin: 18px 0 0; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc h2 {
+    margin: 0 0 16px; padding-left: 14px;
+    font-weight: 900; font-size: clamp(19px,2.6vw,23px); letter-spacing: -0.01em; color: #3C3C3C;
+    border-left: 5px solid #FF9600; line-height: 1.3;
+  }
+  .doc h3 { margin: 22px 0 10px; font-weight: 800; font-size: 17px; color: #E88900; }
+  .doc article { margin-top: 44px; }
+  .doc p { margin: 0 0 12px; font-weight: 600; font-size: 16px; line-height: 1.75; color: #3C3C3C; }
+  .doc ul { margin: 0 0 12px; padding-left: 22px; }
+  .doc li { font-weight: 600; font-size: 16px; line-height: 1.7; color: #3C3C3C; margin-bottom: 6px; }
+  .doc hr { border: 0; border-top: 1px solid #EFEFEF; margin: 44px 0 0; }
+  .doc .pub { margin-top: 48px; padding-top: 22px; border-top: 1px solid #EFEFEF; font-weight: 700; font-size: 15px; color: #5A5A5A; }
+  .doc .pub p { font-weight: 700; color: #5A5A5A; margin: 0 0 6px; }
+  .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; text-decoration: none; font-weight: 800; font-size: 15px; color: #FF9600; }
+  .back:hover { color: #E88900; }
+
+  .nav-link { text-decoration: none; color: #777777; font-weight: 800; font-size: 15px; transition: color 80ms; }
+  .nav-link:hover { color: #FF9600; }
+  .footer-link { text-decoration: none; color: #D0D0D0; font-weight: 800; font-size: 14px; transition: color 80ms; }
+  .footer-link:hover { color: #FF9600; }
+  .social { display: inline-flex; color: #B0B0B0; transition: color 80ms; }
+  .social:hover { color: #FF9600; }
+  @media (max-width: 720px) { .f-brand { width: 100%; justify-content: space-between; } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+
+<script src="/assets/js/consent.js" data-analytics="/assets/js/analytics.js" defer></script>
+</head>
+<body>
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:2px solid #F0F0F0;">
+    <nav style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;">
+      <a href="/vi/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#3C3C3C;margin-right:auto;">
+        <img src="/assets/icons/apple-touch-icon.png" alt="BuddyBird" width="38" height="38" style="width:38px;height:38px;border-radius:11px;box-shadow:0 3px 0 rgba(0,0,0,0.12);display:block;" />
+        <span style="font-weight:900;font-size:21px;letter-spacing:-0.01em;">BuddyBird</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;">
+        <a href="/vi/#day" class="nav-link">Một ngày với BuddyBird</a>
+        <a href="/vi/#faq" class="nav-link">Câu hỏi</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="doc">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="dates">Công bố <span>ngày 20 tháng 10 năm 2026</span> · Có hiệu lực từ <span>ngày 20 tháng 10 năm 2026</span></p>
+
+    <p class="lead">BuddyBird (sau đây gọi là “Dịch vụ”) do joynnovate (sau đây gọi là “Đơn vị vận hành”) vận hành. Đơn vị vận hành coi trọng thông tin cá nhân của người dùng và tuân thủ Luật Bảo vệ thông tin cá nhân của Hàn Quốc (개인정보 보호법) cùng các quy định pháp luật liên quan.</p>
+    <p class="lead">Dịch vụ được sử dụng mà không cần đăng ký hay đăng nhập, và không thu thập thông tin nhận dạng trực tiếp bạn như họ tên thật, địa chỉ email hay số điện thoại. Tuy nhiên, để cung cấp các tính năng của ứng dụng và phân tích chất lượng, lỗi của ứng dụng, Dịch vụ thu thập và xử lý những thông tin dưới đây thông qua công cụ phân tích và công khai nội dung đó như sau.</p>
+
+    <article>
+      <h2>Điều 1. Mục đích xử lý thông tin cá nhân</h2>
+      <p>Dịch vụ không cung cấp các tính năng đăng ký, đăng nhập, thanh toán, tư vấn, quảng cáo hay tiếp thị. Tuy nhiên, Dịch vụ thu thập và sử dụng thông tin cá nhân cho các mục đích sau:</p>
+      <ul>
+        <li>Thống kê việc sử dụng ứng dụng và phân tích tính dễ sử dụng</li>
+        <li>Chẩn đoán và khắc phục sự cố ứng dụng bị dừng đột ngột (crash) và lỗi</li>
+        <li>Cung cấp các tính năng của ứng dụng như thông báo đẩy</li>
+        <li>Cải thiện khả năng tương thích và hiệu năng của ứng dụng</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 2. Các loại thông tin cá nhân được xử lý</h2>
+
+      <h3>1. Thông tin được thu thập tự động qua công cụ phân tích</h3>
+      <ul>
+        <li>Thiết bị và mã định danh: ID quảng cáo Android (AAID), mã định danh phiên bản cài đặt ứng dụng (app instance ID), ID cài đặt ẩn danh (UUID), token thông báo đẩy (FCM), mã định danh cài đặt dùng cho phân tích sự cố (trên iOS, bao gồm cả mã định danh quảng cáo (IDFA) nếu bạn cho phép theo dõi)</li>
+        <li>Vị trí gần đúng: vị trí ở cấp thành phố/khu vực được ước tính từ địa chỉ IP (không phải vị trí chính xác)</li>
+        <li>Lịch sử sử dụng ứng dụng: các sự kiện trong ứng dụng như chuyển màn hình, buổi học, ghi âm và phát lại từ; phát lại phiên sử dụng (session replay – đường đi của các thao tác trên màn hình như chạm, vuốt)</li>
+        <li>Thông tin thiết bị và môi trường: phiên bản ứng dụng, phiên bản hệ điều hành, mẫu thiết bị, ngôn ngữ cài đặt</li>
+        <li>Thông tin về sự cố dừng đột ngột (crash) và thông tin chẩn đoán: stack trace, trạng thái thiết bị tại thời điểm xảy ra sự cố, v.v.</li>
+      </ul>
+
+      <h3>2. Thông tin do bạn tự nhập</h3>
+      <ul>
+        <li>Tên, loài (species), tuổi và mục tiêu học của vẹt (thú cưng)</li>
+        <li>Tên các từ cần học mà bạn đã thêm hoặc chỉnh sửa</li>
+      </ul>
+
+      <h3>3. Thông tin chỉ được thu thập khi bạn đồng ý</h3>
+      <ul>
+        <li>Âm thanh được ghi âm trong buổi học và tệp ghi âm giọng nói các từ do bạn ghi âm, thông tin ghi âm như thời điểm và độ dài, mã định danh ẩn danh (uid ẩn danh của Firebase), phiên bản ứng dụng và thông tin thiết bị</li>
+      </ul>
+      <p>Các thông tin trên chỉ được gửi lên máy chủ khi bạn đồng ý tại màn hình đồng ý thu thập âm thanh trong ứng dụng, nhằm xây dựng và cải thiện tính năng dạy vẹt phát âm. Nếu bạn không đồng ý, tệp ghi âm chỉ được lưu trên thiết bị, và việc từ chối không ảnh hưởng gì đến việc sử dụng Dịch vụ.</p>
+      <p>Trong số các thông tin bạn nhập ở trên, một phần văn bản như tên vẹt và tên các từ cần học được gửi đến công cụ phân tích (Google Firebase, Microsoft Clarity) để phân tích tính dễ sử dụng. Đây là thông tin về thú cưng và nội dung học, không phải thông tin của chính bạn với tư cách người nuôi.</p>
+
+      <h3>4. Thông tin không thu thập</h3>
+      <ul>
+        <li>Thông tin nhận dạng trực tiếp bạn như họ tên thật, địa chỉ email, số điện thoại</li>
+        <li>Thông tin vị trí chính xác (GPS)</li>
+        <li>Ảnh và video (ảnh đại diện hồ sơ chỉ được dùng trên thiết bị và không được gửi ra ngoài)</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 3. Phương thức thu thập thông tin cá nhân</h2>
+      <p>Dịch vụ thu thập thông tin cá nhân theo các phương thức sau:</p>
+      <ul>
+        <li>Thu thập tự động thông qua công cụ phân tích (Google Firebase Analytics, Crashlytics, Cloud Messaging và Microsoft Clarity) trong quá trình bạn sử dụng ứng dụng</li>
+        <li>Thông tin bạn tự nhập trong ứng dụng</li>
+        <li>Gửi tệp ghi âm của người dùng đã đồng ý thu thập âm thanh lên máy chủ của Đơn vị vận hành</li>
+      </ul>
+      <p>Mọi thông tin được thu thập đều được mã hóa (HTTPS/TLS) khi truyền qua mạng viễn thông.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 4. Thời hạn xử lý và lưu giữ thông tin cá nhân</h2>
+      <p>Thông tin phân tích và chẩn đoán được thu thập tự động sẽ được lưu giữ theo chính sách lưu giữ dữ liệu của từng nhà cung cấp dịch vụ phân tích (ví dụ: Firebase Analytics mặc định tối đa 14 tháng, Firebase Crashlytics khoảng 90 ngày).</p>
+      <p>Thông tin bạn nhập (thông tin về vẹt, các từ cần học, v.v.) về cơ bản được lưu trên thiết bị; khi bạn xóa ứng dụng, thông tin lưu trên thiết bị và mã định danh ẩn danh cũng bị xóa theo.</p>
+      <p>Tệp ghi âm và thông tin ghi âm được gửi lên máy chủ khi bạn đồng ý thu thập âm thanh sẽ tự động bị xóa sau 180 ngày kể từ ngày thu thập.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 5. Cung cấp thông tin cá nhân cho bên thứ ba</h2>
+      <p>Dịch vụ không bán thông tin cá nhân của bạn ra bên ngoài và không cung cấp cho bên thứ ba, trừ trường hợp pháp luật có quy định riêng.</p>
+      <p>Tuy nhiên, Dịch vụ ủy thác các công việc phân tích và chẩn đoán lỗi cần thiết cho việc vận hành cho các dịch vụ chuyên môn bên ngoài như nêu tại Điều 6 dưới đây.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 6. Ủy thác xử lý và chuyển thông tin cá nhân ra nước ngoài</h2>
+      <p>Để nâng cao chất lượng ứng dụng và phân tích thống kê sử dụng, lỗi, Dịch vụ ủy thác công việc xử lý thông tin cá nhân cho các dịch vụ ở nước ngoài như dưới đây. Ngoài ra, để vận hành máy chủ, Dịch vụ sử dụng dịch vụ đám mây đặt tại khu vực (region) trong Hàn Quốc.</p>
+
+      <h3>1. Google LLC (Firebase)</h3>
+      <ul>
+        <li>Bên nhận: Google LLC</li>
+        <li>Quốc gia nhận / nơi lưu trữ: Hoa Kỳ</li>
+        <li>Thông tin được chuyển: mã định danh thiết bị và quảng cáo, vị trí gần đúng, lịch sử sử dụng ứng dụng, thông tin sự cố và chẩn đoán, v.v.</li>
+        <li>Công việc được ủy thác: phân tích thống kê sử dụng (Analytics), chẩn đoán sự cố dừng đột ngột (Crashlytics), thông báo đẩy (Cloud Messaging)</li>
+        <li>Thời điểm và phương thức chuyển: tại thời điểm sử dụng ứng dụng, được mã hóa (HTTPS/TLS) và truyền qua mạng viễn thông</li>
+      </ul>
+
+      <h3>2. Microsoft Corporation (Clarity)</h3>
+      <ul>
+        <li>Bên nhận: Microsoft Corporation</li>
+        <li>Quốc gia nhận / nơi lưu trữ: Hoa Kỳ</li>
+        <li>Thông tin được chuyển: lịch sử sử dụng ứng dụng, phát lại phiên sử dụng, thông tin thiết bị, dữ liệu hành vi người dùng, v.v.</li>
+        <li>Công việc được ủy thác: cải thiện tính dễ sử dụng và phân tích trải nghiệm người dùng</li>
+        <li>Thời điểm và phương thức chuyển: tại thời điểm sử dụng ứng dụng, được mã hóa (HTTPS/TLS) và truyền qua mạng viễn thông</li>
+      </ul>
+
+      <h3>3. Amazon Web Services, Inc. (AWS)</h3>
+      <ul>
+        <li>Bên nhận ủy thác: Amazon Web Services, Inc.</li>
+        <li>Nơi lưu trữ: Hàn Quốc (khu vực Seoul)</li>
+        <li>Thông tin được xử lý: tệp ghi âm của người dùng đã đồng ý thu thập âm thanh, thông tin ghi âm, mã định danh ẩn danh, phiên bản ứng dụng và thông tin thiết bị</li>
+        <li>Công việc được ủy thác: vận hành máy chủ và lưu trữ tệp ghi âm</li>
+        <li>Thời hạn lưu giữ: tự động xóa sau 180 ngày kể từ ngày thu thập</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 7. Đồng ý thu thập, sử dụng thông tin cá nhân và cách từ chối</h2>
+      <p>Bạn có thể lựa chọn như sau đối với việc thu thập thông tin cá nhân cho mục đích phân tích và theo dõi:</p>
+      <ul>
+        <li>iOS: khi mở ứng dụng lần đầu, ứng dụng sẽ hỏi bạn có cho phép theo dõi hay không (App Tracking Transparency). Nếu bạn từ chối, việc thu thập dữ liệu phân tích và theo dõi, bao gồm mã định danh quảng cáo (IDFA), sẽ bị tắt (trừ chẩn đoán sự cố). Bạn có thể thay đổi lựa chọn này tại [Cài đặt] → [Quyền riêng tư &amp; Bảo mật] → [Theo dõi].</li>
+        <li>Android: thông tin phân tích và chẩn đoán được thu thập tự động để cung cấp các tính năng của ứng dụng và không thể tắt riêng trong ứng dụng. Nếu muốn ngừng việc thu thập, bạn chỉ cần xóa ứng dụng.</li>
+      </ul>
+      <p>Kể cả khi bạn từ chối đồng ý, bạn vẫn có thể sử dụng bình thường các tính năng học chính của ứng dụng.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 8. Xử lý thông tin cá nhân của trẻ em dưới 14 tuổi</h2>
+      <p>Dịch vụ là ứng dụng dành cho mọi lứa tuổi (xếp hạng độ tuổi trên kho ứng dụng: từ 3 tuổi trở lên), không nhắm đến nhóm tuổi cụ thể nào, và được thiết kế với giả định người sử dụng là người nuôi chăm sóc chim cảnh.</p>
+      <p>Dịch vụ không thu thập thông tin cá nhân của trẻ em dưới 14 tuổi khi chưa có sự đồng ý của người đại diện theo pháp luật. Nếu trẻ em dưới 14 tuổi sử dụng Dịch vụ, chúng tôi khuyến nghị trẻ sử dụng dưới sự hướng dẫn và giám sát của người đại diện theo pháp luật (cha mẹ hoặc người giám hộ).</p>
+      <p>Nếu Đơn vị vận hành biết được rằng thông tin cá nhân của trẻ em dưới 14 tuổi đã bị thu thập khi chưa có sự đồng ý của người đại diện theo pháp luật, Đơn vị vận hành sẽ tiêu hủy thông tin đó không chậm trễ. Các yêu cầu như xem hoặc xóa thông tin cá nhân của trẻ em và các câu hỏi liên quan có thể được gửi đến địa chỉ liên hệ tại Điều 15.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 9. Cookie và thông tin hành vi</h2>
+      <p>Dịch vụ không triển khai quảng cáo cá nhân hóa. Tuy nhiên, các công cụ phân tích nêu trên có thể sử dụng mã định danh quảng cáo, mã định danh thiết bị và các thông tin tương tự để thống kê việc sử dụng và phân tích tính dễ sử dụng.</p>
+      <p>Bạn có thể hạn chế một phần việc thu thập này bằng cách đặt lại hoặc xóa mã định danh quảng cáo, hoặc giới hạn cá nhân hóa quảng cáo trong phần cài đặt của thiết bị.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 10. Quy trình và phương thức tiêu hủy thông tin cá nhân</h2>
+      <p>Khi bạn xóa ứng dụng, thông tin lưu trên thiết bị và mã định danh ẩn danh sẽ bị xóa. Thông tin đã gửi đến các dịch vụ phân tích sẽ được tiêu hủy sau khi hết thời hạn lưu giữ theo chính sách lưu giữ của từng nhà cung cấp. Tệp ghi âm và thông tin ghi âm đã gửi lên máy chủ sẽ tự động bị tiêu hủy sau 180 ngày kể từ ngày thu thập.</p>
+      <p>Thông tin ở dạng tệp điện tử được xóa một cách an toàn để không thể khôi phục hoặc tái tạo.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 11. Biện pháp bảo đảm an toàn thông tin cá nhân</h2>
+      <p>Đơn vị vận hành áp dụng các biện pháp sau để bảo đảm an toàn thông tin cá nhân:</p>
+      <ul>
+        <li>Mã hóa khi truyền: mọi thông tin được thu thập đều được mã hóa (HTTPS/TLS) khi truyền qua mạng viễn thông.</li>
+        <li>Biện pháp bảo vệ về quản lý và kỹ thuật: duy trì các biện pháp bảo vệ hợp lý về quản lý và kỹ thuật, như quản lý quyền truy cập vào thông tin cá nhân.</li>
+      </ul>
+      <p>Tuy nhiên, không có phương thức truyền qua mạng viễn thông hay lưu trữ điện tử nào an toàn tuyệt đối, vì vậy Đơn vị vận hành không bảo đảm an ninh tuyệt đối.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 12. Quyền, nghĩa vụ của bạn đối với thông tin cá nhân và cách thực hiện</h2>
+      <p>Bạn có thể thực hiện các quyền sau liên quan đến việc bảo vệ thông tin cá nhân:</p>
+      <ul>
+        <li>Yêu cầu xem thông tin cá nhân</li>
+        <li>Yêu cầu chỉnh sửa hoặc xóa thông tin cá nhân</li>
+        <li>Yêu cầu tạm ngừng xử lý thông tin cá nhân</li>
+        <li>Yêu cầu rút lại sự đồng ý</li>
+      </ul>
+      <p>Bạn có thể gửi các yêu cầu này qua địa chỉ liên hệ tại Điều 15 dưới đây.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 13. Quyền bổ sung của người dùng cư trú tại Hoa Kỳ</h2>
+      <p>Nếu bạn cư trú tại một số tiểu bang của Hoa Kỳ (ví dụ: California, Virginia, Colorado, Connecticut, Utah, Texas), theo luật của tiểu bang nơi bạn cư trú, bạn có thể có toàn bộ hoặc một phần các quyền sau:</p>
+      <ul>
+        <li>Quyền được biết và truy cập thông tin cá nhân mà Đơn vị vận hành đã thu thập</li>
+        <li>Quyền yêu cầu xóa thông tin cá nhân</li>
+        <li>Quyền yêu cầu chỉnh sửa thông tin cá nhân không chính xác</li>
+        <li>Quyền từ chối (opt-out) việc “bán” hoặc “chia sẻ” thông tin cá nhân và quảng cáo nhắm mục tiêu</li>
+        <li>Quyền yêu cầu hạn chế sử dụng thông tin cá nhân nhạy cảm</li>
+        <li>Quyền không bị phân biệt đối xử vì đã thực hiện các quyền của mình</li>
+      </ul>
+
+      <h3>1. Các nhóm thông tin cá nhân được thu thập</h3>
+      <p>Xét theo các nhóm thông tin của Đạo luật Quyền riêng tư của Người tiêu dùng California (CCPA/CPRA), Đơn vị vận hành thu thập mã định danh (mã định danh thiết bị và quảng cáo), thông tin về hoạt động trên internet hoặc mạng điện tử khác (lịch sử sử dụng ứng dụng và phát lại phiên sử dụng), thông tin vị trí gần đúng (ở cấp thành phố/khu vực, không phải vị trí chính xác) và thông tin âm thanh (tệp ghi âm, nếu bạn đã đồng ý thu thập âm thanh). Đơn vị vận hành không thu thập số định danh do chính phủ cấp như số An sinh xã hội, thông tin tài khoản tài chính, thông tin vị trí chính xác hay thông tin sinh trắc học.</p>
+
+      <h3>2. Bán và chia sẻ</h3>
+      <p>Đơn vị vận hành không bán thông tin cá nhân để nhận tiền và không sử dụng thông tin cá nhân để hiển thị quảng cáo nhắm mục tiêu cho bạn. Tuy nhiên, các nhà cung cấp công cụ phân tích có thu thập mã định danh quảng cáo và mã định danh thiết bị. Trong phạm vi việc này được coi là “chia sẻ” cho mục đích quảng cáo hành vi liên ngữ cảnh (cross-context behavioral advertising) theo luật của tiểu bang liên quan, bạn có thể từ chối bất cứ lúc nào thông qua cài đặt quảng cáo của thiết bị và tùy chọn từ chối theo dõi trên iOS (xem Điều 7). Đơn vị vận hành không bán hoặc chia sẻ thông tin cá nhân của người tiêu dùng khi biết người đó chưa đủ 16 tuổi.</p>
+
+      <h3>3. Thông tin cá nhân nhạy cảm</h3>
+      <p>Đơn vị vận hành không thu thập thông tin cá nhân nhạy cảm như thông tin vị trí chính xác nhằm suy đoán đặc điểm của bạn, và không sử dụng hay tiết lộ thông tin cá nhân nhạy cảm vượt quá các mục đích mà pháp luật cho phép.</p>
+
+      <h3>4. Cách thực hiện quyền</h3>
+      <p>Bạn có thể gửi yêu cầu thực hiện quyền qua email (joynnovate@gmail.com). Vì Dịch vụ hoạt động mà không cần đăng ký hay đăng nhập, Đơn vị vận hành thường không thể liên kết thông tin phân tích đã thu thập với danh tính của bạn, do đó việc tìm thông tin của một người dùng cụ thể có thể bị hạn chế. Cách hiệu quả nhất để kiểm soát thông tin của bạn là xóa ứng dụng (xóa thông tin trên thiết bị và mã định danh ẩn danh) và sử dụng các lựa chọn nêu tại Điều 7. Đơn vị vận hành không phân biệt đối xử với bạn vì bạn đã thực hiện quyền của mình; nếu luật của tiểu bang nơi bạn cư trú có quy định thủ tục khiếu nại lại, bạn có thể khiếu nại bằng cách phản hồi câu trả lời của Đơn vị vận hành.</p>
+
+      <h3>5. Luật “Shine the Light” của California</h3>
+      <p>Đơn vị vận hành không cung cấp thông tin cá nhân cho bên thứ ba vì mục đích tiếp thị trực tiếp của bên thứ ba đó.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 14. Nội dung bổ sung dành cho người dùng cư trú tại Khu vực Kinh tế Châu Âu, Vương quốc Anh và Thụy Sĩ</h2>
+      <p>Nếu bạn cư trú tại Khu vực Kinh tế Châu Âu (EEA), Vương quốc Anh hoặc Thụy Sĩ, điều này được áp dụng bổ sung cho bạn theo Quy định chung về bảo vệ dữ liệu của Liên minh Châu Âu (GDPR) và các luật tương đương. Những nội dung không được quy định tại điều này sẽ tuân theo Điều 1 đến Điều 13.</p>
+
+      <h3>1. Cơ sở pháp lý của việc xử lý</h3>
+      <ul>
+        <li>Cung cấp các tính năng của ứng dụng như thông báo đẩy: việc xử lý cần thiết để cung cấp dịch vụ mà bạn yêu cầu (điểm b khoản 1 Điều 6 GDPR)</li>
+        <li>Chẩn đoán sự cố dừng đột ngột (crash) và lỗi, cải thiện khả năng tương thích và hiệu năng của ứng dụng: lợi ích hợp pháp của Đơn vị vận hành trong việc cung cấp dịch vụ ổn định (điểm f cùng khoản)</li>
+        <li>Thống kê việc sử dụng ứng dụng và phân tích tính dễ sử dụng: sự đồng ý của bạn nếu bạn đã cho phép theo dõi trên iOS (điểm a cùng khoản); trong các trường hợp khác, lợi ích hợp pháp của Đơn vị vận hành trong việc cải thiện Dịch vụ (điểm f cùng khoản)</li>
+        <li>Thu thập tệp ghi âm và thông tin ghi âm: sự đồng ý của bạn (điểm a cùng khoản)</li>
+      </ul>
+      <p>Khi xử lý dựa trên lợi ích hợp pháp, Đơn vị vận hành giới hạn các loại thông tin được xử lý trong phạm vi không xâm phạm quyền và lợi ích của bạn. Đơn vị vận hành không đưa ra quyết định tự động, kể cả lập hồ sơ (profiling), gây ra hệ quả pháp lý hoặc ảnh hưởng đáng kể tương tự đối với bạn.</p>
+
+      <h3>2. Quyền của bạn đối với thông tin cá nhân</h3>
+      <p>Ngoài các quyền tại Điều 12, bạn còn có các quyền sau:</p>
+      <ul>
+        <li>Quyền hạn chế xử lý: quyền yêu cầu hạn chế việc xử lý trong các trường hợp pháp luật quy định, chẳng hạn trong thời gian bạn phản đối tính chính xác của thông tin</li>
+        <li>Quyền di chuyển dữ liệu: quyền nhận ở định dạng có cấu trúc, hoặc yêu cầu chuyển cho một doanh nghiệp khác, những thông tin được xử lý tự động dựa trên sự đồng ý hoặc trên việc xử lý cần thiết để cung cấp dịch vụ</li>
+        <li>Quyền phản đối: quyền phản đối bất cứ lúc nào đối với việc xử lý dựa trên lợi ích hợp pháp</li>
+        <li>Quyền rút lại sự đồng ý: bạn có thể rút lại sự đồng ý bất cứ lúc nào, và việc này không ảnh hưởng đến tính hợp pháp của việc xử lý đã thực hiện trước khi rút lại</li>
+      </ul>
+      <p>Bạn có thể gửi yêu cầu thực hiện quyền đến địa chỉ liên hệ tại Điều 15, và Đơn vị vận hành sẽ trả lời trong vòng 1 tháng kể từ ngày nhận được yêu cầu. Vì Dịch vụ hoạt động mà không cần đăng ký hay đăng nhập, đối với những thông tin mà Đơn vị vận hành không thể dùng để nhận dạng bạn, việc thực hiện quyền có thể bị hạn chế, trừ khi bạn cung cấp thêm thông tin cần thiết cho việc nhận dạng (Điều 11 GDPR).</p>
+
+      <h3>3. Quyền khiếu nại đến cơ quan giám sát</h3>
+      <p>Bạn có thể khiếu nại đến cơ quan giám sát bảo vệ dữ liệu tại nơi bạn cư trú, nơi bạn làm việc hoặc nơi xảy ra hành vi vi phạm. Ví dụ, tại Tây Ban Nha, bạn có thể khiếu nại đến Cơ quan Bảo vệ Dữ liệu Tây Ban Nha (AEPD, www.aepd.es).</p>
+
+      <h3>4. Chuyển thông tin ra ngoài Khu vực Kinh tế Châu Âu</h3>
+      <p>Khi chuyển thông tin ra ngoài Khu vực Kinh tế Châu Âu, các biện pháp bảo vệ sau được áp dụng:</p>
+      <ul>
+        <li>Đơn vị vận hành đặt tại Hàn Quốc và máy chủ tại khu vực Seoul: quyết định công nhận mức độ bảo vệ dữ liệu thỏa đáng (adequacy decision) của Ủy ban Châu Âu đối với Hàn Quốc (tháng 12 năm 2021)</li>
+        <li>Các bên nhận ủy thác tại Hoa Kỳ nêu tại Điều 6 (Google LLC, Microsoft Corporation, Amazon Web Services, Inc.): chứng nhận Khung bảo mật dữ liệu EU–Hoa Kỳ (EU-U.S. Data Privacy Framework) của từng bên nhận ủy thác và Điều khoản hợp đồng tiêu chuẩn (SCC) của Ủy ban Châu Âu</li>
+      </ul>
+
+      <h3>5. Trẻ em</h3>
+      <p>Độ tuổi 14 tại Điều 8 là tiêu chuẩn của Hàn Quốc và Tây Ban Nha. Nếu độ tuổi do pháp luật của quốc gia nơi bạn cư trú quy định (từ 13 đến 16 tuổi) khác với độ tuổi này, việc xử lý dựa trên sự đồng ý của trẻ em chưa đến độ tuổi đó cần có sự đồng ý của người đại diện theo pháp luật.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 15. Người phụ trách bảo vệ thông tin cá nhân</h2>
+      <p>Để xử lý các câu hỏi liên quan đến bảo vệ thông tin cá nhân, Đơn vị vận hành chỉ định người phụ trách bảo vệ thông tin cá nhân như sau:</p>
+      <ul>
+        <li>Người phụ trách: Heejin Jung (정희진)</li>
+        <li>Email: joynnovate@gmail.com</li>
+      </ul>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 16. Biện pháp khắc phục khi quyền lợi bị xâm phạm</h2>
+      <p>Nếu bạn cần báo cáo hoặc được tư vấn về việc thông tin cá nhân bị xâm phạm, bạn có thể liên hệ với các cơ quan sau (đều là cơ quan của Hàn Quốc):</p>
+      <ul>
+        <li>Trung tâm tiếp nhận báo cáo xâm phạm thông tin cá nhân (개인정보침해신고센터): 118 (không cần mã vùng)</li>
+        <li>Ủy ban hòa giải tranh chấp thông tin cá nhân (개인정보분쟁조정위원회): 1833-6972</li>
+        <li>Viện Kiểm sát Tối cao (대검찰청): 1301</li>
+        <li>Cơ quan Cảnh sát Quốc gia (경찰청): 182</li>
+      </ul>
+      <p>Nếu bạn cư trú tại Khu vực Kinh tế Châu Âu, Vương quốc Anh hoặc Thụy Sĩ, bạn cũng có thể khiếu nại đến cơ quan giám sát nêu tại mục 3 Điều 14.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 17. Thay đổi Chính sách quyền riêng tư</h2>
+      <p>Chính sách quyền riêng tư này được áp dụng kể từ ngày có hiệu lực.</p>
+      <p>Chính sách quyền riêng tư có thể được sửa đổi để phản ánh những thay đổi của pháp luật liên quan hoặc của Dịch vụ; khi có thay đổi, chúng tôi sẽ thông báo trên trang này.</p>
+    </article>
+    <hr>
+
+    <article>
+      <h2>Điều 18. Ngôn ngữ</h2>
+      <p>Chính sách quyền riêng tư này được soạn thảo bằng tiếng Hàn. Các bản dịch sang ngôn ngữ khác như tiếng Anh, tiếng Nhật hay tiếng Việt được cung cấp để giúp bạn dễ hiểu hơn; nếu nội dung bản dịch khác với bản tiếng Hàn, bản tiếng Hàn sẽ được ưu tiên áp dụng.</p>
+    </article>
+
+    <div class="pub">
+      <p>Công bố ngày 20 tháng 10 năm 2026</p>
+      <p>Có hiệu lực từ ngày 20 tháng 10 năm 2026</p>
+    </div>
+
+    <a href="/vi/" class="back">← Về trang chủ</a>
+  </main>
+
+  <footer style="background:#3C3C3C;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+      <div class="f-brand" style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:900;font-size:18px;">BuddyBird</span>
+          <span style="font-weight:700;font-size:13px;color:#B0B0B0;">Dịch vụ AI giúp vẹt học từ</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+            <a href="https://www.instagram.com/buddybird.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@buddybird.xyz?hl=vi" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.291 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.762-.5-.588-1.27-.887-2.29-.895h-.027c-.819 0-1.929.225-2.637 1.284l-1.689-1.135c.952-1.418 2.5-2.2 4.368-2.2h.04c3.123.02 4.985 1.94 5.17 5.29.107.046.213.093.318.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.785-1.548 7.156-1.85 1.81-4.094 2.628-7.262 2.65zm1.376-11.79c-.318 0-.64.01-.968.027-1.844.104-2.99.95-2.918 2.153.075 1.262 1.466 1.85 2.804 1.776 1.23-.067 2.836-.543 3.106-3.7a10.54 10.54 0 00-2.024-.255z"/></svg>
+            </a>
+          </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:flex-end;">
+        <a href="/vi/privacy/" class="footer-link">Chính sách quyền riêng tư</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/vi/terms/" class="footer-link">Điều khoản sử dụng</a>
+        <span style="color:#555;font-weight:700;">·</span>
+        <a href="/vi/support/" class="footer-link">Hỗ trợ</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 40px;">
+      <div style="border-top:1px solid #555;padding-top:22px;">
+        <span style="font-weight:700;font-size:13px;color:#888;">© 2026 joynnovate. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
