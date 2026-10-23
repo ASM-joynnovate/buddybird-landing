@@ -63,6 +63,7 @@ jobs:
             --include "th/*" \
             --include "bn/*" \
             --include "hi/*" \
+            --include "vi/*" \
             --include "dl/*" \
             --include "privacy/*" \
             --include "terms/*" \
